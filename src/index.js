@@ -1,5 +1,5 @@
-import HelloWorld from './packages/HelloWorld'
-import DemoSwitcher from './packages/DemoSwitcher'
+import HelloWorld from './packages/Demo/HelloWorld'
+import DemoSwitcher from './packages/Demo/DemoSwitcher'
 
 // 存储组件列表
 const components = [HelloWorld, DemoSwitcher]

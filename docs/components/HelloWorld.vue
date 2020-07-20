@@ -2,7 +2,7 @@
   <div>
     <HelloWorld msg="A steel Vue UI library." />
 
-    <Switcher v-model="isSwitch">开关:</Switcher>
+    <DemoSwitcher v-model="isSwitch">开关:</DemoSwitcher>
 
     <p v-if="isSwitch">Now you see me, soon you won't.</p>
   </div>
@@ -10,13 +10,13 @@
 
 <script>
 
-  export default {
-    data() {
-      return {
-        isSwitch: false
-      };
+export default {
+  data () {
+    return {
+      isSwitch: false
     }
-  };
+  }
+}
 </script>
 
 <style>
