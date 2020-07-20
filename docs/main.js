@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import TankUI from '../src/index'
 
 Vue.config.productionTip = false
+
+Vue.use(TankUI)
 
 /* eslint-disable no-new */
 new Vue({
