@@ -3,11 +3,14 @@
 
     <img src="../../src/assets/images/logo.png">
 
-    <TkHelloWorld msg="A steel Vue UI library."/>
+    <TkHelloWorld msg="A Steel Vue UI Library."/>
+
+    <div style="height: 1000px"></div>
 
     <TkDemoSwitcher v-model="isSwitch">开关:</TkDemoSwitcher>
 
     <p v-if="isSwitch">Now you see me, soon you won't.</p>
+
   </div>
 </template>
 

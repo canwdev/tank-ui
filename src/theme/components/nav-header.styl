@@ -11,28 +11,30 @@ navOpenMenuTransition($t = 0.25s)
   position: relative
   z-index 999
 
-  .w-container {
+  .nav-header-container {
     width $container_width
     padding 0 $container_padding
     margin 0 auto
     box-sizing border-box
-    @media screen and (max-width: $mq_tablet) {
+    @media screen and (max-width: $container_width) {
       width 100%
     }
 
-    .logo-wrap, .header-right {
-      width 100px
+    .header-left, .header-right {
+      min-width 100px
     }
+
     .header-right {
       text-align: right;
     }
   }
 
+
   .nav-height-placeholder {
     height $nav_height
   }
 
-  .global-nav
+  &-inner
     position: absolute
     top: 0
     left: 0
@@ -45,19 +47,12 @@ navOpenMenuTransition($t = 0.25s)
     &.fixed {
       position: fixed
 
-      & > .w-container {
+      .nav-header-container {
         height $nav_height
-
-        .logo-wrap {
-          & > img {
-            width ($nav_height - 12px)
-            height ($nav_height - 12px)
-          }
-        }
       }
     }
 
-    & > .w-container
+    .nav-header-container
       height $nav_height
       display flex
       align-items center
@@ -69,36 +64,6 @@ navOpenMenuTransition($t = 0.25s)
         position: relative
         &.open
           background #fff
-
-      .logo-wrap
-        display flex
-        align-items center
-        text-decoration: none !important;
-        color $color_black
-
-        &:hover
-          opacity 0.9
-
-        &:active
-          opacity: 1;
-
-        & > img
-          width $nav_height
-          height $nav_height
-          border-radius 50%
-          transition all .25s
-          transition-timing-function $transition_fx2
-          @media screen and (max-width $mq_mobile)
-            width ($nav_height - 12px)
-            height ($nav_height - 12px)
-
-        & > p
-          font-size 18px
-          font-weight: bold
-          margin-left: 10px
-          transition font-size .25s
-          @media screen and (max-width $mq_mobile)
-            font-size 18px
 
       .links-wrap
         height: 100%
@@ -119,6 +84,9 @@ navOpenMenuTransition($t = 0.25s)
             width: 100%
             display block
             overflow: auto
+            + .link-group {
+              border-top: 1px solid $color_border
+            }
           }
 
           &:hover {
@@ -131,6 +99,7 @@ navOpenMenuTransition($t = 0.25s)
         .link-item {
           display inline-flex
           padding 0 10px
+          box-sizing border-box
           height: 70%
           align-items center
           justify-content center
@@ -139,7 +108,6 @@ navOpenMenuTransition($t = 0.25s)
           border-radius $border_radius
 
           @media screen and (max-width: $mq_mobile) {
-            height 35px
             font-weight: bold;
             width: 100%
             justify-content flex-start
@@ -159,12 +127,16 @@ navOpenMenuTransition($t = 0.25s)
           left 0
           background #fff
           border 1px solid $color_border
+          border-radius $border_radius
 
           @media screen and (max-width: $mq_mobile) {
             border none
-            margin-left: 20px
+            margin-left: 10px
             display: block;
             position unset
+            .link-item {
+              padding 0 10px
+            }
           }
 
           .link-item {
@@ -195,18 +167,22 @@ navOpenMenuTransition($t = 0.25s)
           border-bottom: 1px solid rgba(255, 255, 255, 0)
           text-align: left
           display block
-          .link-item
+          .link-item {
             display block
-            padding 10px 0
+            padding 10px
+            box-sizing border-box
             margin-left: 0 !important
+          }
 
-          &.open
+          &.open {
+            border-top: 1px solid $color_border
             background #fff
             height auto
-            border-color rgba(255, 255, 255, 0.2)
 
-            .link-item
+            .link-item {
               opacity 1
+            }
+          }
 
       .mobile-menu
         display none
@@ -251,9 +227,9 @@ navOpenMenuTransition($t = 0.25s)
               &:after
                 transform: rotate(40deg) scaleY(1.5)
 
-      .mobile-menu-shade
+      .mobile-menu-shade {
         display none
-        @media screen and (max-width: $mq_mobile)
+        @media screen and (max-width: $mq_mobile) {
           display block
           position: absolute
           top 0
@@ -264,8 +240,11 @@ navOpenMenuTransition($t = 0.25s)
           background transparent
           navOpenMenuTransition(0.7s)
           visibility hidden
+        }
 
-        &.open
+        &.open {
           visibility visible
-          background rgba(0, 0, 0, 0.3)
+          background rgba(0, 0, 0, 0.1)
+        }
+      }
 

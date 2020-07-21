@@ -1,5 +1,5 @@
 # tank-ui
 
-A steel Vue UI library.
+A Steel Vue UI Library.
 
 ![HammerTank](src/assets/images/logo.png)

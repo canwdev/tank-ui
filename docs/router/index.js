@@ -10,6 +10,17 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/quickstart',
+      name: 'QuickStart',
+      component: () => import('@/pages/QuickStart')
+    },
+    {
+      path: '/docs',
+      name: 'Docs',
+      component: () => import('@/pages/Docs')
     }
+
   ]
 })

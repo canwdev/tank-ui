@@ -1,13 +1,17 @@
-import HelloWorld from './packages/Demo/HelloWorld'
-import DemoSwitcher from './packages/Demo/DemoSwitcher'
-import NavHeader from './packages/NavHeader'
+// 自动加载 packages 中的所有组件文件
+const context = require.context('./packages', true, /\.js$/)
+const componentObjects = {}
+context.keys().forEach((key) => {
+  const name = key.replace(/(.*\/)*([^.]+).*/ig, '$2')
+  if (name === 'index') {
+    const component = context(key).default
+    componentObjects[component.name] = component
+  }
+})
+// console.log(componentObjects)
 
 // 存储组件列表
-const components = [
-  HelloWorld,
-  DemoSwitcher,
-  NavHeader
-]
+const components = Object.values(componentObjects)
 
 // 定义 install 方法，接收 Vue 作为参数。如果使用 use 注册插件，则所有的组件都将被注册
 const install = function(Vue) {
@@ -22,13 +26,6 @@ const install = function(Vue) {
 // 判断是否是直接引入文件
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
-}
-
-export {
-  // 以下是具体的组件列表
-  HelloWorld,
-  DemoSwitcher,
-  NavHeader
 }
 
 export default {

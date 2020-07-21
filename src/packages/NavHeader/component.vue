@@ -1,12 +1,11 @@
 <!--TODO 需要重构-->
 <template>
   <div class="tk-nav-header">
-    <div class="global-nav" :class="{fixed: isFixed}">
-      <div class="w-container" :class="{open: openMenu}">
-        <a href="/" class="logo-wrap">
-          <img src="../../assets/images/logo.png">
-          <p>TankUI</p>
-        </a>
+    <div class="tk-nav-header-inner" :class="{fixed: isFixed}">
+      <div class="nav-header-container" :class="{open: openMenu}">
+        <div class="header-left">
+          <slot name="headerLeft"></slot>
+        </div>
 
         <div ref="linksWrap" class="links-wrap" :class="{open: openMenu}">
 
@@ -15,28 +14,30 @@
             :key="root.id"
             class="link-group"
           >
-            <a
+            <TkLink
               class="link-item"
               :href="root.url"
             >
               {{ root.title }}
-            </a>
+            </TkLink>
 
             <div v-if="root.children" class="link-submenu">
-              <a
+              <TkLink
                 v-for="item in root.children"
                 :key="item.id"
                 class="link-item"
                 :href="item.url"
               >
                 {{ item.title }}
-              </a>
+              </TkLink>
             </div>
           </div>
 
         </div>
 
-        <div class="header-right">搜索</div>
+        <div class="header-right">
+          <slot name="headerRight"></slot>
+        </div>
 
         <div class="mobile-menu-shade" :class="{open: openMenu}" @click="openMenu = false"></div>
 
@@ -68,13 +69,14 @@
       openMenu(nv, ov) { // 辅助CSS完整展开收缩动画
         if (nv) {
           // TODO: 当屏幕高度不够时处理
-          this.$refs.linksWrap.style.height = this.linksWrapHeight + 10 + 'px'
+          this.$refs.linksWrap.style.height = this.linksWrapHeight + 'px'
         } else {
           this.$refs.linksWrap.style.height = 0
         }
       }
     },
     mounted() {
+      // TODO: PC/手机切换问题，手机点击链接不关闭导航问题
       // 点击链接滚动到顶部
       let links = this.$refs.linksWrap.children
       links = Array.prototype.slice.call(links)
