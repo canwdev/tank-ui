@@ -1,14 +1,4 @@
-// 自动加载 packages 中的所有组件文件
-const context = require.context('./packages', true, /\.js$/)
-const componentObjects = {}
-context.keys().forEach((key) => {
-  const name = key.replace(/(.*\/)*([^.]+).*/ig, '$2')
-  if (name === 'index') {
-    const component = context(key).default
-    componentObjects[component.name] = component
-  }
-})
-// console.log(componentObjects)
+import componentObjects from './get-components'
 
 // 存储组件列表
 const components = Object.values(componentObjects)
@@ -27,6 +17,8 @@ const install = function(Vue) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
+
+export * from './get-components'
 
 export default {
   // 导出的对象必须具有 install，才能被 Vue.use() 方法安装
