@@ -1,6 +1,6 @@
 {
   "name": "tank-ui",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "A simple vue ui library",
   "main": "src/index.js",
   "author": "canwdev",
@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "lint": "eslint --ext .js,.vue src",
     "lint-fix": "eslint --ext .js,.vue --fix src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "pub": "npm publish --registry=https://registry.npmjs.org/"
   },
   "dependencies": {
     "vue": "^2.5.2",
