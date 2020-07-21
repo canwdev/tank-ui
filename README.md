@@ -2,4 +2,4 @@
 
 A steel Vue UI library.
 
-![HammerTank](./docs/assets/logo.png)
+![HammerTank](src/assets/images/logo.png)

@@ -2,25 +2,28 @@
   <div class="tk-demo-switch">
     <span><slot></slot></span>
 
-    <div :class="[{closed: !checked}, 'tk-demo-switch-box']"
-      @click="handleChange(value)">
+    <div
+      :class="[{closed: !checked}, 'tk-demo-switch-box']"
+      @click="handleChange(value)"
+    >
       <span :class="{closed: !checked}"></span>
     </div>
 
     <input
-    type="checkbox"
-    @change="handleChange"
-    :true-value="activeValue"
-    :false-value="inactiveValue"
-    :disabled="disabled"
-    :value="value">
+      type="checkbox"
+      :true-value="activeValue"
+      :false-value="inactiveValue"
+      :disabled="disabled"
+      :value="value"
+      @change="handleChange"
+    >
   </div>
 </template>
 
 <script>
 export default {
-  name: 'DemoSwitcher',
-  data () {
+  name: 'TkDemoSwitcher',
+  data() {
     return {}
   },
   props: {
@@ -42,12 +45,12 @@ export default {
     }
   },
   computed: {
-    checked () {
+    checked() {
       return this.value === this.activeValue
     }
   },
   methods: {
-    handleChange () {
+    handleChange() {
       this.$emit('input', !this.checked ? this.activeValue : this.inactiveValue)
     }
   }

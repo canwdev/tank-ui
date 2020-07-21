@@ -1,10 +1,10 @@
 <template>
-  <h1 class="tk-hello-world-h1">{{msg}}</h1>
+  <h1 class="tk-hello-world-h1">{{ msg }}</h1>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'TkHelloWorld',
   props: {
     msg: {
       type: [Boolean, String, Number],

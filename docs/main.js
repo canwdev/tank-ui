@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import '@/assets/style/normalize.css'
+import '@/assets/style/base.styl'
+
 import TankUI from '../src/index'
 import '../src/theme/index.styl'
 
