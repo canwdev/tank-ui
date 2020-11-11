@@ -1,10 +1,10 @@
 <template>
   <div class="tk-tree-item tree-bg-line" :class="{'is-last': isLast}">
     <div
-        class="tree-item-title tree-bg-line"
-        :class="{'is-last': isLast, 'is-selected': isSelected}"
-        @click="handleClick"
-        :title="item.name"
+      class="tree-item-title tree-bg-line"
+      :class="{'is-last': isLast, 'is-selected': isSelected}"
+      :title="item.name"
+      @click="handleClick"
     >
       <img v-if="isLoading" src="./images/loading.gif" class="loading-img">
       <template v-else-if="isFolder && !isFolderEmpty">
@@ -20,14 +20,14 @@
     </div>
     <div v-show="isOpen" v-if="isFolder">
       <TreeItem
-          v-for="(child, index) in item.children"
-          :key="index"
-          class="item"
-          :item="child"
-          :selected="selected"
-          :is-last="index === item.children.length - 1"
-          @onItemClick="$emit('onItemClick', $event)"
-          @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
+        v-for="(child, index) in item.children"
+        :key="index"
+        class="item"
+        :item="child"
+        :selected="selected"
+        :is-last="index === item.children.length - 1"
+        @onItemClick="$emit('onItemClick', $event)"
+        @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
       ></TreeItem>
     </div>
   </div>

@@ -1,11 +1,11 @@
 <template>
   <div class="tk-tree">
     <TreeItem
-        ref="treeFirstItem"
-        :item="nodes"
-        :selected="selected"
-        @onItemClick="$emit('onItemClick', $event)"
-        @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
+      ref="treeFirstItem"
+      :item="nodes"
+      :selected="selected"
+      @onItemClick="$emit('onItemClick', $event)"
+      @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
     ></TreeItem>
   </div>
 </template>
