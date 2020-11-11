@@ -3,7 +3,7 @@
 
     <img src="../../src/assets/images/logo.png">
 
-    <TkHelloWorld msg="A Steel Vue UI Library."/>
+    <TkHelloWorld msg="A Test Vue UI Library."/>
 
     <div style="height: 1000px"></div>
 

@@ -1,11 +1,18 @@
 <template>
-  <TkContainer>Docs</TkContainer>
+  <TkContainer>
+    <DemoTree></DemoTree>
+  </TkContainer>
 </template>
 
 <script>
-  export default {
-    name: 'Docs'
+import DemoTree from '../demos/Tree/DemoTree'
+
+export default {
+  name: 'Docs',
+  components: {
+    DemoTree
   }
+}
 </script>
 
 <style scoped>
