@@ -41,12 +41,12 @@ export default {
                 name: 'child folder',
                 children: [{id: 5, name: 'hello'}, {id: 6, name: 'wat'}]
               },
-              {id: 7, name: 'hello'},
-              {id: 8, name: 'wat'},
               {
                 id: 9, name: 'child folder',
                 children: [{id: 10, name: 'hello'}, {id: 11, name: 'wat'}]
-              }
+              },
+              {id: 7, name: 'hello'},
+              {id: 8, name: 'wat'}
             ]
           }
         ]

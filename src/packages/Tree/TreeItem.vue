@@ -1,7 +1,7 @@
 <template>
-  <div class="tk-tree-item">
+  <div class="tk-tree-item tree-bg-line" :class="{'is-last': isLast}">
     <div
-      class="tree-item-title"
+      class="tree-item-title tree-bg-line"
       :class="{'is-last': isLast, 'is-selected': isSelected}"
       @click="handleClick"
     >
@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       isOpen: false,
-      isLoading: false,
+      isLoading: false
     }
   },
   computed: {
@@ -90,27 +90,31 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.tree-bg-line {
+  background-repeat repeat-y
+  background-image url("./images/line.png")
+
+  &.is-last {
+    background none
+  }
+}
+
 .tk-tree-item {
   cursor pointer
   line-height: 1.5
   user-select none
 
   .tk-tree-item {
-    padding-left: 32px
+    margin-left: 32px
   }
 
   .tree-item-title {
     display flex
     align-items center
-    background url("./images/line.png") no-repeat
 
     &.is-selected {
       font-weight: bold;
       color #409EFF
-    }
-
-    &.is-last {
-      background none
     }
 
     .loading-img {
