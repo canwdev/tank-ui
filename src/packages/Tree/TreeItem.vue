@@ -8,15 +8,17 @@
     >
       <img v-if="isLoading" src="./images/loading.gif" class="loading-img">
       <template v-else-if="isFolder && !isFolderEmpty">
-        <img v-if="isOpen" src="./images/line-node-open.png">
-        <img v-else src="./images/line-node-close.png">
+        <img v-if="isOpen" class="node-open-close" src="./images/line-node-open.png">
+        <img v-else class="node-open-close" src="./images/line-node-close.png">
       </template>
       <img v-else src="./images/line-node.png">
 
-      <img v-if="isFolder" src="./images/folder.png">
-      <img v-else src="./images/file.png">
+      <div class="title-inner">
+        <img v-if="isFolder" src="./images/folder.png">
+        <img v-else src="./images/file.png">
 
-      {{ item.name }}
+        {{ item.name }}
+      </div>
     </div>
     <div v-show="isOpen" v-if="isFolder">
       <TreeItem
@@ -79,7 +81,8 @@ export default {
         node: this.item,
         key: this.item.id,
         done: (children) => {
-          this.item.children = children
+          // this.item.children = children
+          this.$set(this.item, 'children', children)
           this.isOpen = true
           this.isLoading = false
           this.item.lazy = false
@@ -118,15 +121,26 @@ export default {
     align-items center
     white-space: nowrap;
 
+    .title-inner {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      border-radius: 3px;
+      padding-right: 5px;
+      margin-right: 5px;
+    }
+
     &.is-selected {
-      font-weight: bold;
-      color #409EFF
+      .title-inner {
+        background-color: rgba(134, 134, 134, 0.36);
+      }
     }
 
     .loading-img {
       margin-left: 8px;
       margin-right: 8px
       background white
+      flex-shrink: 0;
     }
   }
 }
