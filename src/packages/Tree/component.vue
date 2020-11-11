@@ -1,9 +1,11 @@
 <template>
   <div class="tk-tree">
     <tree-item
-      :item="treeData"
-      @make-folder="makeFolder"
-      @add-item="addItem"
+      ref="treeFirstItem"
+      :item="nodes"
+      :selected="selected"
+      @onItemClick="$emit('onItemClick', $event)"
+      @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
     ></tree-item>
   </div>
 </template>
@@ -16,42 +18,27 @@ export default {
   components: {
     TreeItem
   },
-  data() {
-    return {
-      treeData: {
-        name: 'My Tree',
-        children: [
-          {name: 'hello'},
-          {name: 'wat'},
-          {
-            name: 'child folder',
-            children: [
-              {
-                name: 'child folder',
-                children: [{name: 'hello'}, {name: 'wat'}]
-              },
-              {name: 'hello'},
-              {name: 'wat'},
-              {
-                name: 'child folder',
-                children: [{name: 'hello'}, {name: 'wat'}]
-              }
-            ]
-          }
-        ]
+  props: {
+    nodes: {
+      type: Object,
+      default() {
+        return {}
       }
+    },
+    selected: {
+      type: [Number, String],
+      default: null
     }
   },
-  methods: {
-    makeFolder: function(item) {
-      this.$set(item, 'children', [])
-      this.addItem(item)
-    },
-    addItem: function(item) {
-      item.children.push({
-        name: 'new stuff'
-      })
+  data() {
+    return {
+
     }
+  },
+  mounted() {
+    this.$refs.treeFirstItem.isOpen = true
+  },
+  methods: {
   }
 }
 </script>

@@ -2,18 +2,17 @@
   <div class="tk-tree-item">
     <div
       class="tree-item-title"
-      :class="{'is-last': isLast}"
-      @click="toggle"
+      :class="{'is-last': isLast, 'is-selected': isSelected}"
+      @click="handleClick"
     >
-      <template v-if="isFolder">
+      <img v-if="isLoading" src="./images/loading.gif" class="loading-img">
+      <template v-else-if="isFolder">
         <img v-if="isOpen" src="./images/line-node-open.png">
         <img v-else src="./images/line-node-close.png">
       </template>
       <img v-else src="./images/line-node.png">
 
-      <template v-if="isFolder">
-        <img src="./images/folder.png">
-      </template>
+      <img v-if="isFolder" src="./images/folder.png">
       <img v-else src="./images/file.png">
 
       {{ item.name }}
@@ -24,9 +23,10 @@
         :key="index"
         class="item"
         :item="child"
+        :selected="selected"
         :is-last="index === item.children.length - 1"
-        @make-folder="$emit('make-folder', $event)"
-        @add-item="$emit('add-item', $event)"
+        @onItemClick="$emit('onItemClick', $event)"
+        @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
       ></tree-item>
     </div>
   </div>
@@ -40,22 +40,49 @@ export default {
     isLast: {
       type: Boolean,
       default: true
+    },
+    selected: {
+      type: [Number, String],
+      default: null
     }
   },
-  data: function() {
+  data() {
     return {
-      isOpen: false
+      isOpen: false,
+      isLoading: false,
     }
   },
   computed: {
     isFolder() {
-      return this.item.children && this.item.children.length
+      return this.item.lazy || (this.item.children && this.item.children.length)
+    },
+    isSelected() {
+      return this.item.id === this.selected
     }
   },
   methods: {
-    toggle: function() {
-      if (this.isFolder) {
+    handleClick() {
+      this.$emit('onItemClick', this.item)
+      if (this.item.children && this.item.children.length) {
         this.isOpen = !this.isOpen
+      } else if (this.item.lazy && !this.isLoading) {
+        this.isLoading = true
+        this.$emit('onItemLazyLoad', this.lazyLoad())
+      }
+    },
+    lazyLoad() {
+      return {
+        node: this.item,
+        key: this.item.id,
+        done: (children) => {
+          this.item.children = children
+          this.isOpen = true
+          this.isLoading = false
+        },
+        fail: () => {
+          console.error('lazyLoad fail')
+          this.isLoading = false
+        }
       }
     }
   }
@@ -77,12 +104,19 @@ export default {
     align-items center
     background url("./images/line.png") no-repeat
 
+    &.is-selected {
+      font-weight: bold;
+      color #409EFF
+    }
+
     &.is-last {
       background none
     }
 
-    .title-line {
-
+    .loading-img {
+      margin-left: 8px;
+      margin-right: 8px
+      background white
     }
   }
 }
