@@ -1,12 +1,13 @@
 <template>
   <div class="tk-tree-item tree-bg-line" :class="{'is-last': isLast}">
     <div
-      class="tree-item-title tree-bg-line"
-      :class="{'is-last': isLast, 'is-selected': isSelected}"
-      @click="handleClick"
+        class="tree-item-title tree-bg-line"
+        :class="{'is-last': isLast, 'is-selected': isSelected}"
+        @click="handleClick"
+        :title="item.name"
     >
       <img v-if="isLoading" src="./images/loading.gif" class="loading-img">
-      <template v-else-if="isFolder">
+      <template v-else-if="isFolder && !isFolderEmpty">
         <img v-if="isOpen" src="./images/line-node-open.png">
         <img v-else src="./images/line-node-close.png">
       </template>
@@ -18,16 +19,16 @@
       {{ item.name }}
     </div>
     <div v-show="isOpen" v-if="isFolder">
-      <tree-item
-        v-for="(child, index) in item.children"
-        :key="index"
-        class="item"
-        :item="child"
-        :selected="selected"
-        :is-last="index === item.children.length - 1"
-        @onItemClick="$emit('onItemClick', $event)"
-        @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
-      ></tree-item>
+      <TreeItem
+          v-for="(child, index) in item.children"
+          :key="index"
+          class="item"
+          :item="child"
+          :selected="selected"
+          :is-last="index === item.children.length - 1"
+          @onItemClick="$emit('onItemClick', $event)"
+          @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
+      ></TreeItem>
     </div>
   </div>
 </template>
@@ -54,7 +55,10 @@ export default {
   },
   computed: {
     isFolder() {
-      return this.item.lazy || (this.item.children && this.item.children.length)
+      return this.item.lazy || this.item.children
+    },
+    isFolderEmpty() {
+      return this.isFolder && this.item.children && this.item.children.length === 0
     },
     isSelected() {
       return this.item.id === this.selected
@@ -63,11 +67,11 @@ export default {
   methods: {
     handleClick() {
       this.$emit('onItemClick', this.item)
-      if (this.item.children && this.item.children.length) {
-        this.isOpen = !this.isOpen
-      } else if (this.item.lazy && !this.isLoading) {
+      if (this.item.lazy && !this.isLoading) {
         this.isLoading = true
         this.$emit('onItemLazyLoad', this.lazyLoad())
+      } else if (this.item.children) {
+        this.isOpen = !this.isOpen
       }
     },
     lazyLoad() {
@@ -78,6 +82,7 @@ export default {
           this.item.children = children
           this.isOpen = true
           this.isLoading = false
+          this.item.lazy = false
         },
         fail: () => {
           console.error('lazyLoad fail')
@@ -111,6 +116,7 @@ export default {
   .tree-item-title {
     display flex
     align-items center
+    white-space: nowrap;
 
     &.is-selected {
       font-weight: bold;

@@ -1,12 +1,12 @@
 <template>
   <div class="tk-tree">
-    <tree-item
-      ref="treeFirstItem"
-      :item="nodes"
-      :selected="selected"
-      @onItemClick="$emit('onItemClick', $event)"
-      @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
-    ></tree-item>
+    <TreeItem
+        ref="treeFirstItem"
+        :item="nodes"
+        :selected="selected"
+        @onItemClick="$emit('onItemClick', $event)"
+        @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
+    ></TreeItem>
   </div>
 </template>
 
@@ -36,7 +36,7 @@ export default {
     }
   },
   mounted() {
-    this.$refs.treeFirstItem.isOpen = true
+    this.$refs.treeFirstItem.handleClick()
   },
   methods: {
   }

@@ -1,10 +1,12 @@
 <template>
-  <TkTree
-    :nodes="treeData"
-    :selected="selected"
-    @onItemClick="handleClick"
-    @onItemLazyLoad="handleLazyLoad"
-  />
+  <div class="limit-width">
+    <TkTree
+        :nodes="treeData"
+        :selected="selected"
+        @onItemClick="handleClick"
+        @onItemLazyLoad="handleLazyLoad"
+    />
+  </div>
 </template>
 
 <script>
@@ -29,7 +31,7 @@ export default {
           },
           {
             id: getRandomId(),
-            name: 'Lazy',
+            name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
             lazy: true
           },
           {
@@ -65,7 +67,15 @@ export default {
         // fail()
         done([
           {id: getRandomId(), name: 'hello'},
+          {
+            id: getRandomId(), name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
+            lazy: true
+          },
           {id: getRandomId(), name: 'wat'},
+          {
+            id: getRandomId(), name: 'Empty Folder',
+            children: []
+          },
           {
             id: getRandomId(), name: 'Lazy',
             lazy: true
@@ -78,5 +88,11 @@ export default {
 </script>
 
 <style scoped>
-
+.limit-width {
+  margin-top: 100px;
+  border: 1px solid crimson;
+  width: 800px;
+  height: 600px;
+  overflow: auto;
+}
 </style>
