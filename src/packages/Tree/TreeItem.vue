@@ -39,11 +39,14 @@
 export default {
   name: 'TreeItem',
   props: {
+    // 当前节点对象
     item: Object,
+    // 是否为最后一个节点（自动判断）
     isLast: {
       type: Boolean,
       default: true
     },
+    // 当前选中节点 id
     selected: {
       type: [Number, String],
       default: null
@@ -51,22 +54,28 @@ export default {
   },
   data() {
     return {
+      // 节点是否展开
       isOpen: false,
+      // 节点是否加载中
       isLoading: false
     }
   },
   computed: {
+    // 是否为文件夹（或懒加载项）
     isFolder() {
       return this.item.lazy || this.item.children
     },
+    // 是否为空文件夹
     isFolderEmpty() {
       return this.isFolder && this.item.children && this.item.children.length === 0
     },
+    // 当前节点是否选中
     isSelected() {
       return this.item.id === this.selected
     }
   },
   methods: {
+    // 处理节点点击事件（展开或异步加载）
     handleClick() {
       this.$emit('onItemClick', this.item)
       if (this.item.lazy && !this.isLoading) {
@@ -76,6 +85,14 @@ export default {
         this.isOpen = !this.isOpen
       }
     },
+    /**
+     * 处理异步加载的数据
+     * node 节点
+     * key 节点 id
+     * done 异步加载成功后回调，传入 children 数组
+     * fail 异步加载失败后回调
+     * @returns {{node: Object, fail: fail, done: done, key: *}}
+     */
     lazyLoad() {
       return {
         node: this.item,
