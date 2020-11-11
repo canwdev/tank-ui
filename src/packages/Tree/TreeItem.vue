@@ -1,32 +1,46 @@
 <template>
-  <li>
+  <div class="tk-tree-item">
     <div
-      :class="{bold: isFolder}"
+      class="tree-item-title"
+      :class="{'is-last': isLast}"
       @click="toggle"
-      @dblclick="makeFolder"
     >
-      <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+      <template v-if="isFolder">
+        <img v-if="isOpen" src="./images/line-node-open.png">
+        <img v-else src="./images/line-node-close.png">
+      </template>
+      <img v-else src="./images/line-node.png">
+
+      <template v-if="isFolder">
+        <img src="./images/folder.png">
+      </template>
+      <img v-else src="./images/file.png">
+
       {{ item.name }}
     </div>
-    <ul v-show="isOpen" v-if="isFolder">
+    <div v-show="isOpen" v-if="isFolder">
       <tree-item
         v-for="(child, index) in item.children"
         :key="index"
         class="item"
         :item="child"
+        :is-last="index === item.children.length - 1"
         @make-folder="$emit('make-folder', $event)"
         @add-item="$emit('add-item', $event)"
       ></tree-item>
-      <li class="add" @click="$emit('add-item', item)">+</li>
-    </ul>
-  </li>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'TreeItem',
   props: {
-    item: Object
+    item: Object,
+    isLast: {
+      type: Boolean,
+      default: true
+    }
   },
   data: function() {
     return {
@@ -34,7 +48,7 @@ export default {
     }
   },
   computed: {
-    isFolder: function() {
+    isFolder() {
       return this.item.children && this.item.children.length
     }
   },
@@ -43,17 +57,33 @@ export default {
       if (this.isFolder) {
         this.isOpen = !this.isOpen
       }
-    },
-    makeFolder: function() {
-      if (!this.isFolder) {
-        this.$emit('make-folder', this.item)
-        this.isOpen = true
-      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
+.tk-tree-item {
+  cursor pointer
+  line-height: 1.5
+  user-select none
 
+  .tk-tree-item {
+    padding-left: 32px
+  }
+
+  .tree-item-title {
+    display flex
+    align-items center
+    background url("./images/line.png") no-repeat
+
+    &.is-last {
+      background none
+    }
+
+    .title-line {
+
+    }
+  }
+}
 </style>

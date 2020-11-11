@@ -1,13 +1,10 @@
 <template>
   <div class="tk-tree">
-    <ul id="demo">
-      <tree-item
-        class="item"
-        :item="treeData"
-        @make-folder="makeFolder"
-        @add-item="addItem"
-      ></tree-item>
-    </ul>
+    <tree-item
+      :item="treeData"
+      @make-folder="makeFolder"
+      @add-item="addItem"
+    ></tree-item>
   </div>
 </template>
 
