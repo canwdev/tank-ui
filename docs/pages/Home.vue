@@ -5,23 +5,12 @@
 
     <TkHelloWorld msg="A Test Vue UI Library."/>
 
-    <div style="height: 1000px"></div>
-
-    <TkDemoSwitcher v-model="isSwitch">开关:</TkDemoSwitcher>
-
-    <p v-if="isSwitch">Now you see me, soon you won't.</p>
-
   </div>
 </template>
 
 <script>
 
   export default {
-    data() {
-      return {
-        isSwitch: false
-      }
-    }
   }
 </script>
 

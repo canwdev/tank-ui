@@ -15,7 +15,6 @@
         <p>selected: {{ selected }}</p>
       </div>
     </div>
-
   </div>
 </template>
 

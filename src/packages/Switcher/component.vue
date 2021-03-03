@@ -1,9 +1,9 @@
 <template>
-  <div class="tk-demo-switch">
+  <div class="tk-switch">
     <span><slot></slot></span>
 
     <div
-      :class="[{closed: !checked}, 'tk-demo-switch-box']"
+      :class="[{closed: !checked}, 'tk-switch-box']"
       @click="handleChange(value)"
     >
       <span :class="{closed: !checked}"></span>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'TkDemoSwitcher',
+  name: 'TkSwitcher',
   data() {
     return {}
   },
