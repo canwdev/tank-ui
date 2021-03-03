@@ -1,21 +1,18 @@
 <template>
-  <div class="demo-tree-wrap">
-
-    <h1>TkTree</h1>
-
+  <div class="tree-demo">
     <div class="panel">
       <div class="panel-left">
         <TkTree
-            :nodes="treeData"
-            :selected="selected"
-            @onItemClick="handleClick"
-            @onItemLazyLoad="handleLazyLoad"
+          :nodes="treeData"
+          :selected="selected"
+          @onItemClick="handleClick"
+          @onItemLazyLoad="handleLazyLoad"
         />
       </div>
 
       <div class="panel-right">
         <p>path: {{ breadcrumbList.join(' > ') }}</p>
-        <p>selected: {{selected}}</p>
+        <p>selected: {{ selected }}</p>
       </div>
     </div>
 
@@ -23,45 +20,46 @@
 </template>
 
 <script>
-function getRandomId() {
-  return Number(Math.random().toString().split('.')[1])
-}
+import {getIncrementalIdFn} from '../utils'
+
+const getId = getIncrementalIdFn()
 
 export default {
+  name: 'TreeDemo',
   data() {
     return {
       treeData: {
-        id: 0,
+        id: getId(),
         name: 'My Tree',
         children: [
           {
-            id: 1,
+            id: getId(),
             name: 'hello'
           },
           {
-            id: 2,
+            id: getId(),
             name: 'wat'
           },
           {
-            id: getRandomId(),
+            id: getId(),
             name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
             lazy: true
           },
           {
-            id: 3,
+            id: getId(),
             name: 'child folder',
             children: [
               {
-                id: 4,
+                id: getId(),
                 name: 'child folder',
-                children: [{id: 5, name: 'hello'}, {id: 6, name: 'wat'}]
+                children: [{id: getId(), name: 'hello'}, {id: 6, name: 'wat'}]
               },
               {
                 id: 9, name: 'child folder',
-                children: [{id: 10, name: 'hello'}, {id: 11, name: 'wat'}]
+                children: [{id: getId(), name: 'hello'}, {id: 11, name: 'wat'}]
               },
-              {id: 7, name: 'hello'},
-              {id: 8, name: 'wat'}
+              {id: getId(), name: 'hello'},
+              {id: getId(), name: 'wat'}
             ]
           }
         ]
@@ -122,18 +120,18 @@ export default {
       setTimeout(() => {
         // fail()
         done([
-          {id: getRandomId(), name: 'hello'},
+          {id: getId(), name: 'hello'},
           {
-            id: getRandomId(), name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
+            id: getId(), name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
             lazy: true
           },
-          {id: getRandomId(), name: 'wat'},
+          {id: getId(), name: 'wat'},
           {
-            id: getRandomId(), name: 'Empty Folder',
+            id: getId(), name: 'Empty Folder',
             children: []
           },
           {
-            id: getRandomId(), name: 'Lazy',
+            id: getId(), name: 'Lazy',
             lazy: true
           }
         ])
@@ -144,7 +142,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.demo-tree-wrap {
+.tree-demo {
 
   .panel {
     display: flex;
@@ -162,7 +160,6 @@ export default {
       flex 1
     }
   }
-
 
 }
 

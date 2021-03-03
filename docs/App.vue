@@ -2,11 +2,11 @@
   <div id="app">
     <TkNavHeader
       :menu-list="[
-        {title: '入门', url: '/quickstart'},
-        {title: '文档', url: '/docs'},
-        {title: '资源', url: '', children: [
-          {title: 'Github', url: 'https://github.com/fe-player/tank-ui'},
-          {title: 'Gitee', url: 'https://gitee.com/fe-player/tank-ui'}
+        {title: 'Start', url: '/quickstart'},
+        {title: 'Documents', url: '/docs'},
+        {title: 'Code', url: '', children: [
+          {title: 'Github', url: 'https://github.com/canwdev/tank-ui'},
+          {title: 'Gitee', url: 'https://gitee.com/canwdev/tank-ui'}
         ]}
       ]"
     >
@@ -14,7 +14,7 @@
         <NavLogo></NavLogo>
       </template>
       <template slot="headerRight">
-        <TkLink>搜索</TkLink>
+        <TkLink>Search</TkLink>
       </template>
     </TkNavHeader>
 
@@ -33,5 +33,10 @@
   }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+#app {
+  height: 100%
+  display flex
+  flex-direction column
+}
 </style>
