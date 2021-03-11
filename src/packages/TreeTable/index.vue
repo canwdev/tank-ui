@@ -20,7 +20,6 @@
         v-for="(item, index) in treeFlatList"
         :key="item.id"
         :item="item"
-        :is-last="index === treeFlatList.length - 1"
         @toggleExpand="toggleTreeItemExpand(item, index)"
       />
     </div>
@@ -39,17 +38,19 @@ const getId = () => {
 // 生成树叶item
 const getItemTemplate = (config = {}) => {
   const {
-    isLazyLoad = false // 是否开启懒加载子叶
+    isLazyLoad = false, // 是否开启懒加载子叶
+    isLast = false
   } = config
 
   return {
     id: getId(),
     isChecked: false,
-    name: 'File',
-    desc: '这是备注',
+    name: 'Example',
+    desc: 'Description',
     uploadTime: new Date(),
     isLazyLoad,
-    isLoading: false
+    isLoading: false,
+    isLast
   }
 }
 
@@ -60,7 +61,8 @@ const getItemTemplateFlatted = (item, config = {}) => {
     pids = [], // 上层id列表
     hasChild = true, // 是否有子叶
     isOpen = false, // 是否已展开
-    isVisible = false // 当前叶子是否可见
+    isVisible = false, // 当前叶子是否可见
+    isLast = false,
   } = config
   return {
     ...item,
@@ -68,7 +70,8 @@ const getItemTemplateFlatted = (item, config = {}) => {
     depth,
     hasChild,
     isOpen,
-    isVisible
+    isVisible,
+    isLast
   }
 }
 
@@ -112,23 +115,20 @@ export default {
     RowItem
   },
   data() {
-    const tableData = []
-    for (let i = 0; i < 10; i++) {
-      // 生成demo数据
-      tableData.push(getItemTemplateFlatted(getItemTemplate(), {
-        depth: i * 10,
-        hasChild: i % 2 === 0,
-        isOpen: i % 2 === 0
-      }))
-    }
-
     return {
-      tableData,
       treeData: [
         getItemTemplate(),
         {
           ...getItemTemplate(),
           children: [
+            {
+              ...getItemTemplate(),
+              children: [
+                getItemTemplate(),
+                getItemTemplate(),
+                getItemTemplate(),
+              ]
+            },
             getItemTemplate(),
             getItemTemplate(),
             {
@@ -137,6 +137,14 @@ export default {
                 getItemTemplate(),
                 getItemTemplate(),
                 getItemTemplate(),
+                {
+                  ...getItemTemplate(),
+                  children: [
+                    getItemTemplate(),
+                    getItemTemplate(),
+                    getItemTemplate(),
+                  ]
+                }
               ]
             }
           ]
@@ -158,16 +166,24 @@ export default {
     }
   },
   methods: {
-    // 树状图转换为扁平列表
+    /**
+     * 树状图转换为扁平列表
+     * @param node 节点
+     * @param depth 深度
+     * @param pids 父级ids
+     */
     flattenTree(node, depth = 0, pids = []) {
       // console.log('flattenTree', node, depth)
       if (!node || node.length === 0) return
 
-      node.forEach((item) => {
+      node.forEach((item, index) => {
+        const isLast = index === node.length - 1
         this.treeFlatList.push(getItemTemplateFlatted(item, {
           depth: depth,
           pids,
-          isVisible: pids.length === 0,
+          isOpen: true, // false
+          isVisible: true, //pids.length === 0,
+          isLast,
           hasChild: Boolean(item.children)
         }))
 
@@ -217,6 +233,7 @@ export default {
           inheritItemDepth(item),
           inheritItemDepth(item)
         ]
+        childArr[childArr.length - 1].isLast = true
         this.treeFlatList.splice(index + 1, 0, ...childArr)
         item.isLazyLoad = false
         item.hasChild = true

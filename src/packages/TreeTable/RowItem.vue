@@ -8,11 +8,14 @@
     </div>
     <div class="table-col flex-xl tree-item">
       <div class="tree-title" :style="{paddingLeft: item.depth*32+'px'}">
-        <div v-if="!isLast" class="padding-block-wrap">
+        <div class="padding-block-wrap" :class="{'is-last': item.isLast}">
           <div
-            v-for="i in item.depth + 1"
+            v-for="i in paddingCount"
             :key="i"
             class="padding-block"
+            :class="{hide:
+              (i !== 1 && i !== paddingCount)
+            }"
           ></div>
         </div>
 
@@ -35,7 +38,7 @@
 
     <div class="table-col dev-info flex-md">{{ item.depth }}</div>
     <div class="table-col dev-info flex-md">{{ item.id }}</div>
-    <div class="table-col dev-info flex-md">{{ item.pids }}</div>
+    <div class="table-col dev-info flex-md">{{ item.pids.join(', ') || '-' }}</div>
 
     <div class="table-col flex-md size">
       <span class="text-overflow">{{ item.desc }}</span>
@@ -52,10 +55,10 @@ export default {
       type: Object,
       default: null
     },
-    // 是否为最后一个节点
-    isLast: {
-      type: Boolean,
-      default: false
+  },
+  computed: {
+    paddingCount() {
+      return this.item.depth + 1
     }
   },
   methods: {
@@ -81,6 +84,11 @@ export default {
     top: 0;
     display: flex;
     pointer-events: none;
+    &.is-last {
+      .padding-block:last-child {
+        visibility: hidden;
+      }
+    }
   }
 
   .padding-block {
@@ -89,6 +97,10 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("./images/line.png");
+    &.hide {
+      background: #6f6f6f;
+      opacity: .5;
+    }
   }
 
   .item-toggler {
