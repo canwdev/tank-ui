@@ -15,7 +15,7 @@
 
 <script>
 export default {
-name: "NavHeaderDemo"
+  name: 'NavHeaderDemo'
 }
 </script>
 
