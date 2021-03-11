@@ -30,13 +30,7 @@ exports.cssLoaders = function(options) {
     }
   }
 
-  const stylusOptions = {
-    import: [
-      path.join(__dirname, '../src/theme/common/variables.styl')
-    ]
-  }
-
-    // generate loader string to be used with extract text plugin
+  // generate loader string to be used with extract text plugin
   function generateLoaders(loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
 
@@ -56,15 +50,22 @@ exports.cssLoaders = function(options) {
     ].concat(loaders)
   }
 
+  const globalStyle = path.join(__dirname, '../src/theme/common/variables.scss')
+
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
-    stylus: generateLoaders('stylus', stylusOptions),
-    styl: generateLoaders('stylus', stylusOptions)
+    sass: generateLoaders('sass', {indentedSyntax: true}),
+    scss: generateLoaders('sass').concat({
+      loader: 'sass-resources-loader',
+      options: {
+        resources: globalStyle
+      }
+    }),
+    stylus: generateLoaders('stylus'),
+    styl: generateLoaders('stylus')
   }
 }
 

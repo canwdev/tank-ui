@@ -114,49 +114,34 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.tree-bg-line {
-  background-repeat repeat-y
-  background-image url("./images/line.png")
-
-  &.is-last {
-    background none
+<style lang="scss" scoped>.tree-bg-line  {
+  background-repeat: repeat-y;
+  background-image: url("./images/line.png");&.is-last  {
+    background: none;
   }
-}
-
-.tk-tree-item {
-  cursor pointer
-  line-height: 1.5
-  user-select none
-
-  .tk-tree-item {
-    margin-left: 32px
-  }
-
-  .tree-item-title {
-    display flex
-    align-items center
-    white-space: nowrap;
-
-    .title-inner {
+}.tk-tree-item  {
+  cursor: pointer;
+  line-height: 1.5;
+  user-select: none;.tk-tree-item  {
+    margin-left: 32px;
+  }.tree-item-title  {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;.title-inner  {
       flex: 1;
       display: flex;
       align-items: center;
       border-radius: 3px;
       padding-right: 5px;
       margin-right: 5px;
-    }
-
-    &.is-selected {
-      .title-inner {
+    }&.is-selected  {
+      .title-inner  {
         background-color: rgba(134, 134, 134, 0.36);
       }
-    }
-
-    .loading-img {
+    }.loading-img  {
       margin-left: 8px;
-      margin-right: 8px
-      background white
+      margin-right: 8px;
+      background: white;
       flex-shrink: 0;
     }
   }

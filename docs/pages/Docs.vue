@@ -43,19 +43,19 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .docs-page {
   display: flex;
-  flex 1;
+  flex: 1;
 
   .nav {
-    height: 100%
-    width 260px;
-    border-right 1px solid #ccc
+    height: 100%;
+    width: 260px;
+    border-right: 1px solid #ccc;
   }
 
   .main {
-    padding 10px
+    padding: 10px;
   }
 }
 </style>

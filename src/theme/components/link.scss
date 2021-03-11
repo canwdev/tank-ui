@@ -1,0 +1,15 @@
+.tk-link  {
+  display: inline-block;
+  color: $color_blue;
+  text-decoration: none;&.is-underline  {
+    position: relative;&::after  {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      bottom: -1px;
+      border-bottom: 1px solid $color_blue;
+    }
+  }
+}
