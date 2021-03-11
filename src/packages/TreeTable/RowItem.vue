@@ -8,15 +8,21 @@
     </div>
     <div class="table-col flex-xl tree-item">
       <div class="tree-title" :style="{paddingLeft: item.depth*32+'px'}">
-        <div class="padding-block-wrap" :class="{'is-last': item.isLast}">
-          <div
+        <div class="padding-block-wrap">
+          <!--<div
             v-for="i in paddingCount"
             :key="i"
             class="padding-block"
             :class="{hide:
               (i !== 1 && i !== paddingCount)
             }"
-          ></div>
+          ></div>-->
+          <div
+            v-for="(item, index) in paddingBlocks"
+            :key="index"
+            class="padding-block"
+            :class="item.className"
+          >{{ item.id }}</div>
         </div>
 
         <div
@@ -59,7 +65,17 @@ export default {
   computed: {
     paddingCount() {
       return this.item.depth + 1
-    }
+    },
+    paddingBlocks() {
+      return [
+        ...this.item.parents.map(item => {
+          return {
+            className: item.isLast ? 'hide' : ''
+          }
+        }),
+        {className: this.item.isLast ? 'hide' : ''}
+      ]
+    },
   },
   methods: {
     formatTime(value) {
@@ -84,11 +100,6 @@ export default {
     top: 0;
     display: flex;
     pointer-events: none;
-    &.is-last {
-      .padding-block:last-child {
-        visibility: hidden;
-      }
-    }
   }
 
   .padding-block {
@@ -98,8 +109,9 @@ export default {
     background-repeat: no-repeat;
     background-image: url("./images/line.png");
     &.hide {
-      background: #6f6f6f;
-      opacity: .5;
+      //background: #6f6f6f;
+      //opacity: .5;
+      visibility: hidden;
     }
   }
 

@@ -59,19 +59,19 @@ const getItemTemplateFlatted = (item, config = {}) => {
   const {
     depth = 0, // 深度
     pids = [], // 上层id列表
+    parents = [], // 上层obj列表
     hasChild = true, // 是否有子叶
     isOpen = false, // 是否已展开
     isVisible = false, // 当前叶子是否可见
-    isLast = false,
   } = config
   return {
     ...item,
     pids,
+    parents,
     depth,
     hasChild,
     isOpen,
     isVisible,
-    isLast
   }
 }
 
@@ -82,11 +82,13 @@ const inheritItemDepth = (item) => {
     ...item,
     id,
     name: 'New',
-    isLazyLoad: id % 2 === 0,
-    isLoading: false
+    isLazyLoad: id % 2 !== 0,
+    isLoading: false,
+    isLast: false
   }, {
     depth: item.depth + 1,
     pids: [...item.pids, item.id],
+    parents: [...item.parents, item],
     hasChild: false,
     isVisible: true
   })
@@ -172,23 +174,23 @@ export default {
      * @param depth 深度
      * @param pids 父级ids
      */
-    flattenTree(node, depth = 0, pids = []) {
+    flattenTree(node, depth = 0, pids = [], parents = []) {
       // console.log('flattenTree', node, depth)
       if (!node || node.length === 0) return
 
       node.forEach((item, index) => {
-        const isLast = index === node.length - 1
+        item.isLast = index === node.length - 1
         this.treeFlatList.push(getItemTemplateFlatted(item, {
           depth: depth,
           pids,
+          parents,
           isOpen: true, // false
           isVisible: true, //pids.length === 0,
-          isLast,
           hasChild: Boolean(item.children)
         }))
 
         if (item.children) {
-          this.flattenTree(item.children, depth + 1, [...pids, item.id])
+          this.flattenTree(item.children, depth + 1, [...pids, item.id], [...parents, item])
         }
       })
     },
