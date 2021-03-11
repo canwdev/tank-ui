@@ -33,10 +33,10 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 #app {
-  height: 100%
-  display flex
-  flex-direction column
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -140,14 +140,14 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .tree-demo {
 
   .panel {
     display: flex;
 
     .panel-left {
-      margin-right: 10px
+      margin-right: 10px;
       border: 1px solid $color_theme;
       width: 300px;
       height: 600px;
@@ -156,7 +156,7 @@ export default {
     }
 
     .panel-right {
-      flex 1
+      flex: 1;
     }
   }
 

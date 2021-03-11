@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '@/assets/style/normalize.css'
-import '@/assets/style/base.styl'
+import '@/assets/style/base.scss'
 
 import TankUI from '../src/index'
-import '../src/theme/index.styl'
+import '../src/theme/index.scss'
 
 Vue.config.productionTip = false
 
