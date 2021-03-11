@@ -50,12 +50,14 @@ export default {
 
   .nav {
     height: 100%;
-    width: 260px;
-    border-right: 1px solid #ccc;
+    width: 220px;
+    border-right: 1px solid $color_border;
   }
 
   .main {
     padding: 10px;
+    flex: 1;
+    overflow: auto;
   }
 }
 </style>

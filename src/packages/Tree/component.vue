@@ -1,22 +1,22 @@
 <template>
   <div class="tk-tree">
-    <TreeItem
+    <TkTreeItem
       ref="treeFirstItem"
       :item="nodes"
       :selected="selected"
       @onItemClick="$emit('onItemClick', $event)"
       @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
-    ></TreeItem>
+    ></TkTreeItem>
   </div>
 </template>
 
 <script>
-import TreeItem from './TreeItem'
+import TkTreeItem from './TreeItem'
 
 export default {
   name: 'TkTree',
   components: {
-    TreeItem
+    TkTreeItem
   },
   props: {
     /**

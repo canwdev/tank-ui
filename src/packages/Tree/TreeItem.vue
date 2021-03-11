@@ -21,7 +21,7 @@
       </div>
     </div>
     <div v-show="isOpen" v-if="isFolder">
-      <TreeItem
+      <TkTreeItem
         v-for="(child, index) in item.children"
         :key="index"
         class="item"
@@ -30,14 +30,14 @@
         :is-last="index === item.children.length - 1"
         @onItemClick="$emit('onItemClick', $event)"
         @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
-      ></TreeItem>
+      ></TkTreeItem>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TreeItem',
+  name: 'TkTreeItem',
   props: {
     // 当前节点对象
     item: Object,

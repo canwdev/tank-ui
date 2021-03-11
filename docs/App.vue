@@ -14,7 +14,7 @@
         <NavLogo></NavLogo>
       </template>
       <template slot="headerRight">
-        <TkLink>Search</TkLink>
+        <TkLink>#</TkLink>
       </template>
     </TkNavHeader>
 

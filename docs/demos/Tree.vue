@@ -152,7 +152,6 @@ export default {
       width: 300px;
       height: 600px;
       overflow: auto;
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     }
 
     .panel-right {
