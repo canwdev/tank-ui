@@ -10,17 +10,17 @@
 
 <script>
 import {DemoList} from '../enum'
+import TreeNode from '../../src/packages/Tree/tree-node'
 
 export default {
   name: 'DocLeftNav',
   data() {
     return {
-      treeData: {
-        id: 0,
+      treeData: new TreeNode({
         name: 'Documents',
-        children: DemoList
-      },
-      selected: 0,
+        children: DemoList.map(item => new TreeNode(item))
+      }),
+      selected: null,
       breadcrumbList: []
     }
   },

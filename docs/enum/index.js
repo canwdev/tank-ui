@@ -1,10 +1,7 @@
-import {getIncrementalIdFn} from '../utils'
-const getId = getIncrementalIdFn(1)
-
 export const DemoList = [
-  { id: getId(), name: 'NavHeader', component: 'NavHeader'},
-  { id: getId(), name: 'Switch', component: 'Switcher'},
-  { id: getId(), name: 'Link', component: 'Link'},
-  { id: getId(), name: 'Tree', component: 'Tree'},
-  { id: getId(), name: 'TreeTable', component: 'TreeTable'}
+  { name: 'NavHeader', component: 'NavHeader'},
+  { name: 'Switch', component: 'Switcher'},
+  { name: 'Link', component: 'Link'},
+  { name: 'Tree', component: 'Tree'},
+  { name: 'TreeTable', component: 'TreeTable'}
 ]

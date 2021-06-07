@@ -9,20 +9,12 @@
     <div class="table-col flex-xl tree-item">
       <div class="tree-title" :style="{paddingLeft: item.depth*32+'px'}">
         <div class="padding-block-wrap">
-          <!--<div
-            v-for="i in paddingCount"
-            :key="i"
-            class="padding-block"
-            :class="{hide:
-              (i !== 1 && i !== paddingCount)
-            }"
-          ></div>-->
           <div
             v-for="(item, index) in paddingBlocks"
             :key="index"
             class="padding-block"
             :class="item.className"
-          >{{ item.id }}</div>
+          ></div>
         </div>
 
         <div
@@ -60,7 +52,7 @@ export default {
     item: {
       type: Object,
       default: null
-    },
+    }
   },
   computed: {
     paddingCount() {
@@ -75,7 +67,7 @@ export default {
         }),
         {className: this.item.isLast ? 'hide' : ''}
       ]
-    },
+    }
   },
   methods: {
     formatTime(value) {

@@ -5,12 +5,16 @@
       :class="{'is-last': isLast, 'is-selected': isSelected}"
       :title="item.name"
       @click="handleClick"
+      @dblclick="handleToggleOpen"
     >
-      <img v-if="isLoading" src="./images/loading.gif" class="loading-img">
-      <template v-else-if="isFolder && !isFolderEmpty">
-        <img v-if="isOpen" class="node-open-close" src="./images/line-node-open.png">
+      <img v-if="item.isLoading" src="./images/loading.gif" class="loading-img">
+      <div
+        v-else-if="isFolder && !isFolderEmpty"
+        @click.stop="handleToggleOpen"
+      >
+        <img v-if="item.isOpen" class="node-open-close" src="./images/line-node-open.png">
         <img v-else class="node-open-close" src="./images/line-node-close.png">
-      </template>
+      </div>
       <img v-else src="./images/line-node.png">
 
       <div class="title-inner">
@@ -20,7 +24,7 @@
         {{ item.name }}
       </div>
     </div>
-    <div v-show="isOpen" v-if="isFolder">
+    <div v-show="item.isOpen" v-if="isFolder">
       <TkTreeItem
         v-for="(child, index) in item.children"
         :key="index"
@@ -52,14 +56,6 @@ export default {
       default: null
     }
   },
-  data() {
-    return {
-      // 节点是否展开
-      isOpen: false,
-      // 节点是否加载中
-      isLoading: false
-    }
-  },
   computed: {
     // 是否为文件夹（或懒加载项）
     isFolder() {
@@ -74,15 +70,27 @@ export default {
       return this.item.id === this.selected
     }
   },
+  created() {
+    this.item.toggleOpen = this.handleClick
+  },
   methods: {
-    // 处理节点点击事件（展开或异步加载）
+    /**
+     * 处理节点点击事件（展开或异步加载）
+     */
     handleClick() {
       this.$emit('onItemClick', this.item)
-      if (this.item.lazy && !this.isLoading) {
-        this.isLoading = true
+      this.handleToggleOpen({isOpen: true})
+    },
+    /**
+     * 开关节点
+     * isOpen boolean 强制打开或关闭
+     */
+    handleToggleOpen({isOpen} = {}) {
+      if (this.item.lazy && !this.item.isLoading) {
+        this.item.isLoading = true
         this.$emit('onItemLazyLoad', this.lazyLoad())
       } else if (this.item.children) {
-        this.isOpen = !this.isOpen
+        this.item.isOpen = isOpen !== undefined ? isOpen : !this.item.isOpen
       }
     },
     /**
@@ -100,13 +108,13 @@ export default {
         done: (children) => {
           // this.item.children = children
           this.$set(this.item, 'children', children)
-          this.isOpen = true
-          this.isLoading = false
+          this.item.isOpen = true
+          this.item.isLoading = false
           this.item.lazy = false
         },
         fail: () => {
           console.error('lazyLoad fail')
-          this.isLoading = false
+          this.item.isLoading = false
         }
       }
     }
@@ -114,36 +122,54 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>.tree-bg-line  {
+<style lang="scss" scoped>.tree-bg-line {
   background-repeat: repeat-y;
-  background-image: url("./images/line.png");&.is-last  {
+  background-image: url("./images/line.png");
+
+  &.is-last {
     background: none;
   }
-}.tk-tree-item  {
+}
+
+.tk-tree-item {
   cursor: pointer;
   line-height: 1.5;
-  user-select: none;.tk-tree-item  {
+  user-select: none;
+
+  .tk-tree-item {
     margin-left: 32px;
-  }.tree-item-title  {
+  }
+
+  .tree-item-title {
     display: flex;
     align-items: center;
-    white-space: nowrap;.title-inner  {
+    white-space: nowrap;
+
+    .title-inner {
       flex: 1;
       display: flex;
       align-items: center;
       border-radius: 3px;
       padding-right: 5px;
       margin-right: 5px;
-    }&.is-selected  {
-      .title-inner  {
+    }
+
+    &.is-selected {
+      .title-inner {
         background-color: rgba(134, 134, 134, 0.36);
       }
-    }.loading-img  {
+    }
+
+    .loading-img {
       margin-left: 8px;
       margin-right: 8px;
       background: white;
       flex-shrink: 0;
     }
+
+    //.node-open-close {
+    //  background: url('./images/node-bg.png')
+    //}
   }
 }
 </style>

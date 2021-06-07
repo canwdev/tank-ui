@@ -19,51 +19,43 @@
 </template>
 
 <script>
-import {getIncrementalIdFn} from '../utils'
-
-const getId = getIncrementalIdFn()
+import TreeNode from '../../src/packages/Tree/tree-node'
 
 export default {
   name: 'TreeDemo',
   data() {
     return {
-      treeData: {
-        id: getId(),
+      treeData: new TreeNode({
         name: 'My Tree',
         children: [
           {
-            id: getId(),
             name: 'hello'
           },
           {
-            id: getId(),
             name: 'wat'
           },
           {
-            id: getId(),
             name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
             lazy: true
           },
           {
-            id: getId(),
             name: 'child folder',
             children: [
               {
-                id: getId(),
                 name: 'child folder',
-                children: [{id: getId(), name: 'hello'}, {id: 6, name: 'wat'}]
+                children: [{name: 'hello'}, {name: 'wat'}].map(i => new TreeNode(i))
               },
               {
-                id: 9, name: 'child folder',
-                children: [{id: getId(), name: 'hello'}, {id: 11, name: 'wat'}]
+                name: 'child folder',
+                children: [{name: 'hello'}, {name: 'wat'}].map(i => new TreeNode(i))
               },
-              {id: getId(), name: 'hello'},
-              {id: getId(), name: 'wat'}
-            ]
+              {name: 'hello'},
+              {name: 'wat'}
+            ].map(i => new TreeNode(i))
           }
-        ]
-      },
-      selected: 0,
+        ].map(i => new TreeNode(i))
+      }),
+      selected: null,
       breadcrumbList: []
     }
   },
@@ -119,21 +111,21 @@ export default {
       setTimeout(() => {
         // fail()
         done([
-          {id: getId(), name: 'hello'},
+          {name: 'hello'},
           {
-            id: getId(), name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
+            name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
             lazy: true
           },
-          {id: getId(), name: 'wat'},
+          {name: 'wat'},
           {
-            id: getId(), name: 'Empty Folder',
+            name: 'Empty Folder',
             children: []
           },
           {
-            id: getId(), name: 'Lazy',
+            name: 'Lazy',
             lazy: true
           }
-        ])
+        ].map(i => new TreeNode(i)))
       }, 500)
     }
   }
