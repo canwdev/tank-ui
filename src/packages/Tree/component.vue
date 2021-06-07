@@ -6,7 +6,8 @@
       :selected="selected"
       @onItemClick="$emit('onItemClick', $event)"
       @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
-    ></TkTreeItem>
+    >
+    </TkTreeItem>
   </div>
 </template>
 
@@ -20,12 +21,7 @@ export default {
   },
   props: {
     /**
-     * {
-            id: 1, // 唯一标识符id
-            name: 'hello', // 节点显示名称
-            lazy: false, // 如果为 true 则会触发 onItemLazyLoad 事件处理异步加载逻辑
-            children: [] // 子节点，可以为空数组或直接没有该属性
-          },
+     * 使用 new TreeNode() 创建节点
      */
     nodes: {
       type: Object,
