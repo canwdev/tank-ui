@@ -2,6 +2,7 @@
   <TkContainer class="docs-page">
     <div class="nav">
       <DocLeftNav
+        ref="leftNav"
         @selectItem="handleSelectItem"
       />
     </div>
@@ -35,9 +36,41 @@ export default {
       selectedComponent: null
     }
   },
+  watch: {
+    '$route.params.name': {
+      handler(val) {
+        // console.log(val)
+        if (val) {
+          this.$refs.leftNav.goItem(val)
+        }
+      }
+      // immediate: true
+    }
+  },
+  mounted() {
+    this.checkLeftNav(this.$route.params.name)
+  },
   methods: {
+    checkLeftNav(component) {
+      if (component) {
+        this.$refs.leftNav.goItem(component)
+      }
+    },
     handleSelectItem(item) {
+      // console.log('handleSelectItem', item)
+      if (!item.component) {
+        return
+      }
+
       this.selectedComponent = item.component
+
+      if (this.$route.params.name !== item.component) {
+        this.$router.push({
+          params: {
+            name: item.component
+          }
+        })
+      }
     }
   }
 }

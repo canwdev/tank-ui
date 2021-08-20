@@ -1,7 +1,8 @@
 export const DemoList = [
-  { name: 'NavHeader', component: 'NavHeader'},
-  { name: 'Switch', component: 'Switcher'},
-  { name: 'Link', component: 'Link'},
-  { name: 'Tree', component: 'Tree'},
-  { name: 'TreeTable', component: 'TreeTable'}
+  { name: 'Button | 按钮', component: 'Button'},
+  { name: 'NavHeader | 导航栏', component: 'NavHeader'},
+  { name: 'Switch | 开关', component: 'Switcher'},
+  { name: 'Link | 链接', component: 'Link'},
+  { name: 'Tree | 树状图', component: 'Tree'},
+  { name: 'TreeTable | 树状表格', component: 'TreeTable'}
 ]

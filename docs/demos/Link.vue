@@ -10,7 +10,7 @@
 
 <script>
 export default {
-name: 'TreeDemo'
+name: 'LinkDemo'
 }
 </script>
 

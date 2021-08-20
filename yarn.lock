@@ -510,6 +510,14 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+anymatch@~3.1.2:
+  version "3.1.2"
+  resolved "https://registry.nlark.com/anymatch/download/anymatch-3.1.2.tgz#c0557c096af32f106198f4f4e2a383537e378716"
+  integrity sha1-wFV8CWrzLxBhmPT04qODU343hxY=
+  dependencies:
+    normalize-path "^3.0.0"
+    picomatch "^2.0.4"
+
 aproba@^1.1.1:
   version "1.2.0"
   resolved "http://nuget.fnlinker.com/repository/npm-group/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
@@ -1793,20 +1801,20 @@ check-types@^8.0.3:
   resolved "http://nuget.fnlinker.com/repository/npm-group/check-types/-/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"
   integrity sha512-YpeKZngUmG65rLudJ4taU7VLkOCTMhNl/u4ctNC56LQS/zJTyNH0Lrtwm1tfTsbLlwvlfsA2d1c8vCf/Kh2KwQ==
 
-"chokidar@>=2.0.0 <4.0.0":
-  version "3.5.1"
-  resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-3.5.1.tgz?cache=0&sync_timestamp=1610719430924&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fchokidar%2Fdownload%2Fchokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
-  integrity sha1-7pznu+vSt59J8wR5nVRo4x4U5oo=
+"chokidar@>=3.0.0 <4.0.0":
+  version "3.5.2"
+  resolved "https://registry.nlark.com/chokidar/download/chokidar-3.5.2.tgz?cache=0&sync_timestamp=1623763535523&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fchokidar%2Fdownload%2Fchokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
+  integrity sha1-26OXb8rbAW9m/TZQIdkWANAcHnU=
   dependencies:
-    anymatch "~3.1.1"
+    anymatch "~3.1.2"
     braces "~3.0.2"
-    glob-parent "~5.1.0"
+    glob-parent "~5.1.2"
     is-binary-path "~2.1.0"
     is-glob "~4.0.1"
     normalize-path "~3.0.0"
-    readdirp "~3.5.0"
+    readdirp "~3.6.0"
   optionalDependencies:
-    fsevents "~2.3.1"
+    fsevents "~2.3.2"
 
 chokidar@^2.1.8:
   version "2.1.8"
@@ -3558,9 +3566,9 @@ fsevents@~2.1.2:
   resolved "http://nuget.fnlinker.com/repository/npm-group/fsevents/-/fsevents-2.1.3.tgz#fb738703ae8d2f9fe900c33836ddebee8b97f23e"
   integrity sha512-Auw9a4AxqWpa9GUfj370BMPzzyncfBABW8Mab7BGWBYDj4Isgq+cDKtx0i6u9jcX9pQDnswsaaOTgTmA5pEjuQ==
 
-fsevents@~2.3.1:
+fsevents@~2.3.2:
   version "2.3.2"
-  resolved "https://registry.npm.taobao.org/fsevents/download/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  resolved "https://registry.nlark.com/fsevents/download/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=
 
 function-bind@^1.1.1:
@@ -3602,6 +3610,13 @@ glob-parent@~5.1.0:
   version "5.1.1"
   resolved "http://nuget.fnlinker.com/repository/npm-group/glob-parent/-/glob-parent-5.1.1.tgz#b6c1ef417c4e5663ea498f1c45afac6916bbc229"
   integrity sha512-FnI+VGOpnlGHWZxthPGR+QhR78fuiK0sNLkHQv+bL9fQi57lNNdquIbna/WrfROrolq8GK5Ek6BiMwqL/voRYQ==
+  dependencies:
+    is-glob "^4.0.1"
+
+glob-parent@~5.1.2:
+  version "5.1.2"
+  resolved "https://registry.nlark.com/glob-parent/download/glob-parent-5.1.2.tgz?cache=0&sync_timestamp=1626760165717&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fglob-parent%2Fdownload%2Fglob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
+  integrity sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ=
   dependencies:
     is-glob "^4.0.1"
 
@@ -6493,10 +6508,10 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-readdirp@~3.5.0:
-  version "3.5.0"
-  resolved "https://registry.npm.taobao.org/readdirp/download/readdirp-3.5.0.tgz?cache=0&sync_timestamp=1602584331621&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freaddirp%2Fdownload%2Freaddirp-3.5.0.tgz#9ba74c019b15d365278d2e91bb8c48d7b4d42c9e"
-  integrity sha1-m6dMAZsV02UnjS6Ru4xI17TULJ4=
+readdirp@~3.6.0:
+  version "3.6.0"
+  resolved "https://registry.nlark.com/readdirp/download/readdirp-3.6.0.tgz#74a370bd857116e245b29cc97340cd431a02a6c7"
+  integrity sha1-dKNwvYVxFuJFspzJc0DNQxoCpsc=
   dependencies:
     picomatch "^2.2.1"
 
@@ -6842,12 +6857,12 @@ sass-resources-loader@^2.1.1:
     glob "^7.1.6"
     loader-utils "^2.0.0"
 
-sass@^1.32.8:
-  version "1.32.8"
-  resolved "https://registry.npm.taobao.org/sass/download/sass-1.32.8.tgz?cache=0&sync_timestamp=1613686491856&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsass%2Fdownload%2Fsass-1.32.8.tgz#f16a9abd8dc530add8834e506878a2808c037bdc"
-  integrity sha1-8WqavY3FMK3Yg05QaHiigIwDe9w=
+sass@^1.38.0:
+  version "1.38.0"
+  resolved "https://registry.nlark.com/sass/download/sass-1.38.0.tgz#2f3e60a1efdcdc910586fa79dc89d3399a145b4f"
+  integrity sha1-Lz5goe/c3JEFhvp53InTOZoUW08=
   dependencies:
-    chokidar ">=2.0.0 <4.0.0"
+    chokidar ">=3.0.0 <4.0.0"
 
 sax@~1.2.1, sax@~1.2.4:
   version "1.2.4"
@@ -7913,10 +7928,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "http://nuget.fnlinker.com/repository/npm-group/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-loader@^15.9.2:
-  version "15.9.3"
-  resolved "http://nuget.fnlinker.com/repository/npm-group/vue-loader/-/vue-loader-15.9.3.tgz#0de35d9e555d3ed53969516cac5ce25531299dda"
-  integrity sha512-Y67VnGGgVLH5Voostx8JBZgPQTlDQeOVBLOEsjc2cXbCYBKexSKEpOA56x0YZofoDOTszrLnIShyOX1p9uCEHA==
+vue-loader@^15.9.8:
+  version "15.9.8"
+  resolved "https://registry.nlark.com/vue-loader/download/vue-loader-15.9.8.tgz?cache=0&sync_timestamp=1628666753201&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-loader%2Fdownload%2Fvue-loader-15.9.8.tgz#4b0f602afaf66a996be1e534fb9609dc4ab10e61"
+  integrity sha1-Sw9gKvr2aplr4eU0+5YJ3EqxDmE=
   dependencies:
     "@vue/component-compiler-utils" "^3.1.0"
     hash-sum "^1.0.2"
@@ -7924,10 +7939,10 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@^3.0.1:
-  version "3.3.4"
-  resolved "http://nuget.fnlinker.com/repository/npm-group/vue-router/-/vue-router-3.3.4.tgz#4e38abc34a11c41b6c3d8244449a2e363ba6250b"
-  integrity sha512-SdKRBeoXUjaZ9R/8AyxsdTqkOfMcI5tWxPZOUX5Ie1BTL5rPSZ0O++pbiZCeYeythiZIdLEfkDiQPKIaWk5hDg==
+vue-router@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.nlark.com/vue-router/download/vue-router-3.5.2.tgz#5f55e3f251970e36c3e8d88a7cd2d67a350ade5c"
+  integrity sha1-X1Xj8lGXDjbD6NiKfNLWejUK3lw=
 
 vue-style-loader@^3.0.1:
   version "3.1.2"
@@ -7945,10 +7960,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.6.10:
-  version "2.6.11"
-  resolved "http://nuget.fnlinker.com/repository/npm-group/vue-template-compiler/-/vue-template-compiler-2.6.11.tgz#c04704ef8f498b153130018993e56309d4698080"
-  integrity sha512-KIq15bvQDrcCjpGjrAhx4mUlyyHfdmTaoNfeoATHLAiWB+MU3cx4lOzMwrnUh9cCxy0Lt1T11hAFY6TQgroUAA==
+vue-template-compiler@^2.6.14:
+  version "2.6.14"
+  resolved "https://registry.nlark.com/vue-template-compiler/download/vue-template-compiler-2.6.14.tgz?cache=0&sync_timestamp=1623059640396&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-template-compiler%2Fdownload%2Fvue-template-compiler-2.6.14.tgz#a2f0e7d985670d42c9c9ee0d044fed7690f4f763"
+  integrity sha1-ovDn2YVnDULJye4NBE/tdpD092M=
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -7958,10 +7973,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "http://nuget.fnlinker.com/repository/npm-group/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.5.2:
-  version "2.6.11"
-  resolved "http://nuget.fnlinker.com/repository/npm-group/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
-  integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+vue@^2.6.14:
+  version "2.6.14"
+  resolved "https://registry.nlark.com/vue/download/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+  integrity sha1-5RqlJQJQ1Wmj+606ilpofWA24jU=
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"

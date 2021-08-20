@@ -28,6 +28,33 @@ export default {
     handleClick(node) {
       this.selected = node.id
       this.$emit('selectItem', node)
+    },
+    goItem(component) {
+      let result = null
+
+      function traverse(node) {
+        if (node.component === component) {
+          result = node
+          return
+        }
+
+        if (node.children) {
+          for (const i in node.children) {
+            const n = node.children[i]
+            if (n.component === component) {
+              result = n
+              break
+            }
+            traverse(n)
+          }
+        }
+      }
+
+      traverse(this.treeData)
+
+      if (result) {
+        this.handleClick(result)
+      }
     }
   }
 }

@@ -18,6 +18,11 @@ export default new Router({
     },
     {
       path: '/docs',
+      name: 'DocsIndex',
+      redirect: '/docs/Button'
+    },
+    {
+      path: '/docs/:name',
       name: 'Docs',
       component: () => import('@/pages/Docs')
     }

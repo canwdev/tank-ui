@@ -1,9 +1,5 @@
 # tank-ui
 
-A ~~Steel~~ Test Vue UI Library.
-
-~~设计目标：一个极致简单的组件库。~~
-
-> ~~Keep It Simple & Stupid~~
+A ~~Minimal & Steel~~ Test Vue 2 UI Library.
 
 ![HammerTank](src/assets/images/logo.png)
