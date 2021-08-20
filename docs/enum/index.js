@@ -1,5 +1,6 @@
 export const DemoList = [
   { name: 'Button | 按钮', component: 'Button'},
+  { name: 'Input | 输入框', component: 'Input'},
   { name: 'NavHeader | 导航栏', component: 'NavHeader'},
   { name: 'Switch | 开关', component: 'Switcher'},
   { name: 'Link | 链接', component: 'Link'},

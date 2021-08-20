@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import '@/assets/style/normalize.css'
-import '@/assets/style/base.scss'
+import '@docs/assets/style/normalize.css'
+import '@docs/assets/style/base.scss'
 
 import TankUI from '../src/index'
 import '../src/theme/index.scss'

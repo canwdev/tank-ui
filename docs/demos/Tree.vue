@@ -140,7 +140,7 @@ export default {
 
     .panel-left {
       margin-right: 10px;
-      border: 1px solid $color_theme;
+      border: 1px solid $primary;
       width: 300px;
       height: 600px;
       overflow: auto;

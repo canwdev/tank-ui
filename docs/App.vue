@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import NavLogo from '@/components/NavLogo'
+  import NavLogo from '@docs/components/NavLogo'
 
   export default {
     name: 'App',

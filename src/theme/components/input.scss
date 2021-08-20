@@ -1,0 +1,61 @@
+.tk-input {
+  border: $layout-border;
+  padding: 2px 5px;
+  box-sizing: border-box;
+  background: transparent;
+  color: inherit;
+  border-radius: $border-radius;
+  outline-color: $separator-color;
+
+  &._size-xs {
+    font-size: 12px;
+  }
+
+  &._size-sm {
+    font-size: 14px;
+  }
+
+  &._size-md {
+    font-size: 16px;
+  }
+
+  &._size-lg {
+    font-size: 18px;
+  }
+
+  &._size-xl {
+    font-size: 20px;
+  }
+
+  &._theme-black {
+    border-color: $color-black;
+    outline-color: $color-black;
+    color: $color-black;
+  }
+
+  &._theme-positive {
+    border-color: $positive;
+    outline-color: $positive;
+    color: $positive;
+  }
+
+  &._theme-negative {
+    border-color: $negative;
+    outline-color: $negative;
+    color: $negative;
+  }
+
+  &._theme-info {
+    border-color: $info;
+    outline-color: $info;
+    color: $info;
+  }
+
+  &._theme-warning {
+    border-color: $warning;
+    outline-color: $warning;
+    color: $warning;
+  }
+
+  @include btnMixin
+}

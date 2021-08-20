@@ -1,6 +1,6 @@
 .tk-link  {
   display: inline-block;
-  color: $color_blue;
+  color: $color-blue;
   text-decoration: none;&.is-underline  {
     position: relative;&::after  {
       content: "";
@@ -9,7 +9,7 @@
       right: 0;
       height: 0;
       bottom: -1px;
-      border-bottom: 1px solid $color_blue;
+      border-bottom: 1px solid $color-blue;
     }
   }
 }

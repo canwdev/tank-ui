@@ -84,7 +84,7 @@ export default {
   .nav {
     height: 100%;
     width: 220px;
-    border-right: 1px solid $color_border;
+    border-right: 1px solid $border-color;
   }
 
   .main {

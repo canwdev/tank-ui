@@ -14,11 +14,11 @@ $nav_height: 50px;
   z-index: 999;
 
   .nav-header-container {
-    width: $container_width;
-    padding: 0 $container_padding;
+    width: $container-width;
+    padding: 0 $container-padding;
     margin: 0 auto;
     box-sizing: border-box;
-    @media screen and (max-width: $container_width) {
+    @media screen and (max-width: $container-width) {
       width: 100%;
     }
 
@@ -42,7 +42,7 @@ $nav_height: 50px;
     right: 0;
     background-color: #fff;
 
-    border-bottom: 1px solid $color_border;
+    border-bottom: 1px solid $border-color;
     transition: all 0.25s $transition_fx2;
 
     &.fixed {
@@ -88,7 +88,7 @@ $nav_height: 50px;
             display: block;
             overflow: auto;
             + .link-group {
-              border-top: 1px solid $color_border;
+              border-top: 1px solid $border-color;
             }
           }
 
@@ -106,9 +106,9 @@ $nav_height: 50px;
           height: 70%;
           align-items: center;
           justify-content: center;
-          color: $color_theme;
+          color: $primary;
           text-decoration: none;
-          border-radius: $border_radius;
+          border-radius: $border-radius;
 
           @media screen and (max-width: $mq_mobile_width) {
             font-weight: bold;
@@ -118,7 +118,7 @@ $nav_height: 50px;
 
           &:hover {
             text-decoration: none;
-            background: $color_theme;
+            background: $primary;
             color: #fff;
           }
         }
@@ -129,8 +129,8 @@ $nav_height: 50px;
           top: 85%;
           left: 0;
           background: #fff;
-          border: 1px solid $color_border;
-          border-radius: $border_radius;
+          border: 1px solid $border-color;
+          border-radius: $border-radius;
 
           @media screen and (max-width: $mq_mobile_width) {
             border: none;
@@ -178,7 +178,7 @@ $nav_height: 50px;
             margin-left: 0 !important;
           }
           &.open {
-            border-top: 1px solid $color_border;
+            border-top: 1px solid $border-color;
             background: #fff;
             height: auto;
 
@@ -201,13 +201,13 @@ $nav_height: 50px;
             background: none;
             border: 0;
             outline: none;
-            color: $color_theme;
+            color: $primary;
             @include navOpenMenuTransition();
             position: relative;
             padding: 0;
 
             &:before, &:after {
-              background: $color_theme;
+              background: $primary;
               content: " ";
               display: block;
               position: absolute;
