@@ -17,7 +17,7 @@ $nav_height: 50px;
   display: flex;
   align-items: center;
   text-decoration: none !important;
-  color: $color-black;
+  color: $primary;
 
   &:hover {
     opacity: 0.9;

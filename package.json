@@ -13,7 +13,7 @@
     "doc": "yarn --cwd ./doc serve",
     "lint": "eslint --ext .js,.vue src",
     "lint-fix": "eslint --ext .js,.vue --fix src",
-    "pub": "npm publish --registry=https://registry.npmjs.org/"
+    "pub": "npm publish --registry=https://registry.npmjs.org/ --access public"
   },
   "dependencies": {
     "vue": "^2.6.14"

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="tk-scroll">
+  <div id="app" class="tk-scroll" :class="[isDarkTheme ? 'tk-dark-theme' : 'tk-light-theme']">
     <TkNavHeader
       :menu-list="[
         {title: 'Start', url: '/quickstart'},
@@ -14,7 +14,9 @@
         <NavLogo></NavLogo>
       </template>
       <template slot="headerRight">
-        <TkLink>#</TkLink>
+        <div class="flex items-center">
+          <TkSwitch v-model="isDarkTheme">Dark Mode</TkSwitch>
+        </div>
       </template>
     </TkNavHeader>
 
@@ -29,6 +31,19 @@ export default {
   name: 'App',
   components: {
     NavLogo
+  },
+  computed: {
+    isDarkTheme: {
+      get() {
+        return this.$store.getters.isDarkTheme
+      },
+      set(val) {
+        this.$store.commit('updateSettings', {
+          key: 'isDarkTheme',
+          value: val
+        })
+      }
+    }
   }
 }
 </script>

@@ -103,3 +103,18 @@
     }
   }
 }
+
+@mixin transitionTheme {
+  transition: background-color .5s, color .5s;
+}
+
+.tk-dark-theme {
+  background-color: $dark;
+  color: $color-white;
+  @include transitionTheme;
+}
+.tk-light-theme {
+  background-color: $light;
+  color: $color-black;
+  @include transitionTheme;
+}

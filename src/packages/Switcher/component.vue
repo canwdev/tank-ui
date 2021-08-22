@@ -1,12 +1,12 @@
 <template>
-  <div class="tk-switch">
-    <span><slot></slot></span>
-
+  <div
+    class="tk-switch"
+    @click="handleChange(value)"
+  >
     <div
       :class="[{closed: !checked}, 'tk-switch-box']"
-      @click="handleChange(value)"
     >
-      <span :class="{closed: !checked}"></span>
+      <span :class="{closed: !checked}">{{ checked ? textOn : textOff }}</span>
     </div>
 
     <input
@@ -17,15 +17,14 @@
       :value="value"
       @change="handleChange"
     >
+
+    <span class="tk-switch-text"><slot></slot></span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'TkSwitch',
-  data() {
-    return {}
-  },
   props: {
     value: {
       type: [Boolean, String, Number],
@@ -42,6 +41,14 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    textOn: {
+      type: [String, Number],
+      default: null
+    },
+    textOff: {
+      type: [String, Number],
+      default: null
     }
   },
   computed: {
