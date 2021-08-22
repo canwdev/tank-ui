@@ -1,10 +1,11 @@
 {
   "name": "@canwdev/tank-ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A __ vue ui library",
   "main": "dist/tank-ui.js",
   "author": "canwdev",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "bootstrap": "yarn && yarn --cwd ./doc install",
     "dev": "webpack-dev-server --progress --config=build/index.js --env development",
