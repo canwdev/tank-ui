@@ -1,4 +1,5 @@
 import componentObjects from './get-components'
+import './theme/index.scss'
 
 // console.log('componentObjects', componentObjects)
 

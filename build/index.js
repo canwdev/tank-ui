@@ -30,6 +30,7 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.js', '.vue', '.css'],
       alias: {
+        '@doc': resolve('doc'),
         '@src': resolve('src'),
       }
     },
@@ -55,7 +56,7 @@ module.exports = (env, argv) => {
       path: path.resolve(`dist/static`),
       filename: '[name].js', // .[hash:7]
       libraryTarget: 'umd',
-      library: 'tank-ui',
+      library: 'tankUI',
     },
     module: {
       rules: [

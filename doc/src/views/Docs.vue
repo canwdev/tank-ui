@@ -22,7 +22,7 @@ import {DemoList} from '../enum'
 
 const dynamicImportComponents = {}
 DemoList.forEach(item => {
-  dynamicImportComponents[item.component] = resolve => require([`./docs/src/demos/${item.component}`], resolve)
+  dynamicImportComponents[item.component] = resolve => require([`@doc/demos/${item.component}`], resolve)
 })
 
 export default {

@@ -23,14 +23,14 @@
 </template>
 
 <script>
-  import NavLogo from '@docs/components/NavLogo'
+import NavLogo from '@doc/components/NavLogo'
 
-  export default {
-    name: 'App',
-    components: {
-      NavLogo
-    }
+export default {
+  name: 'App',
+  components: {
+    NavLogo
   }
+}
 </script>
 
 <style lang="scss" scoped>
