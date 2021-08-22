@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="tk-scroll">
     <TkNavHeader
       :menu-list="[
         {title: 'Start', url: '/quickstart'},

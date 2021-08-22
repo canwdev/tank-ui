@@ -50,7 +50,7 @@ module.exports = {
     'camelcase': [0, {
       'properties': 'always'
     }],
-    'comma-dangle': [1, 'never'],
+    'comma-dangle': [0, 'never'],
     'comma-spacing': [1, {
       'before': false,
       'after': true

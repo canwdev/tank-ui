@@ -1,7 +1,7 @@
 <template>
-  <div class="link-demo">
+  <div class="demo">
     <h1>size</h1>
-    <div class="block-gap-1 flex items-center">
+    <div class="tk-block-gap-1 flex items-center">
       <TkButton size="no-style">Button (no-style)</TkButton>
       <TkButton size="xs">Button (xs)</TkButton>
       <TkButton size="sm">Button (sm)</TkButton>
@@ -10,11 +10,11 @@
       <TkButton size="xl">Button (xl)</TkButton>
     </div>
     <h1>theme</h1>
-    <div class="block-gap-1 flex items-center">
+    <div class="tk-block-gap-1 flex items-center">
       <TkButton theme="white">Button (white)</TkButton>
       <TkButton theme="black">Button (black)</TkButton>
-      <TkButton theme="positive">Button (positive)</TkButton>
-      <TkButton theme="negative">Button (negative)</TkButton>
+      <TkButton theme="success">Button (success)</TkButton>
+      <TkButton theme="error">Button (error)</TkButton>
       <TkButton theme="info">Button (info)</TkButton>
       <TkButton theme="warning">Button (warning)</TkButton>
     </div>

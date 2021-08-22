@@ -1,0 +1,105 @@
+.tk-block-gap-1 {
+  & > * {
+    margin-bottom: 5px;
+    & + * {
+      margin-left: 5px;
+    }
+  }
+}
+
+.tk-fieldset {
+  border: $layout-border;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: $border-radius;
+  padding: 20px;
+
+  legend {
+    padding: 0 5px;
+    h1,h2,h3,h4,h5,p {
+      margin: 0;
+    }
+  }
+}
+
+.tk-form {
+  .tk-form-row {
+    width: 100%;
+    display: flex;
+
+    & + .tk-form-row {
+      margin-top: 10px;
+      min-height: 34px;
+    }
+
+    &>:nth-child(1) {
+      width: 150px;
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+      word-break: break-all;
+    }
+
+    &>:nth-child(2) {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.tk-scroll {
+  //滚动条样式
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    overflow: overlay;
+  }
+
+  $scrollbar-fg: $primary; //rgba(0, 0, 0, .3);
+  $scrollbar-fg-dark: $primary; //rgba(255, 255, 255, .3);
+  $scrollbar-bg: rgba(0, 0, 0, .1);
+  $scrollbar-bg-dark: rgba(255, 255, 255, .1);
+
+  ::-webkit-scrollbar-thumb {
+    box-shadow: 0 0 1px 0 $dark inset;
+    background: $scrollbar-fg;
+    border-radius: $border-radius;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: 0 0 1px 0 $dark inset;
+    background: $scrollbar-bg;
+    border-radius: $border-radius;
+  }
+
+  //黑色风格滚动条
+  .bg-dark {
+
+    ::-webkit-scrollbar-corner {
+      background: $scrollbar-bg-dark
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: $scrollbar-fg-dark;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: $scrollbar-bg-dark
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: $scrollbar-bg-dark
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $scrollbar-fg-dark
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-bg-dark
+    }
+  }
+}

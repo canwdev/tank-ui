@@ -1,5 +1,7 @@
 import componentObjects from './get-components'
 
+// console.log('componentObjects', componentObjects)
+
 // 存储组件列表
 const components = Object.values(componentObjects)
 
@@ -11,6 +13,9 @@ const install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component)
   })
+
+  // console.log('componentObjects.TkToast',componentObjects.TkToast)
+  Vue.prototype.$toast = componentObjects.TkToast
 }
 
 // 判断是否是直接引入文件

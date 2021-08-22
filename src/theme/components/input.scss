@@ -1,6 +1,6 @@
 .tk-input {
   border: $layout-border;
-  padding: 2px 5px;
+  padding: $common-padding;
   box-sizing: border-box;
   background: transparent;
   color: inherit;
@@ -33,16 +33,16 @@
     color: $color-black;
   }
 
-  &._theme-positive {
-    border-color: $positive;
-    outline-color: $positive;
-    color: $positive;
+  &._theme-success {
+    border-color: $success;
+    outline-color: $success;
+    color: $success;
   }
 
-  &._theme-negative {
-    border-color: $negative;
-    outline-color: $negative;
-    color: $negative;
+  &._theme-error {
+    border-color: $error;
+    outline-color: $error;
+    color: $error;
   }
 
   &._theme-info {
@@ -57,5 +57,4 @@
     color: $warning;
   }
 
-  @include btnMixin
 }

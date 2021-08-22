@@ -4,15 +4,18 @@ $secondary: #66CCFF;
 $accent: rgba(255, 128, 192);
 $border-color: rgb(204, 204, 204, .5);
 $separator-color: rgba(148, 148, 148, .32);
-
+$common-padding: 0.8% 1.6%;
 $border-radius: 4px;
 $container-width: 1400px;
 $container-padding: 10px;
 
 $layout-border: 1px solid $separator-color;
 
-$positive: #21BA45;
-$negative: #C10015;
+$dark-page: #1e2229;
+$dark: rgba(0, 0, 0, 0.85);
+
+$success: #21BA45;
+$error: #C10015;
 $info: #31CCEC;
 $warning: #F2C037;
 

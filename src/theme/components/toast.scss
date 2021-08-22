@@ -1,0 +1,41 @@
+.tk-toast {
+  min-width: 300px;
+  box-sizing: border-box;
+  border: $layout-border;
+  padding: $common-padding;
+  background: $primary;
+  color: white;
+  border-radius: $border-radius;
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  transition: opacity 0.3s, transform .4s, top 0.4s;
+  display: flex;
+  align-items: center;
+
+  &.is-center {
+    justify-content: center;
+  }
+  &.is-closable {
+    .tk-toast__content {
+      padding-right: 16px;
+    }
+  }
+
+  .tk-toast__closeBtn {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+  }
+}
+
+.tk-toast-enter,
+.tk-toast-leave-active {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

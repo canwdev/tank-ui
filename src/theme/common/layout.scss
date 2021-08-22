@@ -119,12 +119,20 @@
 
 /* flex end */
 
-.block-gap-1 {
-  & > * {
-    margin-bottom: 5px;
-    & + * {
-      margin-left: 5px;
-    }
-  }
+.relative-position {
+  position: relative;
 }
 
+.cursor-default {
+  cursor: default !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

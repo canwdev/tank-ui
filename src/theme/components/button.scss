@@ -17,9 +17,22 @@
   //}
 }
 
+@mixin btnNoStyle {
+  background: none;
+  border: none;
+  //outline: none;
+  color: inherit;
+  padding: 0;
+}
+
+.tk-button-no-style {
+  @include btnMixin;
+  @include btnNoStyle;
+}
+
 .tk-button {
   border: $layout-border;
-  padding: 0.8% 1.6%;
+  padding: $common-padding;
   box-sizing: border-box;
   background: $primary;
   color: white;
@@ -40,12 +53,9 @@
   &._size-xl {
     font-size: 20px;
   }
+
   &._size-no-style {
-    background: none;
-    border: none;
-    //outline: none;
-    color: inherit;
-    padding: 0;
+    @include btnNoStyle;
   }
 
   &._theme-white {
@@ -57,12 +67,12 @@
     color: $color-white;
   }
 
-  &._theme-positive {
-    background-color: $positive;
+  &._theme-success {
+    background-color: $success;
     color: $color-white;
   }
-  &._theme-negative {
-    background-color: $negative;
+  &._theme-error {
+    background-color: $error;
     color: $color-white;
   }
   &._theme-info {

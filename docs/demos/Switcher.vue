@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TkSwitcher v-model="isShow">开关:</TkSwitcher>
+    <TkSwitch v-model="isShow">开关:</TkSwitch>
     <p v-if="isShow">Now you see me, soon you won't.</p>
   </div>
 </template>
