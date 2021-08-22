@@ -5,6 +5,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const host = 'localhost'
 const port = 9999
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function resolve(dir) {
@@ -27,6 +28,7 @@ const createLintingRule = () => ({
 module.exports = (env, argv) => {
   const isDev = env === 'development'
   return {
+    mode: env,
     resolve: {
       extensions: ['.js', '.vue', '.css'],
       alias: {
@@ -36,27 +38,27 @@ module.exports = (env, argv) => {
     },
     // 入口文件
     entry: {
-      index: resolve('src/index.js'),
-    },
-    optimization: {
-      minimize: false,
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            chunks: 'all',
-            name: 'commons',
-            minSize: 0,
-            minChunks: 2,
-          },
-        }
-      }
+      'tank-ui': resolve('src/index.js'),
     },
     output: {
-      publicPath: `http://${host}:${port}/tank-ui/static/`,
-      path: path.resolve(`dist/static`),
+      publicPath: `http://${host}:${port}/`,
+      path: path.resolve(`dist`),
       filename: '[name].js', // .[hash:7]
       libraryTarget: 'umd',
       library: 'tankUI',
+    },
+    optimization: {
+      minimize: !isDev,
+      splitChunks: {
+        // cacheGroups: {
+        //   commons: {
+        //     chunks: 'all',
+        //     name: 'commons',
+        //     minSize: 0,
+        //     minChunks: 2,
+        //   },
+        // }
+      }
     },
     module: {
       rules: [
@@ -64,7 +66,8 @@ module.exports = (env, argv) => {
         {
           test: /\.(sass|css|scss)/,
           use: [
-            {loader: 'style-loader'},
+            MiniCssExtractPlugin.loader,
+            // {loader: 'style-loader'},
             {loader: 'css-loader'},
             {loader: 'sass-loader'},
             {
@@ -145,6 +148,7 @@ module.exports = (env, argv) => {
         //   compressionOptions: {level: 9},
         // })
       ] : []),
+      new MiniCssExtractPlugin(),
       new webpack.DefinePlugin({
         'process.env': env
       }),
