@@ -1,0 +1,70 @@
+{
+  "name": "@canwdev/tank-ui",
+  "version": "0.2.0",
+  "description": "A __ vue ui library",
+  "main": "src/index.js",
+  "author": "canwdev",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --config=build/index.js --env development",
+    "build": "webpack --config=build/index.js --module-bind js=babel-loader --env production",
+    "doc": "",
+    "lint": "eslint --ext .js,.vue src",
+    "lint-fix": "eslint --ext .js,.vue --fix src",
+    "pub": "npm publish --registry=https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "color-convert": "^1.9.1",
+    "color-string": "^1.5.2",
+    "compression-webpack-plugin": "^8.0.1",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "file-loader": "^6.0.0",
+    "filemanager-webpack-plugin": "^2.0.5",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "sass": "^1.38.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "10.1.1",
+    "sass-resources-loader": "^2.0.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "4.2.3",
+    "url-loader": "^4.1.1",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.13",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-parallel-uglify-plugin": "^1.1.4",
+    "webpackbar": "^5.0.0-3"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
