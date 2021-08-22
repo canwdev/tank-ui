@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import {typeList} from '../../src/packages/Toast/src/enum'
+import {typeList} from '../../../src/packages/Toast/src/enum'
 
 export default {
   name: 'ToastDemo',

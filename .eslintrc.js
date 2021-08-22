@@ -11,17 +11,24 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    'plugin:vue/recommended',
-    'eslint:recommended'
-  ],
+  extends: ['plugin:vue/recommended', 'eslint:recommended'],
   // required to lint *.vue files
   plugins: [
     'vue'
   ],
-  // add your custom rules here
+  globals: {
+    'flvjs': false,
+    'smartCaptcha': false,
+    'NVC_Opt': false,
+    'THREE': false,
+    'TWEEN': false,
+    'Hammer': false,
+    'API':false
+  },
+  //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
+    'vue/no-mutating-props': 'off',
+    'no-prototype-builtins': 'off',
     'vue/max-attributes-per-line': [1, {
       'singleline': 10,
       'multiline': {
@@ -50,7 +57,7 @@ module.exports = {
     'camelcase': [0, {
       'properties': 'always'
     }],
-    'comma-dangle': [0, 'never'],
+    'comma-dangle': 0,
     'comma-spacing': [1, {
       'before': false,
       'after': true
@@ -84,6 +91,7 @@ module.exports = {
     }],
     'new-parens': 2,
     'no-case-declarations': 1,
+    'no-async-promise-executor': 0,
     'no-array-constructor': 2,
     'no-caller': 2,
     'no-console': 'off',
@@ -186,7 +194,7 @@ module.exports = {
       'after': true
     }],
     'space-before-blocks': [1, 'always'],
-    'space-before-function-paren': [1, 'never'],
+    'space-before-function-paren': [0, 'never'],
     'space-in-parens': [1, 'never'],
     'space-infix-ops': 1,
     'space-unary-ops': [2, {

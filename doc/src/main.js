@@ -6,8 +6,8 @@ import router from './router'
 import '@docs/assets/style/normalize.css'
 import '@docs/assets/style/base.scss'
 
-import TankUI from '../src/index'
-import '../src/theme/index.scss'
+import TankUI from '../../src'
+import '../../src/theme/index.scss'
 
 Vue.config.productionTip = false
 

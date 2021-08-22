@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import TreeNode from '../../src/packages/Tree/tree-node'
+import TreeNode from '../../../src/packages/Tree/tree-node'
 
 export default {
   name: 'TreeDemo',

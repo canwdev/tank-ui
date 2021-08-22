@@ -1,6 +1,6 @@
 <template>
   <TkLink href="/" class="nav-logo">
-    <img src="../../src/assets/images/logo.png">
+    <img src="../../../src/assets/images/logo.png">
     <p>TankUI</p>
   </TkLink>
 </template>

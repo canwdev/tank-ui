@@ -94,22 +94,22 @@ const inheritItemDepth = (item) => {
   })
 }
 
-const recursionTraverseTree = (node, depth = 0) => {
-  const list = []
-  if (!node || node.length === 0) return list
-
-  node.forEach((item) => {
-    const children = item.children
-
-    list.push({
-      name: item.name,
-      id: item.id,
-      depth: depth,
-      children: children ? recursionTraverseTree(children, depth + 1) : undefined
-    })
-  })
-  return list
-}
+// const recursionTraverseTree = (node, depth = 0) => {
+//   const list = []
+//   if (!node || node.length === 0) return list
+//
+//   node.forEach((item) => {
+//     const children = item.children
+//
+//     list.push({
+//       name: item.name,
+//       id: item.id,
+//       depth: depth,
+//       children: children ? recursionTraverseTree(children, depth + 1) : undefined
+//     })
+//   })
+//   return list
+// }
 
 export default {
   name: 'TkTreeTable',

@@ -1,7 +1,7 @@
 <template>
   <div class="page-home">
 
-    <img src="../../src/assets/images/logo.png">
+    <img src="../../../src/assets/images/logo.png">
 
     <TkHelloWorld msg="TankUI"/>
     <p>A Minimal Vue 2.0 UI Library.</p>

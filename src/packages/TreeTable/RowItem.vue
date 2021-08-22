@@ -10,10 +10,10 @@
       <div class="tree-title" :style="{paddingLeft: item.depth*32+'px'}">
         <div class="padding-block-wrap">
           <div
-            v-for="(item, index) in paddingBlocks"
+            v-for="(ii, index) in paddingBlocks"
             :key="index"
             class="padding-block"
-            :class="item.className"
+            :class="ii.className"
           ></div>
         </div>
 

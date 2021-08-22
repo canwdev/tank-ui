@@ -10,7 +10,7 @@
 
 <script>
 import {DemoList} from '../enum'
-import TreeNode from '../../src/packages/Tree/tree-node'
+import TreeNode from '../../../src/packages/Tree/tree-node'
 
 export default {
   name: 'DocLeftNav',
