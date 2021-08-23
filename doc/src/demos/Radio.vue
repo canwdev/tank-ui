@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h1>TkRadio</h1>
+    <h2>TkRadio</h2>
 
     <fieldset class="tk-fieldset">
       <legend>Demo</legend>

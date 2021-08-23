@@ -8,4 +8,5 @@ export const DemoList = [
   { name: 'Tree | 树状图', component: 'Tree'},
   { name: 'TreeTable | 树状表格', component: 'TreeTable'},
   { name: 'NavHeader | 导航栏', component: 'NavHeader'},
+  { name: 'AutoRatioBox | 自动宽高比盒子', component: 'AutoRatioBox'},
 ]

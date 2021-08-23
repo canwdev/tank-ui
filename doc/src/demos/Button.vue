@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h1>TkButton</h1>
+    <h2>TkButton</h2>
 
     <fieldset class="tk-fieldset">
       <legend>Size</legend>

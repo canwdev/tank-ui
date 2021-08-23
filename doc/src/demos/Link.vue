@@ -1,6 +1,6 @@
 <template>
   <div class="link-demo">
-    <h1>TkLink</h1>
+    <h2>TkLink</h2>
 
     <fieldset class="tk-fieldset">
       <legend>Demo</legend>

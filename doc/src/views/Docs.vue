@@ -7,11 +7,13 @@
       />
     </div>
     <div class="main">
-      <component
-        :is="selectedComponent"
-        v-if="selectedComponent"
-      ></component>
-      <span v-else>Select a document</span>
+      <template v-if="selectedItem">
+        <h1>{{ selectedItem.name }}</h1>
+        <component
+          :is="selectedItem.component"
+        ></component>
+      </template>
+      <span v-else>Please select a document</span>
     </div>
   </TkContainer>
 </template>
@@ -33,7 +35,7 @@ export default {
   },
   data() {
     return {
-      selectedComponent: null
+      selectedItem: null
     }
   },
   watch: {
@@ -62,7 +64,7 @@ export default {
         return
       }
 
-      this.selectedComponent = item.component
+      this.selectedItem = item
 
       if (this.$route.params.name !== item.component) {
         this.$router.push({

@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h1>TkInput</h1>
+    <h2>TkInput</h2>
 
     <fieldset class="tk-fieldset">
       <legend>Size</legend>

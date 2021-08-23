@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h1>TkToast</h1>
+    <h2>TkToast</h2>
     <fieldset class="tk-fieldset">
       <legend>Demo</legend>
       <TkButton @click="showToast">Show Toast</TkButton>

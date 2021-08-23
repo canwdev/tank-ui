@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <h1>TkSwitch</h1>
+    <h2>TkSwitch</h2>
 
     <fieldset class="tk-fieldset">
       <legend>Demo</legend>
