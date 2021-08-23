@@ -80,6 +80,7 @@ export default {
 .docs-page {
   display: flex;
   flex: 1;
+  overflow: hidden;
 
   .nav {
     height: 100%;
@@ -88,9 +89,11 @@ export default {
   }
 
   .main {
+    box-sizing: border-box;
+    height: 100%;
+    overflow: auto;
     padding: 10px;
     flex: 1;
-    overflow: auto;
   }
 }
 </style>

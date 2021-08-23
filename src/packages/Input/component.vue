@@ -1,9 +1,24 @@
 <template>
+  <textarea
+    v-if="type === 'textarea'"
+    class="tk-input"
+    :class="[sizeClass, themeClass]"
+    v-bind="$attrs"
+    :value="mValue"
+    @compositionstart="handleCompositionStart"
+    @compositionend="handleCompositionEnd"
+    @input="handleInput"
+    @focus="handleFocus"
+    @blur="handleBlur"
+    @change="handleChange"
+  ></textarea>
   <input
+    v-else
     :value="mValue"
     class="tk-input"
     :class="[sizeClass, themeClass]"
     v-bind="$attrs"
+    :type="type"
     @compositionstart="handleCompositionStart"
     @compositionend="handleCompositionEnd"
     @input="handleInput"
@@ -20,6 +35,12 @@ import inputMixin from '@src/mixins/input-mixin.js'
 export default {
   name: 'TkInput',
   mixins: [themeMixin, inputMixin],
+  props: {
+    type: {
+      type: String,
+      default: null
+    }
+  },
   data() {
     return {
       isComposing: false

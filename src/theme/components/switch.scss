@@ -26,6 +26,30 @@
   }
 }
 
+@mixin switchTheme {
+
+  &._theme-success {
+    &.is-checked {
+      background-color: $success;
+    }
+  }
+  &._theme-error {
+    &.is-checked {
+      background-color: $error;
+    }
+  }
+  &._theme-info {
+    &.is-checked {
+      background-color: $info;
+    }
+  }
+  &._theme-warning {
+    &.is-checked {
+      background-color: $warning;
+    }
+  }
+}
+
 
 .tk-switch {
   user-select: none;
@@ -71,6 +95,7 @@
       }
     }
 
+    @include switchTheme;
     @include switchSize;
   }
 
@@ -82,7 +107,7 @@
     background-color: $light;
     display: flex;
     position: relative;
-    @include btnTheme;
+    @include switchTheme;
 
     @include checkboxSize;
 

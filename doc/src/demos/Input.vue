@@ -36,6 +36,16 @@
     </fieldset>
 
     <fieldset class="tk-fieldset">
+      <legend>type="textarea"</legend>
+      <div>
+        <TkInput
+          cols="30"
+          rows="5"
+          type="textarea" v-model="textStr"/>
+      </div>
+    </fieldset>
+
+    <fieldset class="tk-fieldset">
       <legend>v-model</legend>
       <div>
         <TkInput v-model="textStr"/>

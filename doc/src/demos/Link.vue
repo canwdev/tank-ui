@@ -57,6 +57,7 @@
         <TkLink theme="success" href="#">Link (theme="success")</TkLink>
         <TkLink theme="error" href="#">Link (theme="error")</TkLink>
         <TkLink theme="info" href="#">Link (theme="info")</TkLink>
+        <TkLink theme="warning" href="#">Link (theme="warning")</TkLink>
       </div>
     </fieldset>
 

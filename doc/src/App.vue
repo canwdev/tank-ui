@@ -53,5 +53,6 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 </style>
