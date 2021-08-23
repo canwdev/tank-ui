@@ -3,6 +3,7 @@ export const DemoList = [
   { name: 'Input | 输入框', component: 'Input'},
   { name: 'Toast | 提示', component: 'Toast'},
   { name: 'Switch | 开关', component: 'Switcher'},
+  { name: 'Radio | 单选', component: 'Radio'},
   { name: 'Link | 链接', component: 'Link'},
   { name: 'Tree | 树状图', component: 'Tree'},
   { name: 'TreeTable | 树状表格', component: 'TreeTable'},

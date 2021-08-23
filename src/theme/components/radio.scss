@@ -1,0 +1,50 @@
+.tk-radio {
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  &-checkbox {
+    width: 14px;
+    height: 14px;
+    border: $layout-border;
+    border-radius: 50%;
+    background-color: $light;
+    display: flex;
+    position: relative;
+    @include switchTheme;
+
+    @include checkboxSize;
+
+    span {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64%;
+      height: 64%;
+      border-radius: 50%;
+      background-color: inherit;
+      border: 2px solid white;
+    }
+
+    &.is-checked {
+      background-color: $primary;
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  &-text {
+    @include textSize;
+
+    margin-left: 6px;
+  }
+}

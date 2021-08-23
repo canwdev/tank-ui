@@ -86,6 +86,7 @@ export default {
     height: 100%;
     width: 220px;
     border-right: 1px solid $border-color;
+    overflow: auto;
   }
 
   .main {

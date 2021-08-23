@@ -39,6 +39,10 @@ export default {
     type: {
       type: String,
       default: null
+    },
+    clearable: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

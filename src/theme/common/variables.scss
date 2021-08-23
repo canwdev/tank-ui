@@ -117,28 +117,28 @@ $mq_pc_2k_height: 1250px; // 1328px
 
 @mixin checkboxSize {
   &._size-xs {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     font-size: 12px;
   }
   &._size-sm {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
     font-size: 12px;
   }
   &._size-md {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
     font-size: 16px;
   }
   &._size-lg {
-    width: 19px;
-    height: 19px;
+    width: 18px;
+    height: 18px;
     font-size: 18px;
   }
   &._size-xl {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     font-size: 20px;
   }
 }
