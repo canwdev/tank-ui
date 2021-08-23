@@ -38,51 +38,13 @@
   color: white;
   border-radius: $border-radius;
 
-  &._size-xs {
-    font-size: 12px;
-  }
-  &._size-sm {
-    font-size: 14px;
-  }
-  &._size-md {
-    font-size: 16px;
-  }
-  &._size-lg {
-    font-size: 18px;
-  }
-  &._size-xl {
-    font-size: 20px;
-  }
+  @include textSize;
 
   &._size-no-style {
     @include btnNoStyle;
   }
 
-  &._theme-white {
-    background-color: $color-white;
-    color: $color-black;
-  }
-  &._theme-black {
-    background-color: $color-black;
-    color: $color-white;
-  }
-
-  &._theme-success {
-    background-color: $success;
-    color: $color-white;
-  }
-  &._theme-error {
-    background-color: $error;
-    color: $color-white;
-  }
-  &._theme-info {
-    background-color: $info;
-    color: $color-white;
-  }
-  &._theme-warning {
-    background-color: $warning;
-    color: $color-white;
-  }
+  @include btnTheme;
 
   @include btnMixin
 }

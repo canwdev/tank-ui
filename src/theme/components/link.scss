@@ -1,8 +1,13 @@
-.tk-link  {
+.tk-link {
   display: inline-block;
   color: $color-blue;
-  text-decoration: none;&.is-underline  {
-    position: relative;&::after  {
+  text-decoration: none;
+
+
+  &.is-underline {
+    position: relative;
+
+    &::after {
       content: "";
       position: absolute;
       left: 0;
@@ -11,5 +16,29 @@
       bottom: -1px;
       border-bottom: 1px solid $color-blue;
     }
+  }
+  @include textSize;
+
+  &._theme-inherit {
+    color: inherit;
+  }
+  &._theme-white {
+    color: $color-white;
+  }
+  &._theme-black {
+    color: $color-black;
+  }
+
+  &._theme-success {
+    color: $success;
+  }
+  &._theme-error {
+    color: $error;
+  }
+  &._theme-info {
+    color: $info;
+  }
+  &._theme-warning {
+    color: $warning;
   }
 }

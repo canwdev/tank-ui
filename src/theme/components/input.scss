@@ -7,25 +7,7 @@
   border-radius: $border-radius;
   outline-color: $separator-color;
 
-  &._size-xs {
-    font-size: 12px;
-  }
-
-  &._size-sm {
-    font-size: 14px;
-  }
-
-  &._size-md {
-    font-size: 16px;
-  }
-
-  &._size-lg {
-    font-size: 18px;
-  }
-
-  &._size-xl {
-    font-size: 20px;
-  }
+  @include textSize;
 
   &._theme-black {
     border-color: $color-black;

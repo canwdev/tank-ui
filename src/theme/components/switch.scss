@@ -1,3 +1,32 @@
+@mixin switchSize {
+  &._size-xs {
+    width: 20px;
+    height: 10px;
+    font-size: 12px;
+  }
+  &._size-sm {
+    width: 30px;
+    height: 15px;
+    font-size: 12px;
+  }
+  &._size-md {
+    width: 40px;
+    height: 20px;
+    font-size: 16px;
+  }
+  &._size-lg {
+    width: 50px;
+    height: 25px;
+    font-size: 18px;
+  }
+  &._size-xl {
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+  }
+}
+
+
 .tk-switch {
   user-select: none;
   display: inline-flex;
@@ -11,21 +40,17 @@
   &-box {
     width: 40px;
     height: 20px;
-    background-color: $primary;
-    border-radius: 10px;
+    background-color: gray;
+    border-radius: 100px;
     display: flex;
     align-items: center;
-    padding: 0 2px;
+    padding: 0;
     box-sizing: border-box;
     position: relative;
 
-    &.closed {
-      background-color: $color_gray;
-    }
-
     span {
-      width: 16px;
-      height: 16px;
+      width: 37%;
+      height: 80%;
       line-height: 16px;
       overflow: hidden;
       border-radius: 50%;
@@ -35,16 +60,52 @@
       font-size: 12px;
       text-align: center;
       position: absolute;
-      left: 22px;
+      left: 6%;
       transition: 200ms;
+    }
 
-      &.closed {
-        left: 2px;
+    &.is-checked {
+      background-color: $primary;
+      span {
+        left: 58%;
+      }
+    }
+
+    @include switchSize;
+  }
+
+  &-checkbox {
+    width: 15px;
+    height: 15px;
+    border: $layout-border;
+    border-radius: $border-radius;
+    background-color: $light;
+    display: flex;
+    position: relative;
+    @include btnTheme;
+
+    @include checkboxSize;
+
+    span {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &.is-checked {
+      background-color: $primary;
+
+      span {
+        display: block;
       }
     }
   }
 
   &-text {
+    @include textSize;
+
     margin-left: 6px;
   }
 }

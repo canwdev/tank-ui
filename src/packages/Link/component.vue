@@ -1,17 +1,19 @@
 <template>
   <a
-    v-if="isOutLink"
+    v-if="noRouter || isOutLink"
     class="tk-link"
-    :class="{'is-underline': underline}"
+    :class="[sizeClass, themeClass, {'is-underline': underline}]"
     :href="href"
     :target="target"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <slot></slot>
   </a>
   <router-link
     v-else
     class="tk-link"
-    :class="{'is-underline': underline}"
+    :class="[sizeClass, themeClass, {'is-underline': underline}]"
     :to="href"
     :target="target"
   >
@@ -21,9 +23,11 @@
 
 <script>
 import {isOutLink} from '../../utils'
+import themeMixin from '@src/mixins/theme-mixin.js'
 
 export default {
   name: 'TkLink',
+  mixins: [themeMixin],
   props: {
     href: {
       type: String,
@@ -34,6 +38,10 @@ export default {
       default: ''
     },
     underline: {
+      type: Boolean,
+      default: false
+    },
+    noRouter: {
       type: Boolean,
       default: false
     }

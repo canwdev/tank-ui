@@ -1,12 +1,22 @@
 <template>
-  <div
-    class="tk-switch"
+  <button
+    class="tk-switch tk-button-no-style"
     @click="handleChange(value)"
+    :disabled="disabled"
   >
     <div
-      :class="[{closed: !checked}, 'tk-switch-box']"
+      v-if="checkbox"
+      class="tk-switch-checkbox"
+      :class="[sizeClass, themeClass, {'is-checked': checked}]"
     >
-      <span :class="{closed: !checked}">{{ checked ? textOn : textOff }}</span>
+      <span><slot name="checkboxInner">✓</slot></span>
+    </div>
+    <div
+      v-else
+      class="tk-switch-box"
+      :class="[sizeClass, themeClass, {'is-checked': checked}]"
+    >
+      <span>{{ checked ? textOn : textOff }}</span>
     </div>
 
     <input
@@ -18,13 +28,16 @@
       @change="handleChange"
     >
 
-    <span class="tk-switch-text"><slot></slot></span>
-  </div>
+    <span v-if="$slots.default" class="tk-switch-text" :class="sizeClass"><slot></slot></span>
+  </button>
 </template>
 
 <script>
+import themeMixin from '@src/mixins/theme-mixin.js'
+
 export default {
   name: 'TkSwitch',
+  mixins: [themeMixin],
   props: {
     value: {
       type: [Boolean, String, Number],
@@ -39,6 +52,10 @@ export default {
       default: false
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    checkbox: {
       type: Boolean,
       default: false
     },

@@ -1,4 +1,5 @@
 export const typeMap = {
+  primary: 'primary',
   success: 'success',
   info: 'info',
   warning: 'warning',
@@ -6,8 +7,9 @@ export const typeMap = {
 }
 
 export const typeList = [
-  typeMap.success,
   typeMap.info,
+  typeMap.primary,
+  typeMap.success,
   typeMap.warning,
   typeMap.error
 ]

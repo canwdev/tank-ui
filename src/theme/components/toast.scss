@@ -18,6 +18,7 @@
   &.is-center {
     justify-content: center;
   }
+
   &.is-closable {
     .tk-toast__content {
       padding-right: 16px;
@@ -31,6 +32,23 @@
     transform: translateY(-50%);
     cursor: pointer;
 
+  }
+
+  &--success {
+    background: $success;
+    color: white;
+  }
+  &--info {
+    background: $primary;
+    color: white;
+  }
+  &--warning {
+    background: $warning;
+    color: white;
+  }
+  &--error {
+    background: $error;
+    color: white;
   }
 }
 

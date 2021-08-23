@@ -68,3 +68,77 @@ $mq_pc_min_width: 1450px; // 1440px
 $mq_pc_min_height: 768px; // 768px
 $mq_pc_2k_width: 2300px; // 2560px
 $mq_pc_2k_height: 1250px; // 1328px
+
+@mixin btnTheme {
+  &._theme-white {
+    background-color: $color-white;
+    color: $color-black;
+  }
+  &._theme-black {
+    background-color: $color-black;
+    color: $color-white;
+  }
+
+  &._theme-success {
+    background-color: $success;
+    color: $color-white;
+  }
+  &._theme-error {
+    background-color: $error;
+    color: $color-white;
+  }
+  &._theme-info {
+    background-color: $info;
+    color: $color-white;
+  }
+  &._theme-warning {
+    background-color: $warning;
+    color: $color-white;
+  }
+}
+
+@mixin textSize {
+  &._size-xs {
+    font-size: 12px;
+  }
+  &._size-sm {
+    font-size: 14px;
+  }
+  &._size-md {
+    font-size: 16px;
+  }
+  &._size-lg {
+    font-size: 18px;
+  }
+  &._size-xl {
+    font-size: 20px;
+  }
+}
+
+@mixin checkboxSize {
+  &._size-xs {
+    width: 9px;
+    height: 9px;
+    font-size: 12px;
+  }
+  &._size-sm {
+    width: 11px;
+    height: 11px;
+    font-size: 12px;
+  }
+  &._size-md {
+    width: 15px;
+    height: 15px;
+    font-size: 16px;
+  }
+  &._size-lg {
+    width: 19px;
+    height: 19px;
+    font-size: 18px;
+  }
+  &._size-xl {
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+  }
+}

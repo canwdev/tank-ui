@@ -1,6 +1,10 @@
 <template>
   <div class="demo">
-    <TkButton @click="showToast">Show Toast</TkButton>
+    <h1>TkToast</h1>
+    <fieldset class="tk-fieldset">
+      <legend>Demo</legend>
+      <TkButton @click="showToast">Show Toast</TkButton>
+    </fieldset>
     <fieldset class="tk-fieldset">
       <legend>配置</legend>
 
@@ -29,7 +33,7 @@
           </div>
           <div>
             <select
-              v-model="toastConfig.type"
+              v-model="type"
               class="tk-input"
             >
               <option
@@ -40,7 +44,7 @@
               </option>
             </select>
 
-            <span style="padding-left: 10px;">{{ toastConfig.type }}</span>
+            <span style="padding-left: 10px;">{{ type }}</span>
           </div>
         </div>
 
@@ -85,10 +89,10 @@ export default {
   data() {
     return {
       typeList,
+      type: typeList[0],
       toastConfig: {
         message: 'Hello world',
         duration: 3000,
-        type: typeList[0],
         showClose: false,
         center: false,
         dangerouslyUseHTMLString: false,
@@ -97,8 +101,8 @@ export default {
   },
   methods: {
     showToast() {
-      // alert(1)
-      this.$toast.info(this.toastConfig)
+      console.log(this.toastConfig)
+      this.$toast[this.type](this.toastConfig)
     }
   }
 }
