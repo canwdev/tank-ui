@@ -44,7 +44,7 @@
       <div class="mobile-menu-shade" :class="{open: isMobileMenuOpen}" @click="isMobileMenuOpen = false"></div>
     </div>
 
-    <div class="nav-height-placeholder"></div>
+    <div v-show="isMobileMenuOpen" class="nav-height-placeholder"></div>
   </div>
 </template>
 

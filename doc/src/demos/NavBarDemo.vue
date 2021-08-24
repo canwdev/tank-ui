@@ -1,21 +1,28 @@
 <template>
   <div class="nav-header-demo">
     <TkNavBar
-      :menu-list="[
-        {title: 'AAAA', url: '#'},
-        {title: 'BBBB', url: '#'},
-        {title: 'CCCC', url: '', children: [
-          {title: 'DDDD', url: '#'},
-          {title: 'EEEE', url: '#'}
+      :menu="[
+        {title: 'Start', url: '/quickstart'},
+        {title: 'Documents', url: '/docs'},
+        {title: 'Code', url: null, children: [
+          {title: 'Github', url: 'https://github.com/canwdev/tank-ui'},
+          {title: 'Gitee', url: 'https://gitee.com/canwdev/tank-ui'}
         ]}
       ]"
-    ></TkNavBar>
+    >
+      <template slot="left">
+        Left
+      </template>
+      <template slot="right">
+        Right
+      </template>
+    </TkNavBar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NavBarDemo'
+  name: 'NavBarDemo',
 }
 </script>
 
