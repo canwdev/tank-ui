@@ -8,6 +8,6 @@ export const DemoList = [
   { name: 'Card | 卡片', component: 'CardDemo'},
   { name: 'Tree | 树状图', component: 'TreeDemo'},
   { name: 'TreeTable | 树状表格', component: 'TreeTableDemo'},
-  { name: 'NavHeader | 导航栏', component: 'NavHeaderDemo'},
+  { name: 'NavBar | 导航栏', component: 'NavBarDemo'},
   { name: 'AutoRatioBox | 自动宽高比盒子', component: 'AutoRatioBoxDemo'},
 ]

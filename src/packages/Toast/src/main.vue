@@ -20,16 +20,20 @@
         <div v-if="!dangerouslyUseHTMLString" class="tk-toast__content">{{ message }}</div>
         <div v-else class="tk-toast__content" v-html="message"></div>
       </slot>
-      <button v-if="showClose" class="tk-button-no-style tk-toast__closeBtn" @click="close">[X]</button>
+      <TkButton v-if="showClose" class="tk-toast__closeBtn" @click="close">✗</TkButton>
     </div>
   </transition>
 </template>
 
 <script>
 import {typeMap} from './enum'
+import TkButton from '@src/packages/Button'
 
 export default {
   name: 'TkToast',
+  components: {
+    TkButton
+  },
   data() {
     return {
       visible: false,

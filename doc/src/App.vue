@@ -1,24 +1,24 @@
 <template>
   <div id="app" class="tk-scroll" :class="[isDarkTheme ? 'tk-dark-theme' : 'tk-light-theme']">
-    <TkNavHeader
-      :menu-list="[
+    <TkNavBar
+      :menu="[
         {title: 'Start', url: '/quickstart'},
         {title: 'Documents', url: '/docs'},
-        {title: 'Code', url: '', children: [
+        {title: 'Code', url: null, children: [
           {title: 'Github', url: 'https://github.com/canwdev/tank-ui'},
           {title: 'Gitee', url: 'https://gitee.com/canwdev/tank-ui'}
         ]}
       ]"
     >
-      <template slot="headerLeft">
+      <template slot="left">
         <NavLogo></NavLogo>
       </template>
-      <template slot="headerRight">
+      <template slot="right">
         <div class="flex items-center">
-          <TkSwitch v-model="isDarkTheme">Dark Mode</TkSwitch>
+          <TkSwitch v-model="isDarkTheme" text-on="暗" text-off="明"></TkSwitch>
         </div>
       </template>
-    </TkNavHeader>
+    </TkNavBar>
 
     <router-view/>
   </div>
@@ -53,6 +53,5 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
 }
 </style>

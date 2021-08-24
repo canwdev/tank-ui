@@ -1,0 +1,294 @@
+$nav-height: 50px;
+
+@mixin navBackground($opacity: 0.7) {
+  background-color: rgba(0, 0, 0, $opacity);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+@mixin navMobileMenuTransition($t: 0.25s) {
+  transition: all $t $transition_fx2;
+}
+
+.tk-navbar {
+  position: relative;
+  z-index: 999;
+  height: $nav-height;
+
+  .nav-height-placeholder {
+    height: $nav_height;
+  }
+
+  .tk-navbar-inner {
+    height: 100%;
+    border-bottom: $layout-border;
+    background-color: white;
+
+    .tk-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    &.fixed {
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: $nav-height;
+    }
+
+    .nav-left, .nav-right {
+      min-width: 100px;
+    }
+
+    .nav-right {
+      text-align: right;
+    }
+
+    .nav-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      .link-group {
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        @media screen and (max-width: $mq_mobile_width) {
+          height: auto;
+          width: 100%;
+          display: block;
+          overflow: auto;
+          + .link-group {
+            border-top: $layout-border;
+          }
+        }
+
+        &:hover {
+          & > .link-item {
+            text-decoration: none;
+            background: $primary;
+            color: $color-white;
+          }
+
+          .link-submenu {
+            display: block;
+          }
+        }
+      }
+
+      .link-item {
+        display: inline-flex;
+        padding: 0 10px;
+        box-sizing: border-box;
+        height: 70%;
+        align-items: center;
+        justify-content: center;
+        color: $primary;
+        text-decoration: none;
+        border-radius: $border-radius;
+
+        &:hover {
+          text-decoration: none;
+          background: $primary;
+          color: $color-white;
+        }
+
+        &.router-link-active {
+          text-decoration: underline;
+        }
+
+        @media screen and (max-width: $mq_mobile_width) {
+          font-weight: bold;
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+      }
+
+      .link-submenu {
+        display: none;
+        position: absolute;
+        top: 85%;
+        left: 0;
+        background-color: $color-white;
+        border: $layout-border;
+        border-radius: $border-radius;
+
+        @media screen and (max-width: $mq_mobile_width) {
+          border: none;
+          margin-left: 20px;
+          display: block;
+          position: unset;
+          background-color: transparent !important;
+          .link-item {
+            padding: 5px 10px;
+            border-top: $layout-border;
+          }
+        }
+
+        .link-item {
+          font-size: 14px;
+          line-height: 2;
+          width: 100%;
+          justify-content: flex-start;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      align-items: center;
+      margin-left: 5px;
+
+      .btn-openmenu {
+        width: 40px;
+        height: 23px;
+        color: $primary;
+        @include navMobileMenuTransition();
+        position: relative;
+
+        &:before, &:after {
+          background: $primary;
+          content: " ";
+          display: block;
+          position: absolute;
+          top: 10px;
+          width: 13px;
+          height: 1px;
+          z-index: 1;
+          @include navMobileMenuTransition();
+        }
+
+        &:before {
+          right: 50%;
+          transform: rotate(40deg) scaleY(1.5);
+        }
+
+        &:after {
+          left: 39.5%;
+          transform: rotate(-40deg) scaleY(1.5);
+        }
+
+        &.active {
+          &:before {
+            transform: rotate(-40deg) scaleY(1.5);
+          }
+
+          &:after {
+            transform: rotate(40deg) scaleY(1.5);
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $mq_mobile_width) {
+      background-color: transparent !important;
+
+      .tk-container {
+        background-color: white;
+        position: relative;
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          color: $border-color;
+        }
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+      }
+      .mobile-menu {
+        display: flex;
+      }
+      .nav-center {
+        position: absolute;
+        z-index: 100;
+        padding: 0;
+        top: $nav-height;
+        left: 0;
+        right: 0;
+        height: 0;
+        overflow: hidden;
+        @include navMobileMenuTransition();
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+        text-align: left;
+        display: block;
+        background-color: white;
+
+        .link-item {
+          display: block;
+          padding: 10px;
+          box-sizing: border-box;
+          margin-left: 0 !important;
+        }
+
+        &.mobile-open {
+          border-top: $layout-border;
+          color: $color-white;
+          height: auto;
+          padding: 10px 20px 12px;
+        }
+      }
+    }
+  }
+
+  .mobile-menu-shade {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background: transparent;
+    @include navMobileMenuTransition(0.7s);
+    visibility: hidden;
+
+    &.open {
+      visibility: visible;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    @media screen and (max-width: $mq_mobile_width) {
+      display: block;
+    }
+  }
+}
+
+.tk-dark-theme {
+  .tk-navbar {
+    .tk-navbar-inner {
+      background-color: $dark;
+
+      .nav-center {
+        .link-submenu {
+          background-color: $dark;
+        }
+      }
+
+      @media screen and (max-width: $mq_mobile_width) {
+        .tk-container {
+          background-color: $dark;
+        }
+        .nav-center {
+          background-color: $dark;
+        }
+      }
+
+
+    }
+  }
+
+}

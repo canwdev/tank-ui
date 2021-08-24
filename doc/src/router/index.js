@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/docs',
     name: 'DocsIndex',
-    redirect: '/docs/Button'
+    redirect: '/docs/ButtonDemo'
   },
   {
     path: '/docs/:name',

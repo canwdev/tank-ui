@@ -2,7 +2,9 @@
   <TkContainer>
     <h1>QuickStart</h1>
 
+    <AutoRatioBox ratio="3"></AutoRatioBox>
     <p>TODO</p>
+
   </TkContainer>
 </template>
 
@@ -11,5 +13,3 @@
     name: 'QuickStart'
   }
 </script>
-
-

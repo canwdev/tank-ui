@@ -31,11 +31,11 @@ export default {
   props: {
     href: {
       type: String,
-      default: ''
+      default: null
     },
     target: {
       type: String,
-      default: ''
+      default: null
     },
     underline: {
       type: Boolean,

@@ -1,6 +1,6 @@
 <template>
   <div class="nav-header-demo">
-    <TkNavHeader
+    <TkNavBar
       :menu-list="[
         {title: 'AAAA', url: '#'},
         {title: 'BBBB', url: '#'},
@@ -9,13 +9,13 @@
           {title: 'EEEE', url: '#'}
         ]}
       ]"
-    ></TkNavHeader>
+    ></TkNavBar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NavHeaderDemo'
+  name: 'NavBarDemo'
 }
 </script>
 

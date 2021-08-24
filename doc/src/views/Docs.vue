@@ -61,6 +61,7 @@ export default {
     handleSelectItem(item) {
       // console.log('handleSelectItem', item)
       if (!item.component) {
+        this.selectedItem = null
         return
       }
 
@@ -87,7 +88,7 @@ export default {
   .nav {
     height: 100%;
     width: 220px;
-    border-right: 1px solid $border-color;
+    border-right: $layout-border;
     overflow: auto;
   }
 

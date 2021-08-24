@@ -12,7 +12,7 @@ export function pad2Num(num, len = 2) {
 
 export function isOutLink(url) {
   if (!url) {
-    return false
+    return true
   }
   return /^(https?:|mailto:|tel:|[a-zA-Z]{4,}:)/.test(url)
 }
