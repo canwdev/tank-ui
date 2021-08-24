@@ -1,0 +1,63 @@
+.tk-card {
+  border: $layout-border;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  padding: $container-padding;
+
+  @mixin neonBox($color) {
+    color: $color;
+    text-shadow: 0 0 10px $color;
+    border-color: $color;
+    box-shadow: 0 0 6px 1px $color;
+  }
+
+  &._neon {
+    @include neonBox($primary);
+
+    &-secondary {
+      @include neonBox($secondary)
+    }
+
+    &-accent {
+      @include neonBox($accent)
+    }
+
+    &-error {
+      @include neonBox($error)
+    }
+
+    &-info {
+      @include neonBox($info)
+    }
+
+    &-warning {
+      @include neonBox($warning)
+    }
+
+    &-success {
+      @include neonBox($success)
+    }
+  }
+
+  &._shadow {
+    @include boxShadow;
+  }
+
+  &._padding {
+    padding: 15px;
+
+    &-xs {
+      padding: 2px;
+    }
+    &-sm {
+      padding: 5px;
+    }
+    //&-md {}
+    &-lg {
+      padding: 20px;
+    }
+    &-xl {
+      padding: 30px;
+    }
+  }
+}

@@ -70,6 +70,4 @@ name: 'LinkDemo'
 }
 </script>
 
-<style scoped>
 
-</style>

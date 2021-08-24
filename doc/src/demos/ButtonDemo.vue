@@ -40,6 +40,4 @@ name: 'ButtonDemo'
 }
 </script>
 
-<style scoped>
 
-</style>
