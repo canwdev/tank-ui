@@ -11,7 +11,7 @@
             自动使用 router-link
           </div>
           <div>
-            <TkLink href="/docs/Button">to /docs/Button</TkLink>
+            <TkLink href="/docs">to /docs</TkLink>
           </div>
         </div>
 
@@ -20,7 +20,7 @@
             不使用 router-link
           </div>
           <div>
-            <TkLink no-router href="/docs/Button">to /docs/Button</TkLink>
+            <TkLink no-router href="/docs">to /docs</TkLink>
           </div>
         </div>
 

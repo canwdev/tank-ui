@@ -1,14 +1,68 @@
-.tk-block-gap {
-  @mixin gapMixin($gap) {
-    & > * {
-      margin-bottom: $gap/2;
-
-      & + * {
-        margin-left: $gap;
-      }
+@mixin gapMixinX($gap) {
+  & > * {
+    & + * {
+      margin-left: $gap;
     }
   }
+}
 
+@mixin gapMixinY($gap) {
+  & > * {
+    margin-bottom: $gap;
+  }
+}
+
+@mixin gapMixin($gap) {
+  @include gapMixinX($gap);
+  @include gapMixinY($gap);
+}
+
+
+.tk-block-gap-x {
+  &-xs {
+    @include gapMixinX(5px)
+  }
+
+  &-sm {
+    @include gapMixinX(10px)
+  }
+
+  &-md {
+    @include gapMixinX(16px)
+  }
+
+  &-lg {
+    @include gapMixinX(20px)
+  }
+
+  &-xl {
+    @include gapMixinX(26px)
+  }
+}
+
+.tk-block-gap-y {
+  &-xs {
+    @include gapMixinY(5px)
+  }
+
+  &-sm {
+    @include gapMixinY(10px)
+  }
+
+  &-md {
+    @include gapMixinY(16px)
+  }
+
+  &-lg {
+    @include gapMixinY(20px)
+  }
+
+  &-xl {
+    @include gapMixinY(26px)
+  }
+}
+
+.tk-block-gap {
   &-xs {
     @include gapMixin(5px)
   }

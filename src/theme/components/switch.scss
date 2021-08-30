@@ -109,7 +109,7 @@
     position: relative;
     @include switchTheme;
 
-    @include checkboxSize;
+    @include checkloadingSize;
 
     span {
       display: none;

@@ -144,6 +144,28 @@
 }
 /* tools end */
 
+/* animation start */
+
+@keyframes rotating180 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotating360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* animation end */
+
 /* transition start */
 
 // <transition name="fade">
