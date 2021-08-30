@@ -6,32 +6,30 @@
           <slot name="left"></slot>
         </div>
         <div class="nav-center" :class="{'mobile-open': isMobileMenuOpen}">
-          <slot name="center">
-            <div
-              v-for="root in menu"
-              :key="root.id"
-              class="link-group"
-              @click="closeMobileMenu"
+          <div
+            v-for="root in menu"
+            :key="root.id"
+            class="link-group"
+            @click="closeMobileMenu"
+          >
+            <TkLink
+              class="link-item"
+              :href="root.url"
             >
-              <TkLink
-                class="link-item"
-                :href="root.url"
-              >
-                {{ root.title }}
-              </TkLink>
+              {{ root.title }}
+            </TkLink>
 
-              <div v-if="root.children" class="link-submenu">
-                <TkLink
-                  v-for="item in root.children"
-                  :key="item.id"
-                  class="link-item"
-                  :href="item.url"
-                >
-                  {{ item.title }}
-                </TkLink>
-              </div>
+            <div v-if="root.children" class="link-submenu">
+              <TkLink
+                v-for="item in root.children"
+                :key="item.id"
+                class="link-item"
+                :href="item.url"
+              >
+                {{ item.title }}
+              </TkLink>
             </div>
-          </slot>
+          </div>
         </div>
         <div class="nav-right">
           <slot name="right"></slot>

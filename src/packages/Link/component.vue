@@ -23,7 +23,7 @@
 
 <script>
 import {isOutLink} from '../../utils'
-import themeMixin from '@src/mixins/theme-mixin.js'
+import themeMixin from '@src/mixins/theme.js'
 
 export default {
   name: 'TkLink',

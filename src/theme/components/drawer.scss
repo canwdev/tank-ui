@@ -1,0 +1,148 @@
+.tk-side-drawer {
+  $navbarHeight: 40px;
+
+  position: relative;
+  z-index: 1001;
+  user-select: none;
+
+  .bg-shade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .menu-wrap {
+    position: fixed;
+    //left: 0;
+    width: 240px;
+    overflow-x: hidden;
+    background: $light;
+    box-shadow: $common-shadow;
+
+    &._pos-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    &._pos-bottom {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+    &._pos-left {
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+    &._pos-right {
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+
+    .menu-title {
+      font-size: 18px;
+      height: $navbarHeight;
+      line-height: $navbarHeight;
+      padding: 0 10px;
+      font-weight: bold;
+      background: $primary;
+      color: $color-white;
+      position: sticky;
+      top: 0;
+      left: 0;
+
+      .menu-icon {
+        margin-right: 4px;
+      }
+    }
+
+    .subtitle {
+      padding: 0 10px;
+      line-height: 2;
+      border: 1px solid $border-color;
+      border-left: 0;
+      border-right: 0;
+      font-size: 12px;
+      font-weight: bold;
+      //background: rebeccapurple;
+      position: sticky;
+      top: 40px;
+      left: 0;
+    }
+
+    .menu-item {
+      width: 100%;
+      line-height: 40px;
+      min-height: 40px;
+      text-align: left;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+
+      & + .menu-item {
+        border-top: 1px solid $border-color;
+      }
+
+      &.active {
+        background: $primary;
+        color: white;
+
+        .material-icons {
+          color: white;
+        }
+      }
+
+      .material-icons {
+        color: $primary;
+        margin-right: 10px;
+        font-size: 20px;
+      }
+
+      .menu-item-title {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .color-input {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+    }
+  }
+}
+
+.tk-dark-theme {
+  .tk-side-drawer {
+    .menu-wrap{
+      background: $dark;
+
+      .menu-title {
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      .subtitle {
+        background: rgba(0, 0, 0, 0.8);
+        border-color: $border-color;
+      }
+
+      .menu-item {
+        & + .menu-item {
+          border-color: $border-color;
+        }
+      }
+    }
+  }
+}

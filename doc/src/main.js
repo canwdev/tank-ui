@@ -5,11 +5,10 @@ import store from './store'
 import './assets/style/normalize.css'
 import './assets/style/base.scss'
 
-const {tankUI: {default: tankUI}} = window
+// const {tankUI: {default: tankUI}} = window
+// Vue.use(tankUI)
 
 Vue.config.productionTip = false
-
-Vue.use(tankUI)
 
 new Vue({
   router,

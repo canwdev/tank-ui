@@ -1,7 +1,7 @@
 .tk-block-gap {
   @mixin gapMixin($gap) {
     & > * {
-      margin-bottom: $gap;
+      margin-bottom: $gap/2;
 
       & + * {
         margin-left: $gap;

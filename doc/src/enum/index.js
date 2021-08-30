@@ -9,5 +9,6 @@ export const DemoList = [
   { name: 'Tree | 树状图', component: 'TreeDemo'},
   { name: 'TreeTable | 树状表格', component: 'TreeTableDemo'},
   { name: 'NavBar | 导航栏', component: 'NavBarDemo'},
+  { name: 'Drawer | 抽屉', component: 'DrawerDemo'},
   { name: 'AutoRatioBox | 自动宽高比盒子', component: 'AutoRatioBoxDemo'},
 ]

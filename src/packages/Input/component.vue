@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import themeMixin from '@src/mixins/theme-mixin.js'
-import inputMixin from '@src/mixins/input-mixin.js'
+import themeMixin from '@src/mixins/theme.js'
+import inputMixin from '@src/mixins/input.js'
 
 export default {
   name: 'TkInput',

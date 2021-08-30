@@ -6,7 +6,12 @@ module.exports = {
         '@doc': path.join(__dirname, 'src'),
         '@src': path.join(__dirname, '../src')
       }
-    }
+    },
+    externals: [
+      {
+        'vue': 'Vue',
+      }
+    ]
   },
   css: {
     // extract: false,

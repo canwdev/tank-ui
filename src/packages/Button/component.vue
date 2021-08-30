@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import themeMixin from '@src/mixins/theme-mixin.js'
+import themeMixin from '@src/mixins/theme.js'
 export default {
   name: 'TkButton',
   mixins: [themeMixin]
