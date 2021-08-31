@@ -21,8 +21,8 @@
 
           </div>
           <div class="tk-block-gap-xs">
-            <TkSwitch v-model="isShow" text-on="1" text-off="0"></TkSwitch>
-            <TkSwitch v-model="isShow" disabled text-on="1" text-off="0"></TkSwitch>
+            <TkSwitch v-model="isShow" text-on="⏽" text-off="⭘"></TkSwitch>
+            <TkSwitch v-model="isShow" disabled></TkSwitch>
           </div>
         </div>
 
@@ -54,7 +54,7 @@
         <TkSwitch v-model="isShow" size="xs">size="xs"</TkSwitch>
         <TkSwitch v-model="isShow" size="sm">size="sm"</TkSwitch>
         <TkSwitch v-model="isShow" size="lg">size="lg"</TkSwitch>
-        <TkSwitch v-model="isShow" size="xl">size="xl"</TkSwitch>
+        <TkSwitch v-model="isShow" size="xl" text-on="开" text-off="关">size="xl"</TkSwitch>
       </div>
       <div class="tk-block-gap-md">
         <TkSwitch v-model="isShow" checkbox size="xs">size="xs"</TkSwitch>
