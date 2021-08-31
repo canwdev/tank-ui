@@ -1,6 +1,7 @@
 export const DemoList = [
   { name: 'Button | 按钮', component: 'ButtonDemo'},
   { name: 'Input | 输入框', component: 'InputDemo'},
+  { name: 'Dropdown | 下拉菜单', component: 'DropdownDemo'},
   { name: 'Toast | 提示', component: 'ToastDemo'},
   { name: 'Switch | 开关', component: 'SwitchDemo'},
   { name: 'Radio | 单选', component: 'RadioDemo'},

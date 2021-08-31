@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h2>TkLoading</h2>
+
     <TkLoading visible></TkLoading>
 
     <fieldset class="tk-fieldset">
