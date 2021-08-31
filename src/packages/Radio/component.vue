@@ -4,7 +4,7 @@
       class="tk-radio-checkbox"
       :class="[sizeClass, themeClass, {'is-checked': mValue === val}]"
     >
-      <span><slot name="checkboxInner"></slot></span>
+      <span></span>
     </div>
 
     <input v-model="mValue" type="radio" :value="val">

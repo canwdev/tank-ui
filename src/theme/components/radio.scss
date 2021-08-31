@@ -16,12 +16,15 @@
     background-color: $light;
     display: flex;
     position: relative;
+    transition: $common-transition;
+
     @include switchTheme;
 
-    @include checkloadingSize;
+    @include checkboxSize;
 
     span {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -31,13 +34,15 @@
       border-radius: 50%;
       background-color: inherit;
       border: 2px solid white;
+      transition: $common-transition;
     }
 
     &.is-checked {
       background-color: $primary;
 
       span {
-        display: block;
+        visibility: visible;
+        opacity: 1;
       }
     }
   }

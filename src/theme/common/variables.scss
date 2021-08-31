@@ -5,6 +5,7 @@ $accent: #ec407a; // rgba(255, 128, 192);
 $border-color: rgb(204, 204, 204, .5);
 $separator-color: rgba(148, 148, 148, .32);
 $common-padding: 0.8% 1.6%;
+$common-transition: all .3s;
 $border-radius: 4px;
 $container-width: 1400px;
 $container-padding: 10px;
@@ -79,6 +80,14 @@ $mq_pc_2k_height: 1250px; // 1328px
     background-color: $color-black;
     color: $color-white;
   }
+  &._theme-accent {
+    background-color: $accent;
+    color: $color-white;
+  }
+  &._theme-secondary {
+    background-color: $secondary;
+    color: $color-white;
+  }
 
   &._theme-success {
     background-color: $success;
@@ -116,7 +125,7 @@ $mq_pc_2k_height: 1250px; // 1328px
   }
 }
 
-@mixin checkloadingSize {
+@mixin checkboxSize {
   &._size-xs {
     width: 8px;
     height: 8px;
@@ -144,35 +153,3 @@ $mq_pc_2k_height: 1250px; // 1328px
   }
 }
 
-@mixin loadingSize {
-  &._size-xs {
-    width: 10px;
-    height: 10px;
-    font-size: 12px;
-    border-width: 4px;
-  }
-  &._size-sm {
-    width: 20px;
-    height: 20px;
-    font-size: 14px;
-    border-width: 6px;
-  }
-  &._size-md {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    border-width: 10px;
-  }
-  &._size-lg {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    border-width: 10px;
-  }
-  &._size-xl {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    border-width: 15px;
-  }
-}

@@ -26,6 +26,8 @@
       <legend>Theme</legend>
       <div class="tk-block-gap-md">
         <TkRadio theme="success" v-model="selected" val="A">A (theme="success")</TkRadio>
+        <TkRadio theme="accent" v-model="selected" val="A">A (theme="accent")</TkRadio>
+        <TkRadio theme="secondary" v-model="selected" val="A">A (theme="secondary")</TkRadio>
         <TkRadio theme="error" v-model="selected" val="A">A (theme="error")</TkRadio>
         <TkRadio theme="info" v-model="selected" val="A">A (theme="info")</TkRadio>
         <TkRadio theme="warning" v-model="selected" val="A">A (theme="warning")</TkRadio>

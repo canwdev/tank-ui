@@ -54,6 +54,8 @@
         <TkLink theme="inherit" href="#">Link (theme="inherit")</TkLink>
         <TkLink theme="white" href="#">Link (theme="white")</TkLink>
         <TkLink theme="black" href="#">Link (theme="black")</TkLink>
+        <TkLink theme="accent" href="#">Link (theme="accent")</TkLink>
+        <TkLink theme="secondary" href="#">Link (theme="secondary")</TkLink>
         <TkLink theme="success" href="#">Link (theme="success")</TkLink>
         <TkLink theme="error" href="#">Link (theme="error")</TkLink>
         <TkLink theme="info" href="#">Link (theme="info")</TkLink>

@@ -3,13 +3,15 @@
     class="tk-switch tk-button-no-style"
     @click="handleChange(value)"
     :disabled="disabled"
+    v-bind="$attrs"
+    v-on="$listeners"
   >
     <div
       v-if="checkbox"
       class="tk-switch-checkbox"
       :class="[sizeClass, themeClass, {'is-checked': checked}]"
     >
-      <span><slot name="checkboxInner">✓</slot></span>
+      <span><template v-if="!$scopedSlots.inner">✓</template><slot name="inner"></slot></span>
     </div>
     <div
       v-else
@@ -75,6 +77,7 @@ export default {
   },
   methods: {
     handleChange() {
+      console.log(this)
       this.$emit('input', !this.checked ? this.activeValue : this.inactiveValue)
     }
   }

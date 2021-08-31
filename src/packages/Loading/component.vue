@@ -5,7 +5,7 @@
         class="loading-spinner"
         :class="[sizeClass, themeClass]"
       ></span>
-      <span v-if="text" class="text">{{ text }}</span>
+      <span v-if="text" class="loading-text" :class="[sizeClass]">{{ text }}</span>
     </div>
   </transition>
 </template>

@@ -19,6 +19,17 @@
     color: $color-black;
   }
 
+  &._theme-accent {
+    border-color: $accent;
+    outline-color: $accent;
+    color: $accent;
+  }
+  &._theme-secondary {
+    border-color: $secondary;
+    outline-color: $secondary;
+    color: $secondary;
+  }
+
   &._theme-success {
     border-color: $success;
     outline-color: $success;

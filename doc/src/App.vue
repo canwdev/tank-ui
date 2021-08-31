@@ -14,7 +14,7 @@
         <NavLogo></NavLogo>
       </template>
       <template slot="right">
-        <div class="flex items-center">
+        <div class="flex items-center justify-end">
           <TkSwitch v-model="isDarkTheme" text-on="暗" text-off="明"></TkSwitch>
         </div>
       </template>

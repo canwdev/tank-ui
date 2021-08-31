@@ -42,6 +42,14 @@
     background: $primary;
     color: white;
   }
+  &--secondary {
+    background: $secondary;
+    color: white;
+  }
+  &--accent {
+    background: $accent;
+    color: white;
+  }
   &--warning {
     background: $warning;
     color: white;

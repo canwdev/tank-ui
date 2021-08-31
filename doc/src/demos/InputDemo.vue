@@ -20,6 +20,8 @@
       <div class="tk-block-gap-xs flex items-center">
         <TkInput theme="black" value="black"/>
         <TkInput theme="success" value="success"/>
+        <TkInput theme="accent" value="accent"/>
+        <TkInput theme="secondary" value="secondary"/>
         <TkInput theme="error" value="error"/>
         <TkInput theme="info" value="info"/>
         <TkInput theme="warning" value="warning"/>

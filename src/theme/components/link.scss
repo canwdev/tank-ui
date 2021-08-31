@@ -17,6 +17,12 @@
   &._theme-black {
     color: $color-black;
   }
+  &._theme-accent {
+    color: $accent;
+  }
+  &._theme-secondary {
+    color: $secondary;
+  }
 
   &._theme-success {
     color: $success;

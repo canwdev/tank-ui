@@ -41,7 +41,7 @@
           </div>
           <div class="tk-block-gap-xs">
             <TkSwitch v-model="isShow" checkbox></TkSwitch>
-            <TkSwitch v-model="isShow" checkbox><template v-slot:checkboxInner>✗</template></TkSwitch>
+            <TkSwitch v-model="isShow" checkbox><template v-slot:inner>✗</template></TkSwitch>
             <TkSwitch v-model="isShow" disabled checkbox></TkSwitch>
           </div>
         </div>
@@ -68,12 +68,16 @@
       <legend>Theme</legend>
 
       <div class="tk-block-gap-md">
+        <TkSwitch v-model="isShow" theme="accent">theme="accent"</TkSwitch>
+        <TkSwitch v-model="isShow" theme="secondary">theme="secondary"</TkSwitch>
         <TkSwitch v-model="isShow" theme="success">theme="success"</TkSwitch>
         <TkSwitch v-model="isShow" theme="error">theme="error"</TkSwitch>
         <TkSwitch v-model="isShow" theme="info">theme="info"</TkSwitch>
         <TkSwitch v-model="isShow" theme="warning">theme="warning"</TkSwitch>
       </div>
       <div class="tk-block-gap-md">
+        <TkSwitch v-model="isShow" checkbox theme="accent">theme="accent"</TkSwitch>
+        <TkSwitch v-model="isShow" checkbox theme="secondary">theme="secondary"</TkSwitch>
         <TkSwitch v-model="isShow" checkbox theme="success">theme="success"</TkSwitch>
         <TkSwitch v-model="isShow" checkbox theme="error">theme="error"</TkSwitch>
         <TkSwitch v-model="isShow" checkbox theme="info">theme="info"</TkSwitch>
@@ -96,7 +100,7 @@ export default {
 
   data() {
     return {
-      isShow: false
+      isShow: true
     }
   }
 }
