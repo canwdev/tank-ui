@@ -13,4 +13,5 @@ export const DemoList = [
   { name: 'Drawer | 抽屉', component: 'DrawerDemo'},
   { name: 'Loading | 加载', component: 'LoadingDemo'},
   { name: 'AutoRatioBox | 自动宽高比盒子', component: 'AutoRatioBoxDemo'},
+  { name: '其他', component: 'MiscDemo'},
 ]

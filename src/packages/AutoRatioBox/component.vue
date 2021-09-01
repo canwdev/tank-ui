@@ -2,17 +2,17 @@
   <div class="auto-ratio-box" :class="{'_max-height': isY}">
     <svg
       v-if="isY"
-      class="auto-ratio-box-height-box"
+      class="__height-box"
       :viewBox="`0 0 100 ${percent}`"
     >
     </svg>
     <div
       v-else
-      class="auto-ratio-box-height-box"
+      class="__height-box"
       :style="{paddingBottom: `${percent}%`}"
     ></div>
 
-    <div class="box-content">
+    <div class="__box-content">
       <slot>
       </slot>
     </div>
@@ -68,12 +68,12 @@ export default {
     width: fit-content;
     height: 100%;
 
-    .auto-ratio-box-height-box {
+    .__height-box {
       height: 100%;
     }
   }
 
-  .box-content {
+  .__box-content {
     position: absolute;
     top: 0;
     left: 0;

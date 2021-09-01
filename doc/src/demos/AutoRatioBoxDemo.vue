@@ -27,7 +27,7 @@ export default {
   background: $primary;
   color: white;
   margin: 10px;
-  ::v-deep .box-content {
+  ::v-deep .__box-content {
     display: flex;
     align-items: center;
     justify-content: center;
