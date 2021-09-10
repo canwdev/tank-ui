@@ -1,0 +1,79 @@
+.tk-modal-dialog-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  &.fixed {
+    position: fixed;
+  }
+
+  .dialog-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .dialog-main {
+    border-radius: $border-radius;
+    position: relative;
+    background: white;
+    color: black;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+
+    &.no-radius {
+      border-radius: 0;
+    }
+
+    &.dark {
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      box-shadow: 0 0 8px 2px $primary;
+
+      & > .btn-close {
+        background: $dark;
+        color: $primary;
+        box-shadow: 0 0 8px 2px $primary;
+      }
+    }
+
+    .btn-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      z-index: 2;
+      background: white;
+      color: $primary;
+      width: 28px;
+      height: 28px;
+      //border-radius: $generic-border-radius;
+      border-radius: 50%;
+      border: 2px solid;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+      @media screen and (max-width: $mq_mobile_min_width) {
+        top: 5px;
+        right: 5px;
+      }
+    }
+
+    .dialog-inner {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      box-sizing: border-box;
+
+      &.limited-size {
+        max-width: 95vw;
+        max-height: 92vh;
+      }
+    }
+  }
+}

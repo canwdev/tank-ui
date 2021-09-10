@@ -5,7 +5,7 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot></slot>
+    <slot>{{label}}</slot>
   </button>
 </template>
 
@@ -13,6 +13,12 @@
 import themeMixin from '@src/mixins/theme.js'
 export default {
   name: 'TkButton',
-  mixins: [themeMixin]
+  mixins: [themeMixin],
+  props: {
+    label: {
+      type: [String, Number, Boolean],
+      default: null
+    }
+  }
 }
 </script>

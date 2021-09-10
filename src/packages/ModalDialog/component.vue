@@ -1,0 +1,70 @@
+<template>
+  <transition name="fade">
+    <div v-show="mValue" class="tk-modal-dialog-wrap" :class="{fixed}">
+      <div class="dialog-shadow" @click="clickOutside"></div>
+      <div class="dialog-main" :class="{dark, 'no-radius': noRadius}">
+        <button v-if="isShowClose" class="btn-no-style btn-close" @click="closeDialog">
+          <i class="material-icons">clear</i>
+        </button>
+        <div class="dialog-inner" :class="{'limited-size': !unlimitedSize}">
+          <slot></slot>
+        </div>
+      </div>
+    </div>
+  </transition>
+</template>
+
+<script>
+import inputMixin from '@src/mixins/input'
+
+export default {
+  name: 'TkModalDialog',
+  mixins: [inputMixin],
+  props: {
+    isShowClose: {
+      type: Boolean,
+      default: false
+    },
+    dark: {
+      type: Boolean,
+      default: false
+    },
+    unlimitedSize: {
+      type: Boolean,
+      default: false
+    },
+    noRadius: {
+      type: Boolean,
+      default: false
+    },
+    persistent: {
+      type: Boolean,
+      default: false
+    },
+    preventClose: {
+      type: Boolean,
+      default: false
+    },
+    fixed: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    clickOutside() {
+      if (!this.persistent) {
+        this.mValue = false
+      }
+    },
+    closeDialog() {
+      if (!this.preventClose) {
+        this.mValue = false
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
