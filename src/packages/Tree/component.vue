@@ -3,10 +3,20 @@
     <TkTreeItem
       ref="treeFirstItem"
       :item="nodes"
-      :selected="selected"
+      :selected-id="selectedId"
       @onItemClick="$emit('onItemClick', $event)"
+      @onItemDbClick="$emit('onItemDbClick', $event)"
       @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
     >
+      <template v-slot:icon="{data}">
+        <slot name="icon" :data="data"></slot>
+      </template>
+      <template v-slot:title="{item}">
+        <slot name="title" :item="item"></slot>
+      </template>
+      <template v-slot:append="{item}">
+        <slot name="append" :item="item"></slot>
+      </template>
     </TkTreeItem>
   </div>
 </template>
@@ -30,7 +40,7 @@ export default {
       }
     },
     // 当前选中的 id
-    selected: {
+    selectedId: {
       type: [Number, String],
       default: null
     }
@@ -38,6 +48,15 @@ export default {
   mounted() {
     // 自动打开第一个节点
     this.$refs.treeFirstItem.handleClick()
-  }
+  },
+  // methods() {
+  //
+  // }
 }
 </script>
+
+<style lang="scss" scoped>
+.tk-tree {
+  width: 100%;
+}
+</style>

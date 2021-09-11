@@ -46,3 +46,12 @@ export function merge(target) {
 export const isObject = function(obj) {
   return obj !== null && typeof obj === 'object'
 }
+
+export class IncreaseNumber {
+  constructor(seed = 0) {
+    this.seed = seed
+  }
+  get() {
+    return ++this.seed
+  }
+}

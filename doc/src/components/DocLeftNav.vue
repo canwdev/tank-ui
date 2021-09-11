@@ -2,8 +2,8 @@
   <div class="demo-left-bar">
     <TkTree
       :nodes="treeData"
-      :selected="selected"
-      @onItemClick="handleClick"
+      :selected-id="selected && selected.id"
+      @onItemClick="handleNodeClick"
     />
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       treeData: new TreeNode({
-        name: 'Documents',
+        title: 'Documents',
         children: DemoList.map(item => new TreeNode(item))
       }),
       selected: null,
@@ -25,15 +25,16 @@ export default {
     }
   },
   methods: {
-    handleClick(node) {
-      this.selected = node.id
+    handleNodeClick(node) {
+      this.selected = node
       this.$emit('selectItem', node)
     },
     goItem(component) {
       let result = null
 
       function traverse(node) {
-        if (node.component === component) {
+        const {data} = node
+        if (data.component === component) {
           result = node
           return
         }
@@ -41,7 +42,8 @@ export default {
         if (node.children) {
           for (const i in node.children) {
             const n = node.children[i]
-            if (n.component === component) {
+            const {data} = n
+            if (data.component === component) {
               result = n
               break
             }
@@ -53,7 +55,7 @@ export default {
       traverse(this.treeData)
 
       if (result) {
-        this.handleClick(result)
+        this.handleNodeClick(result)
       }
     }
   }

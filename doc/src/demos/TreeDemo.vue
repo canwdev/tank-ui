@@ -4,7 +4,7 @@
       <div class="panel-left">
         <TkTree
           :nodes="treeData"
-          :selected="selected"
+          :selected-id="selected && selected.id"
           @onItemClick="handleClick"
           @onItemLazyLoad="handleLazyLoad"
         />
@@ -12,45 +12,45 @@
 
       <div class="panel-right">
         <p>path: {{ breadcrumbList.join(' > ') }}</p>
-        <p>selected: {{ selected }}</p>
+        <p>selected: {{ selected && selected.id }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TreeNode from '../../../src/packages/Tree/tree-node'
+import TreeNode from '@src/packages/Tree/tree-node'
 
 export default {
   name: 'TreeDemo',
   data() {
     return {
       treeData: new TreeNode({
-        name: 'My Tree',
+        title: 'My Tree',
         children: [
           {
-            name: 'hello'
+            title: 'hello'
           },
           {
-            name: 'wat'
+            title: 'wat'
           },
           {
-            name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
-            lazy: true
+            title: 'New Lazy Folder New Lazy Folder New Lazy Folder',
+            isLazy: true
           },
           {
-            name: 'child folder',
+            title: 'child folder',
             children: [
               {
-                name: 'child folder',
-                children: [{name: 'hello'}, {name: 'wat'}].map(i => new TreeNode(i))
+                title: 'child folder',
+                children: [{title: 'hello'}, {title: 'wat'}].map(i => new TreeNode(i))
               },
               {
-                name: 'child folder',
-                children: [{name: 'hello'}, {name: 'wat'}].map(i => new TreeNode(i))
+                title: 'child folder',
+                children: [{title: 'hello'}, {title: 'wat'}].map(i => new TreeNode(i))
               },
-              {name: 'hello'},
-              {name: 'wat'}
+              {title: 'hello'},
+              {title: 'wat'}
             ].map(i => new TreeNode(i))
           }
         ].map(i => new TreeNode(i))
@@ -61,14 +61,14 @@ export default {
   },
   methods: {
     handleClick(node) {
-      this.selected = node.id
+      this.selected = node
       console.log('handleClick', node)
       const list = this.getNodePathById(node.id)
-      this.breadcrumbList = [this.treeData, ...list].map(item => item.name)
+      this.breadcrumbList = [this.treeData, ...list].map(item => item.title)
     },
     // 根据 id 获取当前路径数组
     getNodePathById(id) {
-      id = id !== undefined ? id : this.selected
+      id = id !== undefined ? id : this.selected.id
       const rootNode = this.treeData
       if (id === rootNode.id) {
         return []
@@ -111,19 +111,19 @@ export default {
       setTimeout(() => {
         // fail()
         done([
-          {name: 'hello'},
+          {title: 'hello'},
           {
-            name: 'New Lazy Folder New Lazy Folder New Lazy Folder',
-            lazy: true
+            title: 'New Lazy Folder New Lazy Folder New Lazy Folder',
+            isLazy: true
           },
-          {name: 'wat'},
+          {title: 'wat'},
           {
-            name: 'Empty Folder',
+            title: 'Empty Folder',
             children: []
           },
           {
-            name: 'Lazy',
-            lazy: true
+            title: 'Lazy',
+            isLazy: true
           }
         ].map(i => new TreeNode(i)))
       }, 500)

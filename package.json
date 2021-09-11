@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "bootstrap": "yarn && yarn --cwd ./doc install",
+    "ist": "yarn && yarn --cwd ./doc install",
     "dev": "webpack-dev-server --progress --config=build/index.js --env development",
     "build": "webpack --config=build/index.js --module-bind js=babel-loader --env production",
     "doc": "yarn --cwd ./doc serve",

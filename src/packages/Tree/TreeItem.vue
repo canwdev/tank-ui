@@ -3,13 +3,14 @@
     <div
       class="tree-item-title tree-bg-line"
       :class="{'is-last': isLast, 'is-selected': isSelected}"
-      :title="item.name"
+      :title="item.title"
       @click="handleClick"
-      @dblclick="handleToggleOpen"
+      @dblclick="handleDbClick"
     >
       <img v-if="item.isLoading" src="./images/loading.gif" class="loading-img">
       <div
         v-else-if="isFolder && !isFolderEmpty"
+        class="flex"
         @click.stop="handleToggleOpen"
       >
         <img v-if="item.isOpen" class="node-open-close" src="./images/line-node-open.png">
@@ -21,20 +22,36 @@
         <img v-if="isFolder" src="./images/folder.png">
         <img v-else src="./images/file.png">
 
-        {{ item.name }}
+        <span class="title text-overflow">
+          {{ item.title || item.id }}
+        </span>
+        <span class="append flex items-center" @click.stop>
+          <slot name="append" :item="item"></slot>
+        </span>
       </div>
     </div>
-    <div v-show="item.isOpen" v-if="isFolder">
+    <div v-show="item.isOpen" v-if="isFolder" class="tree-item-sub">
       <TkTreeItem
         v-for="(child, index) in item.children"
         :key="index"
         class="item"
         :item="child"
-        :selected="selected"
+        :selected-id="selectedId"
         :is-last="index === item.children.length - 1"
         @onItemClick="$emit('onItemClick', $event)"
+        @onItemDbClick="$emit('onItemDbClick', $event)"
         @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
-      ></TkTreeItem>
+      >
+        <template #icon="{data}">
+          <slot name="icon" :data="data"></slot>
+        </template>
+        <template #title="{item}">
+          <slot name="title" :item="item"></slot>
+        </template>
+        <template #append="{item}">
+          <slot name="append" :item="item"></slot>
+        </template>
+      </TkTreeItem>
     </div>
   </div>
 </template>
@@ -44,14 +61,17 @@ export default {
   name: 'TkTreeItem',
   props: {
     // 当前节点对象
-    item: Object,
+    item: {
+      type: Object,
+      required: true
+    },
     // 是否为最后一个节点（自动判断）
     isLast: {
       type: Boolean,
       default: true
     },
     // 当前选中节点 id
-    selected: {
+    selectedId: {
       type: [Number, String],
       default: null
     }
@@ -59,7 +79,7 @@ export default {
   computed: {
     // 是否为文件夹（或懒加载项）
     isFolder() {
-      return this.item.lazy || this.item.children
+      return Boolean(this.item.isLazy || this.item.children)
     },
     // 是否为空文件夹
     isFolderEmpty() {
@@ -67,11 +87,12 @@ export default {
     },
     // 当前节点是否选中
     isSelected() {
-      return this.item.id === this.selected
+      return this.item.id === this.selectedId
     }
   },
   created() {
-    this.item.toggleOpen = this.handleClick
+    this.item.$click = this.handleClick
+    this.item.$doLazyLoad = this.doLazyLoad
   },
   methods: {
     /**
@@ -81,48 +102,32 @@ export default {
       this.$emit('onItemClick', this.item)
       this.handleToggleOpen({isOpen: true})
     },
+    handleDbClick() {
+      this.$emit('onItemDbClick', this.item)
+      this.handleToggleOpen()
+    },
     /**
      * 开关节点
      * isOpen boolean 强制打开或关闭
      */
     handleToggleOpen({isOpen} = {}) {
-      if (this.item.lazy && !this.item.isLoading) {
+      if (this.item.isLazy && !this.item.isLoading) {
         this.item.isLoading = true
-        this.$emit('onItemLazyLoad', this.lazyLoad())
+        this.doLazyLoad()
       } else if (this.item.children) {
         this.item.isOpen = isOpen !== undefined ? isOpen : !this.item.isOpen
       }
     },
-    /**
-     * 处理异步加载的数据
-     * node 节点
-     * key 节点 id
-     * done 异步加载成功后回调，传入 children 数组
-     * fail 异步加载失败后回调
-     * @returns {{node: Object, fail: fail, done: done, key: *}}
-     */
-    lazyLoad() {
-      return {
-        node: this.item,
-        key: this.item.id,
-        done: (children) => {
-          // this.item.children = children
-          this.$set(this.item, 'children', children)
-          this.item.isOpen = true
-          this.item.isLoading = false
-          this.item.lazy = false
-        },
-        fail: () => {
-          console.error('lazyLoad fail')
-          this.item.isLoading = false
-        }
-      }
+    doLazyLoad() {
+      this.item.children = []
+      this.$emit('onItemLazyLoad', this.item.lazyLoad())
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>.tree-bg-line {
+<style lang="scss" scoped>
+.tree-bg-line {
   background-repeat: repeat-y;
   background-image: url("./images/line.png");
 
@@ -140,6 +145,9 @@ export default {
     margin-left: 32px;
   }
 
+  .tree-item-sub {
+  }
+
   .tree-item-title {
     display: flex;
     align-items: center;
@@ -149,21 +157,28 @@ export default {
       flex: 1;
       display: flex;
       align-items: center;
-      border-radius: 3px;
-      padding-right: 5px;
-      margin-right: 5px;
+      justify-content: space-between;
+      border-radius: $border-radius;
+      padding: 0 2px;
+      margin-right: 4px;
+      height: 32px;
+
+      .title {
+        margin-left: 4px;
+        flex: 1;
+      }
     }
 
     &.is-selected {
       .title-inner {
-        background-color: rgba(134, 134, 134, 0.36);
+        background-color: $primary; //rgba(134, 134, 134, 0.36);
+        color: white;
       }
     }
 
     .loading-img {
       margin-left: 8px;
       margin-right: 8px;
-      background: white;
       flex-shrink: 0;
     }
 

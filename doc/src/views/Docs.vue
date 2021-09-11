@@ -10,7 +10,7 @@
       <template v-if="selectedItem">
         <h1>{{ selectedItem.name }}</h1>
         <component
-          :is="selectedItem.component"
+          :is="selectedItem.data.component"
         ></component>
       </template>
       <span v-else>Please select a document</span>
@@ -24,7 +24,7 @@ import {DemoList} from '../enum'
 
 const dynamicImportComponents = {}
 DemoList.forEach(item => {
-  dynamicImportComponents[item.component] = resolve => require([`@doc/demos/${item.component}`], resolve)
+  dynamicImportComponents[item.data.component] = resolve => require([`@doc/demos/${item.data.component}`], resolve)
 })
 
 export default {
@@ -59,18 +59,19 @@ export default {
       }
     },
     handleSelectItem(item) {
-      // console.log('handleSelectItem', item)
-      if (!item.component) {
+      console.log('handleSelectItem', item)
+      const {data} = item
+      if (!data.component) {
         this.selectedItem = null
         return
       }
 
       this.selectedItem = item
 
-      if (this.$route.params.name !== item.component) {
+      if (this.$route.params.name !== data.component) {
         this.$router.push({
           params: {
-            name: item.component
+            name: data.component
           }
         })
       }
