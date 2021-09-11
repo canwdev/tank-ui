@@ -28,6 +28,7 @@ module.exports = {
   //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
     'vue/no-mutating-props': 'off',
+    'vue/no-template-shadow': 'off',
     'no-prototype-builtins': 'off',
     'vue/max-attributes-per-line': [1, {
       'singleline': 10,

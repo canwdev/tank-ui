@@ -3,8 +3,8 @@
     <h2>TkCard</h2>
     <div class="tk-block-gap-md">
 
-    <TkCard class="inline-block">Inline Card</TkCard>
-    <TkCard shadow>shadow</TkCard>
+    <TkCard solid class="inline-block">Inline Card</TkCard>
+    <TkCard solid shadow>shadow</TkCard>
     <TkCard padding="xs">padding="xs"</TkCard>
     <TkCard padding="sm">padding="sm"</TkCard>
     <TkCard padding="lg">padding="lg"</TkCard>

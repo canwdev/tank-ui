@@ -20,7 +20,7 @@
         <div v-if="!dangerouslyUseHTMLString" class="tk-toast__content">{{ message }}</div>
         <div v-else class="tk-toast__content" v-html="message"></div>
       </slot>
-      <TkButton size="no-style" v-if="showClose" class="tk-toast__closeBtn" @click="close">✗</TkButton>
+      <TkButton v-if="showClose" size="no-style" class="tk-toast__closeBtn" @click="close">✗</TkButton>
     </div>
   </transition>
 </template>

@@ -4,6 +4,10 @@
   box-sizing: border-box;
   padding: $container-padding;
 
+  &._solid {
+    background: $color-white;
+  }
+
   @mixin neonBox($color) {
     color: $color;
     text-shadow: 0 0 10px $color;
@@ -49,15 +53,26 @@
     &-xs {
       padding: 2px;
     }
+
     &-sm {
       padding: 5px;
     }
+
     //&-md {}
     &-lg {
       padding: 20px;
     }
+
     &-xl {
       padding: 30px;
+    }
+  }
+}
+
+.tk-dark-theme {
+  .tk-card {
+    &._solid {
+      background: $dark-page;
     }
   }
 }

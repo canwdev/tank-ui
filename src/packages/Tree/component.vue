@@ -8,13 +8,13 @@
       @onItemDbClick="$emit('onItemDbClick', $event)"
       @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
     >
-      <template v-slot:icon="{data}">
+      <template #icon="{data}">
         <slot name="icon" :data="data"></slot>
       </template>
-      <template v-slot:title="{item}">
+      <template #title="{item}">
         <slot name="title" :item="item"></slot>
       </template>
-      <template v-slot:append="{item}">
+      <template #append="{item}">
         <slot name="append" :item="item"></slot>
       </template>
     </TkTreeItem>

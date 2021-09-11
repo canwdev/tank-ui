@@ -1,5 +1,5 @@
 export default {
-  props:{
+  props: {
     visible: {
       type: Boolean,
       default: false

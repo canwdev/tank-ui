@@ -1,9 +1,9 @@
 <template>
   <button
     class="tk-switch tk-button-no-style"
-    @click="handleChange(value)"
     :disabled="disabled"
     v-bind="$attrs"
+    @click="handleChange(value)"
     v-on="$listeners"
   >
     <div

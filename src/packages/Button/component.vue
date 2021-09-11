@@ -5,7 +5,7 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot>{{label}}</slot>
+    <slot>{{ label }}</slot>
   </button>
 </template>
 

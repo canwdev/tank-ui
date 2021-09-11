@@ -16,6 +16,10 @@ export default {
       type: [Boolean],
       default: null
     },
+    solid: {
+      type: Boolean,
+      default: false
+    },
     padding: {
       type: [Boolean, String],
       default: null
@@ -24,6 +28,10 @@ export default {
   computed: {
     classNames() {
       const cls = []
+
+      if (this.solid) {
+        cls.push('_solid')
+      }
 
       if (this.neon) {
         if (typeof this.neon === 'boolean') {
@@ -47,5 +55,4 @@ export default {
   }
 }
 </script>
-
 

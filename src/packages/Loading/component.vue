@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-show="visible" class="tk-loading" :class="{'_absolute': absolute}">
+    <div v-show="visible" class="tk-loading" :class="{'_absolute': absolute, '_fixed': fixed}">
       <span
         class="loading-spinner"
         :class="[sizeClass, themeClass]"
@@ -18,6 +18,10 @@ export default {
   mixins: [themeMixin],
   props: {
     visible: {
+      type: Boolean,
+      default: false
+    },
+    fixed: {
       type: Boolean,
       default: false
     },
