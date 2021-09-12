@@ -11,10 +11,10 @@
     "ist": "yarn && yarn --cwd ./doc install",
     "dev": "webpack-dev-server --progress --config=build/index.js --env development",
     "build": "webpack --config=build/index.js --module-bind js=babel-loader --env production",
+    "pub": "npm publish --registry=https://registry.npmjs.org/ --access public",
     "doc": "yarn --cwd ./doc serve",
     "lint": "eslint --ext .js,.vue src",
     "lint-fix": "eslint --ext .js,.vue --fix src",
-    "pub": "npm publish --registry=https://registry.npmjs.org/ --access public"
   },
   "dependencies": {
     "vue": "^2.6.14"
