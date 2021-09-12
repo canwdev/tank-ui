@@ -19,11 +19,13 @@
       <img v-else src="./images/line-node.png">
 
       <div class="title-inner">
-        <img v-if="isFolder" src="./images/folder.png">
-        <img v-else src="./images/file.png">
+        <slot name="icon" :data="{item, isFolder}">
+          <img v-if="isFolder" src="./images/folder.png">
+          <img v-else src="./images/file.png">
+        </slot>
 
         <span class="title text-overflow">
-          {{ item.title || item.id }}
+          <slot name="title" :item="item">{{ item.title || item.id }}</slot>
         </span>
         <span class="append flex items-center" @click.stop>
           <slot name="append" :item="item"></slot>
@@ -171,7 +173,7 @@ export default {
 
     &.is-selected {
       .title-inner {
-        background-color: $primary; //rgba(134, 134, 134, 0.36);
+        background-color: $border-color; //rgba(134, 134, 134, 0.36);
         color: white;
       }
     }

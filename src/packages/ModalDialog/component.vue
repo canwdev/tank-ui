@@ -2,9 +2,9 @@
   <transition name="fade">
     <div v-show="mValue" class="tk-modal-dialog-wrap" :class="{fixed}">
       <div class="dialog-shadow" @click.stop="clickOutside"></div>
-      <div class="dialog-main" :class="{dark, 'no-radius': noRadius}">
-        <button v-if="isShowClose" class="btn-no-style btn-close" @click="closeDialog">
-          <i class="material-icons">clear</i>
+      <div class="dialog-main" :class="{'no-radius': noRadius}">
+        <button v-if="showClose" class="tk-button-no-style btn-close" @click="closeDialog">
+          ✖
         </button>
         <div class="dialog-inner" :class="{'limited-size': !unlimitedSize}">
           <slot></slot>
@@ -21,11 +21,7 @@ export default {
   name: 'TkModalDialog',
   mixins: [inputMixin],
   props: {
-    isShowClose: {
-      type: Boolean,
-      default: false
-    },
-    dark: {
+    showClose: {
       type: Boolean,
       default: false
     },

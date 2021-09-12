@@ -10,11 +10,11 @@ module.exports = {
         '@src': path.join(__dirname, '../src')
       }
     },
-    externals: [
-      {
-        'vue': 'Vue',
-      }
-    ]
+    // externals: [
+    //   {
+    //     'vue': 'Vue',
+    //   }
+    // ]
   },
   css: {
     // extract: false,

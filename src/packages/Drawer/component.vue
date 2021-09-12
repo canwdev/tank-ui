@@ -10,7 +10,7 @@
             {{ title }}
           </span>
           <button class="tk-button-no-style" @click="mVisible=false">
-            ✗
+            ✖
           </button>
         </div>
 

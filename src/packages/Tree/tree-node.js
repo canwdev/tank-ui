@@ -62,6 +62,7 @@ export default class TreeNode {
     }
     this.children.unshift(node)
   }
+
   appendChild(node) {
     node.parent = this
     if (!this.children) {
@@ -78,6 +79,7 @@ export default class TreeNode {
     linkParent(list, this)
     this.children = [...list, ...(this.children || [])]
   }
+
   appendChildren(list) {
     if (!list) {
       return
@@ -103,8 +105,29 @@ export default class TreeNode {
     }
     return false
   }
+
   removeChildren() {
     unlinkParent(this.children)
     this.children = []
   }
+
+  // 生成递归格式化数据
+  static generateTree(obj) {
+    if (Array.isArray(obj) && obj[0]) {
+      obj = obj[0]
+    }
+    return _generateTree(obj)
+  }
+}
+
+// 递归格式化
+function _generateTree(tree) {
+  tree = new TreeNode(tree)
+
+  if (tree.children) {
+    tree.children = tree.children.map(item => {
+      return _generateTree(item)
+    })
+  }
+  return tree
 }

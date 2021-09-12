@@ -33,18 +33,6 @@
       border-radius: 0;
     }
 
-    &.dark {
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      box-shadow: 0 0 8px 2px $primary;
-
-      & > .btn-close {
-        background: $dark;
-        color: $primary;
-        box-shadow: 0 0 8px 2px $primary;
-      }
-    }
-
     .btn-close {
       position: absolute;
       top: -14px;
@@ -73,6 +61,22 @@
       &.limited-size {
         max-width: 95vw;
         max-height: 92vh;
+      }
+    }
+  }
+}
+
+.tk-dark-theme {
+  .tk-modal-dialog-wrap {
+    .dialog-main {
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      box-shadow: 0 0 8px 2px $primary;
+
+      & > .btn-close {
+        background: $dark;
+        color: $primary;
+        box-shadow: 0 0 8px 2px $primary;
       }
     }
   }

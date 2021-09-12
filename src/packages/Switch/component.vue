@@ -11,7 +11,7 @@
       class="tk-switch-checkbox"
       :class="[sizeClass, themeClass, {'is-checked': checked}]"
     >
-      <span><template v-if="!$scopedSlots.inner">✓</template><slot name="inner"></slot></span>
+      <span><slot name="inner">✓</slot></span>
     </div>
     <div
       v-else
