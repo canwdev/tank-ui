@@ -67,7 +67,6 @@ export default {
   },
   watch: {},
   mounted() {
-    console.log('navbar', this)
     this.updateNavBar()
     window.addEventListener('scroll', this.updateNavBar)
     window.addEventListener('scroll', this.closeMobileMenu)

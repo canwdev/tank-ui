@@ -174,7 +174,6 @@ export default {
     &.is-selected {
       .title-inner {
         background-color: $border-color; //rgba(134, 134, 134, 0.36);
-        color: white;
       }
     }
 
