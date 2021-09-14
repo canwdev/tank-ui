@@ -70,6 +70,11 @@ export const DemoList = [
     }
   },
   {
+    title: '弹窗', data: {
+      component: 'DialogDemo'
+    }
+  },
+  {
     title: '其他', data: {
       component: 'MiscDemo'
     }
