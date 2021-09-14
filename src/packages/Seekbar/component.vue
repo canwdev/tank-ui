@@ -12,8 +12,11 @@
       :max="max"
       :value="value"
       class="common-seekbar seekbar-input"
-      @input="e => $emit('input', e)"
-      @change="e => $emit('change', e)"
+      v-bind="$attrs"
+      @input="handleInput"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @change="handleChange"
     >
   </div>
 </template>
@@ -23,15 +26,15 @@ export default {
   name: 'TkSeekbar',
   props: {
     min: {
-      type: Number,
+      type: [Number, String],
       default: 0
     },
     max: {
-      type: Number,
+      type: [Number, String],
       default: 100
     },
     value: {
-      type: Number,
+      type: [Number, String],
       default: 100
     },
     vertical: {
@@ -42,6 +45,20 @@ export default {
   computed: {
     progress() {
       return (this.value / this.max * 100).toFixed(1)
+    }
+  },
+  methods: {
+    handleInput(event) {
+      this.$emit('input', event.target.value)
+    },
+    handleFocus(event) {
+      this.$emit('focus', event)
+    },
+    handleBlur(event) {
+      this.$emit('blur', event)
+    },
+    handleChange(event) {
+      this.$emit('change', event.target.value)
     }
   }
 }
@@ -61,7 +78,6 @@ export default {
       height: 100%;
       outline: none;
     }
-
   }
 
   .seekbar-fill {
@@ -99,12 +115,14 @@ export default {
       cursor: grab;
       &:active {
         cursor: grabbing;
+        opacity: .8;
       }
     }
 
     &::-webkit-slider-thumb {
       @include mixin-thumb;
     }
+
     &::-moz-range-thumb {
       @include mixin-thumb;
     }

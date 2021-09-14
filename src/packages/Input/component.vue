@@ -66,7 +66,6 @@ export default {
     handleFocus(event) {
       this.$emit('focus', event)
     },
-
     handleBlur(event) {
       this.$emit('blur', event)
     },
