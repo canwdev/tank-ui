@@ -1,6 +1,6 @@
 <template>
   <div class="tk-empty">
-    <img class="tk-empty-img" src="@src/assets/images/no-data.png">
+    <img v-if="img" class="tk-empty-img" :src="img">
     <div v-if="text" class="tk-empty-text">{{ text }}</div>
   </div>
 </template>
@@ -9,9 +9,13 @@
 export default {
   name: 'TkEmpty',
   props: {
+    img: {
+      type: String,
+      default: require('@src/assets/images/no-data.png')
+    },
     text: {
       type: String,
-      default: null
+      default: 'Empty'
     }
   }
 }

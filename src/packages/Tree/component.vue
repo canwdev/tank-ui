@@ -1,7 +1,7 @@
 <template>
   <div class="tk-tree">
     <TkTreeItem
-      ref="treeFirstItem"
+      ref="rootItem"
       :item="nodes"
       :selected-id="selectedId"
       @onItemClick="$emit('onItemClick', $event)"
@@ -47,11 +47,13 @@ export default {
   },
   mounted() {
     // 自动打开第一个节点
-    this.$refs.treeFirstItem.handleClick()
+    this.getRootItem().handleClick()
   },
-  // methods() {
-  //
-  // }
+  methods: {
+    getRootItem() {
+      return this.$refs.rootItem
+    }
+  }
 }
 </script>
 

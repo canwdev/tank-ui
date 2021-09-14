@@ -92,11 +92,22 @@ export default {
       return this.item.id === this.selectedId
     }
   },
-  created() {
-    this.item.$click = this.handleClick
-    this.item.$doLazyLoad = this.doLazyLoad
+  watch: {
+    item: {
+      handler(val) {
+        if (!val) {
+          return
+        }
+        this.updateMethods()
+      },
+      immediate: true
+    }
   },
   methods: {
+    updateMethods() {
+      this.item.$click = this.handleClick
+      this.item.$doLazyLoad = this.doLazyLoad
+    },
     /**
      * 处理节点点击事件（展开或异步加载）
      */

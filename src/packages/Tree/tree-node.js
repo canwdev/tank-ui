@@ -15,14 +15,14 @@ const unlinkParent = (nodes) => {
 
 // 封装树节点
 export default class TreeNode {
-  constructor(params) {
+  constructor(params = {}) {
     this.id = params.id || n.get()
     this.title = params.title || ''
     this.isLazy = params.isLazy || false
     this.isOpen = params.isOpen || false
     this.isLoading = params.isLoading || false
     this.children = params.children || null // []
-    this.parent = null // TreeNode
+    this.parent = params.parent || null // TreeNode
     this.data = params.data || {} // Custom data
   }
 
@@ -111,7 +111,11 @@ export default class TreeNode {
     this.children = []
   }
 
-  // 生成递归格式化数据
+  /**
+   * 生成递归格式化数据
+   * @param obj :{title: '', data: ''}
+   * @returns {TreeNode}
+   */
   static generateTree(obj) {
     if (Array.isArray(obj) && obj[0]) {
       obj = obj[0]
@@ -126,6 +130,7 @@ function _generateTree(tree) {
 
   if (tree.children) {
     tree.children = tree.children.map(item => {
+      item.parent = tree
       return _generateTree(item)
     })
   }
