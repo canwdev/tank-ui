@@ -8,7 +8,7 @@
     </div>
     <div class="main">
       <template v-if="selectedItem">
-        <h1>{{ selectedItem.name }}</h1>
+        <h1>{{ selectedItem.title }}</h1>
         <component
           :is="selectedItem.data.component"
         ></component>
