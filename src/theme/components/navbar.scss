@@ -209,6 +209,7 @@ $nav-height: 50px;
       .nav-right {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
       }
       .mobile-menu {
         display: flex;
