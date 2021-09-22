@@ -77,7 +77,6 @@ export default {
   },
   methods: {
     handleChange() {
-      console.log(this)
       this.$emit('input', !this.checked ? this.activeValue : this.inactiveValue)
     }
   }

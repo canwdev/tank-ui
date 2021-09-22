@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-<!--    <script src="/static/vue.js"></script>-->
-    <link rel="stylesheet" href="http://127.0.0.1:9999/tank-ui.css">
-    <script src="http://127.0.0.1:9999/tank-ui.js"></script>
+    <% if (NODE_ENV !== 'production') { %>
+        <script src="http://127.0.0.1:9999/tank-ui.js"></script>
+        <link rel="stylesheet" href="http://127.0.0.1:9999/tank-ui.css">
+    <% } %>
   </head>
   <body>
+
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>

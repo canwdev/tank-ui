@@ -4,7 +4,7 @@ import './theme/index.scss'
 import TkToast from './packages/Toast'
 import TkPromptDialog from './packages/PromptDialog'
 
-console.log('componentMap', componentMap)
+// console.log('componentMap', componentMap)
 
 // 存储组件列表
 const components = Object.values(componentMap)
