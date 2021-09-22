@@ -12,6 +12,7 @@
     "doc": "yarn --cwd ./doc serve",
     "dev": "webpack-dev-server --progress --config=build/index.js --env development",
     "build": "webpack --config=build/index.js --module-bind js=babel-loader --env production",
+    "build:doc": "yarn --cwd ./doc build:latest",
     "pub": "npm run build && npm publish --registry=https://registry.npmjs.org/ --access public",
     "lint": "eslint --ext .js,.vue src",
     "lint-fix": "eslint --ext .js,.vue --fix src"
