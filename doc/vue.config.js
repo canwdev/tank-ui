@@ -1,4 +1,7 @@
 const path = require('path')
+
+const isProd = process.env.NODE_ENV === 'production' // 'development'
+
 module.exports = {
   devServer: {
     port: 3001
@@ -10,11 +13,11 @@ module.exports = {
         '@src': path.join(__dirname, '../src')
       }
     },
-    // externals: [
-    //   {
-    //     'vue': 'Vue',
-    //   }
-    // ]
+    externals: isProd ? [] : [
+      {
+        '@canwdev/tank-ui': 'tankUI',
+      }
+    ]
   },
   css: {
     // extract: false,

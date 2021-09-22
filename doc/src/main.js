@@ -4,8 +4,8 @@ import router from './router'
 import store from './store'
 import './assets/style/normalize.css'
 import './assets/style/base.scss'
-
-const {tankUI: {default: tankUI}} = window
+import tankUI from '@canwdev/tank-ui'
+// const {tankUI: {default: tankUI}} = window
 Vue.use(tankUI)
 
 Vue.config.productionTip = false

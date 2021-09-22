@@ -903,6 +903,13 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
+"@canwdev/tank-ui@^0.2.8":
+  version "0.2.8"
+  resolved "https://registry.nlark.com/@canwdev/tank-ui/download/@canwdev/tank-ui-0.2.8.tgz?cache=0&sync_timestamp=1632275739699&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40canwdev%2Ftank-ui%2Fdownload%2F%40canwdev%2Ftank-ui-0.2.8.tgz#f0cacd6e5dcb95291d452939215ea137cefcb3c3"
+  integrity sha1-8MrNbl3LlSkdRSk5IV6hN878s8M=
+  dependencies:
+    vue "^2.6.14"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.nlark.com/@hapi/address/download/@hapi/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -8204,7 +8211,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
 
-vue@^2.6.11:
+vue@^2.6.11, vue@^2.6.14:
   version "2.6.14"
   resolved "https://registry.nlark.com/vue/download/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha1-5RqlJQJQ1Wmj+606ilpofWA24jU=
