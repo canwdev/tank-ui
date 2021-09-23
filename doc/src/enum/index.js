@@ -70,6 +70,11 @@ export const DemoList = [
     }
   },
   {
+    title: 'Pager | 分页器', data: {
+      component: 'PagerDemo'
+    }
+  },
+  {
     title: '弹窗', data: {
       component: 'DialogDemo'
     }
