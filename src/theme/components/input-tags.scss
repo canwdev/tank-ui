@@ -1,0 +1,92 @@
+.tk-input-tags {
+  padding: 5px 10px;
+  border-radius: $border-radius;
+  border: $layout-border;
+  transition: all .3s;
+  position: relative;
+
+  &.disabled {
+    &:before {
+      display: none;
+    }
+    .placeholder {
+      opacity: .5;
+    }
+  }
+
+  &.focused, &:hover, &:focus, &:active {
+    border-color: $primary;
+    box-shadow: 0 0 1px 1px $primary inset;
+  }
+
+  .tag-item {
+    display: inline-block;
+    line-height: 24px;
+    padding: 0 10px;
+    background: $primary;
+    color: white;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    margin: 2px 5px 2px 0;
+
+    .icon-del {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: none;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    &:hover {
+      &::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        border-radius: 3px;
+      }
+
+      .icon-del {
+        display: block;
+      }
+    }
+  }
+
+  input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 310px;
+    margin: 2px 0;
+    height: 24px;
+    color: inherit;
+    position: relative;
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 0;
+    left: 4px;
+    user-select: none;
+    cursor: text;
+  }
+
+  .limit-tip {
+    position: absolute;
+    bottom: 8px;
+    right: 9px;
+    line-height: 12px;
+    font-size: 12px;
+  }
+}

@@ -41,6 +41,26 @@
       </div>
     </fieldset>
 
+    <fieldset class="tk-fieldset">
+      <legend>TkInputCodes</legend>
+
+      <div class="tk-form">
+        <div class="tk-form-row">
+          <div>
+            code result
+          </div>
+          <div>
+            {{ codeResult }}
+          </div>
+        </div>
+
+        <hr>
+
+        <TkInputCodes @complete="s => codeResult = s"/>
+
+      </div>
+    </fieldset>
+
   </div>
 </template>
 
@@ -50,7 +70,8 @@ export default {
   data() {
     return {
       progress: 50,
-      tags: ['Test1']
+      tags: ['Test1'],
+      codeResult: ''
     }
   }
 }
