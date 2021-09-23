@@ -92,7 +92,7 @@ export default {
     return {
       isShowDialog: false,
       persistent: false,
-      showClose: false,
+      showClose: true,
       preventClose: false,
       noRadius: false,
     }

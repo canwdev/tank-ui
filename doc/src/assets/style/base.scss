@@ -6,3 +6,8 @@ html, body {
 body {
   margin: 0;
 }
+
+hr {
+  border-top: none;
+  border-color: $border-color;
+}

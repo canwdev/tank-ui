@@ -10,7 +10,7 @@
             pageSize
           </div>
           <div>
-            <TkInput min="0" v-model="pageSize" type="number"></TkInput>
+            <TkInput v-model="pageSize" min="0" type="number"></TkInput>
           </div>
         </div>
         <div class="tk-form-row">
@@ -18,7 +18,7 @@
             offset
           </div>
           <div>
-            <TkInput min="0" v-model="offset" type="number"></TkInput>
+            <TkInput v-model="offset" min="0" type="number"></TkInput>
           </div>
         </div>
         <div class="tk-form-row">
@@ -26,7 +26,7 @@
             allCount
           </div>
           <div>
-            <TkInput min="0" v-model="allCount" type="number"></TkInput>
+            <TkInput v-model="allCount" min="0" type="number"></TkInput>
           </div>
         </div>
         <div class="tk-form-row">
@@ -34,7 +34,15 @@
             pageGroupCount
           </div>
           <div>
-            <TkInput min="5" v-model="pageGroupCount" type="number"></TkInput>
+            <TkInput v-model="pageGroupCount" min="5" type="number"></TkInput>
+          </div>
+        </div>
+        <div class="tk-form-row">
+          <div>
+            showExtraButtons
+          </div>
+          <div>
+            <TkSwitch v-model="showExtraButtons" />
           </div>
         </div>
 
@@ -45,6 +53,7 @@
         :offset.sync="offset"
         :total="allCount"
         :page-group-count="pageGroupCount"
+        :show-extra-buttons="showExtraButtons"
       ></TkPager>
 
       <ul v-for="i in filteredList" :key="i">
@@ -64,7 +73,8 @@ export default {
       pageSize: 10,
       offset: 0,
       allCount: 100,
-      pageGroupCount: 5
+      pageGroupCount: 5,
+      showExtraButtons: true
     }
   },
   computed: {

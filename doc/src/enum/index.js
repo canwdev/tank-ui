@@ -75,7 +75,12 @@ export const DemoList = [
     }
   },
   {
-    title: '弹窗', data: {
+    title: 'ContextMenu | 右键菜单', data: {
+      component: 'ContextMenuDemo'
+    }
+  },
+  {
+    title: 'Dialog | 弹窗', data: {
       component: 'DialogDemo'
     }
   },
