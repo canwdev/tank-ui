@@ -10,7 +10,7 @@
     >⎹❮
     </TkButton>
     <TkButton
-      v-show="pagesCount > mSize"
+      v-show="pagesCount > pageGroupCount"
       theme="outline"
       :disabled="isFirst"
       title="Previous Group"
@@ -45,7 +45,7 @@
     >❯
     </TkButton>
     <TkButton
-      v-show="pagesCount > mSize"
+      v-show="pagesCount > pageGroupCount"
       theme="outline"
       :disabled="isLast"
       title="Next Group"
@@ -96,7 +96,6 @@ export default {
   },
   data() {
     return {
-      mSize: 5
     }
   },
   computed: {
@@ -112,12 +111,10 @@ export default {
       return Math.ceil(Number(this.total) / Number(this.pageSize))
     },
     pageList() {
-      const size = this.mSize
+      const size = this.pageGroupCount
       const count = this.pagesCount
       const cur = this.mOffset
-      if (count <= size) {
-        return count
-      }
+
       // 将数列分割为短二维数组
       const groups = []
       for (let i = 0; i < Math.ceil(count / size); i++) {
@@ -157,10 +154,10 @@ export default {
       this.mOffset = Math.min(this.pagesCount - 1, this.mOffset + 1)
     },
     goPrevGroup() {
-      this.goPage(this.mOffset - this.mSize)
+      this.goPage(this.mOffset - this.pageGroupCount)
     },
     goNextGroup() {
-      this.goPage(this.mOffset + this.mSize)
+      this.goPage(this.mOffset + this.pageGroupCount)
     },
     goFirst() {
       this.goPage(0)
