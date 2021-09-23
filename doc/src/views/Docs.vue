@@ -59,7 +59,7 @@ export default {
       }
     },
     handleSelectItem(item) {
-      console.log('handleSelectItem', item)
+      // console.log('handleSelectItem', item)
       const {data} = item
       if (!data.component) {
         this.selectedItem = null

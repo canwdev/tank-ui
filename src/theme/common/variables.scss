@@ -80,6 +80,10 @@ $mq_pc_2k_height: 1250px; // 1328px
     background-color: $color-black;
     color: $color-white;
   }
+  &._theme-outline {
+    background-color: transparent;
+    color: inherit;
+  }
   &._theme-accent {
     background-color: $accent;
     color: $color-white;

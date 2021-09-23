@@ -19,6 +19,7 @@
       <div class="tk-block-gap-xs flex items-center">
         <TkButton theme="white">Button (white)</TkButton>
         <TkButton theme="black">Button (black)</TkButton>
+        <TkButton theme="outline">Button (outline)</TkButton>
         <TkButton theme="accent">Button (accent)</TkButton>
         <TkButton theme="secondary">Button (secondary)</TkButton>
         <TkButton theme="success">Button (success)</TkButton>
