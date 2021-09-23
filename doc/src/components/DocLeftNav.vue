@@ -4,7 +4,12 @@
       :nodes="treeData"
       :selected-id="selected && selected.id"
       @onItemClick="handleNodeClick"
-    />
+    >
+      <template v-slot:icon="{data: {item}}">
+        <img v-if="!item.children" class="tree-node-icon" src="@doc/assets/images/vue.svg">
+        <img v-else class="tree-node-icon" src="@doc/assets/images/folder-vue.svg">
+      </template>
+    </TkTree>
   </div>
 </template>
 
@@ -62,4 +67,12 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+.demo-left-bar {
+  ::v-deep .tree-node-icon {
+    width: 26px;
+    height: 26px;
+  }
+}
 
+</style>

@@ -85,7 +85,7 @@ export const DemoList = [
     }
   },
   {
-    title: '其他', data: {
+    title: 'Misc | 杂项', data: {
       component: 'MiscDemo'
     }
   },

@@ -16,6 +16,31 @@
       <TkProgress v-model="progress"></TkProgress>
     </fieldset>
 
+    <fieldset class="tk-fieldset">
+      <legend>TkInputTags</legend>
+
+      <div class="tk-form">
+        <div class="tk-form-row">
+          <div>
+            v-model
+          </div>
+          <div>
+            {{ tags }}
+          </div>
+        </div>
+
+        <hr>
+
+        <TkInputTags
+          v-model="tags"
+          placeholder="Input tags..."
+          :limit-count="5"
+          :show-limit="true"
+        />
+
+      </div>
+    </fieldset>
+
   </div>
 </template>
 
@@ -24,7 +49,8 @@ export default {
   name: 'MiscDemo',
   data() {
     return {
-      progress: 50
+      progress: 50,
+      tags: ['Test1']
     }
   }
 }
