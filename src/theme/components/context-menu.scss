@@ -1,0 +1,64 @@
+.tk-context-menu {
+  position: fixed;
+  z-index: 99999;
+
+  .ctx-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    padding: 4px 0;
+    list-style: none;
+    margin: 0;
+    background-color: #fff;
+    color: black;
+    border-radius: $border-radius;
+    box-shadow: $common-shadow;
+
+    .menu-item {
+      width: 100%;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      cursor: default;
+      font-size: 16px;
+      border-radius: 0;
+      text-align: left;
+      &:hover {
+        background-color: $primary;
+        color: white;
+      }
+    }
+    hr {
+      border-top: none;
+      border-color: $border-color;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .ctx-menu-right {
+    right: 0;
+    left: auto;
+  }
+
+  .ctx-menu-left {
+    right: auto;
+    left: 0;
+  }
+
+  ._open > .ctx-menu {
+    display: block;
+  }
+  ._ctx {
+    position: relative;
+  }
+}
+
+.tk-dark-theme {
+  .ctx-menu {
+    background-color: $dark;
+    color: white;
+  }
+}
