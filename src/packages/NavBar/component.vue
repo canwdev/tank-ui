@@ -1,7 +1,7 @@
 <template>
   <div class="tk-navbar">
     <div class="tk-navbar-inner" :class="{fixed: isFixed}">
-      <div class="tk-container _with-padding">
+      <div class="tk-container-wrap" :class="[fullWidth ? '_full-width' : 'tk-container _with-padding']">
         <div class="nav-left">
           <slot name="left"></slot>
         </div>
@@ -57,6 +57,10 @@ export default {
       default() {
         return []
       }
+    },
+    fullWidth: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

@@ -23,11 +23,17 @@ $nav-height: 50px;
     border-bottom: $layout-border;
     background-color: white;
 
-    .tk-container {
+    .tk-container-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 100%;
+      box-sizing: border-box;
+
+      &._full-width {
+        width: 100%;
+        padding: 0 10px;
+      }
     }
 
     &.fixed {
