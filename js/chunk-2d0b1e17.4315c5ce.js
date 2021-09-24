@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0b1e17"],{2278:function(t,n,e){"use strict";e.r(n);var a=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("TkContainer",[e("h1",[t._v("QuickStart")]),e("AutoRatioBox",{attrs:{ratio:"3"}}),e("p",[t._v("TODO")])],1)},r=[],u={name:"QuickStart"},o=u,c=e("2877"),i=Object(c["a"])(o,a,r,!1,null,null,null);n["default"]=i.exports}}]);
-//# sourceMappingURL=chunk-2d0b1e17.eae86de6.js.map
+//# sourceMappingURL=chunk-2d0b1e17.4315c5ce.js.map
