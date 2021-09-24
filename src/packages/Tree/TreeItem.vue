@@ -1,11 +1,12 @@
 <template>
-  <div class="tk-tree-item tree-bg-line" :class="{'is-last': isLast}">
+  <div class="tk-tree-item tk-tree-bg-line" :class="{'is-last': isLast}">
     <div
-      class="tree-item-title tree-bg-line"
+      class="tree-item-title tk-tree-bg-line"
       :class="{'is-last': isLast, 'is-selected': isSelected}"
       :title="item.title"
       @click="handleClick"
       @dblclick="handleDbClick"
+      @contextmenu="$emit('onItemContextMenu', {event: $event, item})"
     >
       <img v-if="item.isLoading" src="./images/loading.gif" class="loading-img">
       <div
@@ -43,6 +44,7 @@
         @onItemClick="$emit('onItemClick', $event)"
         @onItemDbClick="$emit('onItemDbClick', $event)"
         @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
+        @onItemContextMenu="$emit('onItemContextMenu', $event)"
       >
         <template #icon="{data}">
           <slot name="icon" :data="data"></slot>
@@ -140,7 +142,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tree-bg-line {
+.tk-tree-bg-line {
   background-repeat: repeat-y;
   background-image: url("./images/line.png");
 
@@ -150,7 +152,6 @@ export default {
 }
 
 .tk-tree-item {
-  cursor: pointer;
   line-height: 1.5;
   user-select: none;
 
@@ -165,6 +166,7 @@ export default {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    cursor: pointer;
 
     .title-inner {
       flex: 1;
@@ -180,6 +182,13 @@ export default {
         margin-left: 4px;
         flex: 1;
       }
+    }
+
+    &:hover {
+      .title-inner {
+        background-color: $separator-color;
+      }
+
     }
 
     &.is-selected {

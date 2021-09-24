@@ -15,7 +15,7 @@ export default {
     },
     text: {
       type: String,
-      default: 'Empty'
+      default: ''
     }
   }
 }

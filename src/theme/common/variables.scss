@@ -3,7 +3,7 @@ $primary-opacity: opacify($primary, 0.3);
 $secondary: #ffc107; // #66CCFF;
 $accent: #ec407a; // rgba(255, 128, 192);
 $border-color: rgb(204, 204, 204, .5);
-$separator-color: rgba(148, 148, 148, .32);
+$separator-color: rgba(148, 148, 148, .3);
 $common-padding: 5px 10px;
 $common-transition: all .3s;
 $border-radius: 4px;
@@ -11,7 +11,7 @@ $container-width: 1400px;
 $container-padding: 10px;
 $common-shadow: 0 0 8px -3px rgba(0,0,0,.5);
 
-$layout-border: 1px solid $separator-color;
+$layout-border: 1px solid $border-color;
 
 $dark-page: #1c1c1c;
 $dark: rgba(0, 0, 0, 0.85);

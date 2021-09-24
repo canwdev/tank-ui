@@ -61,6 +61,9 @@
     >
       ❯⎸
     </TkButton>
+
+    <span v-if="showExtraInfo" class="pager-info">{{ mOffset+1 }}/{{ pagesCount }} ({{ total }})</span>
+
   </div>
 </template>
 
@@ -92,6 +95,10 @@ export default {
     showExtraButtons: {
       type: Boolean,
       default: true
+    },
+    showExtraInfo: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

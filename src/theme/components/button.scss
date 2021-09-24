@@ -51,6 +51,20 @@
     @include btnNoStyle;
   }
 
+  &._round {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 50%;
+  }
+
+  &._flat {
+    background: none;
+    border: none;
+    color: inherit;
+  }
+
   @include btnTheme;
 
   @include btnMixin

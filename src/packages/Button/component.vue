@@ -1,7 +1,7 @@
 <template>
   <button
     class="tk-button"
-    :class="[sizeClass, themeClass]"
+    :class="[sizeClass, themeClass, round ? '_round':null, flat ? '_flat':null]"
     v-bind="$attrs"
     v-on="$listeners"
   >
@@ -11,6 +11,7 @@
 
 <script>
 import themeMixin from '@src/mixins/theme.js'
+
 export default {
   name: 'TkButton',
   mixins: [themeMixin],
@@ -18,6 +19,14 @@ export default {
     label: {
       type: [String, Number, Boolean],
       default: null
+    },
+    round: {
+      type: Boolean,
+      default: false
+    },
+    flat: {
+      type: Boolean,
+      default: false
     }
   }
 }

@@ -31,7 +31,7 @@
             :class="{active: item.active}"
             @click="item.action && item.action()"
           >
-            <span v-if="item.icon" :class="item.icon"></span> <span
+            <span v-if="item.iconClass" :class="item.iconClass">{{ item.iconName || null }}</span> <span
               class="menu-item-title"
             >{{ item.name }}</span>
           </button>
@@ -53,7 +53,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Menu'
+      default: ''
     },
     pos: {
       type: String,

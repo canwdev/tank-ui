@@ -34,7 +34,7 @@
         <hr>
         <li class="menu-item">Menu 2</li>
         <li class="menu-item">Menu 3</li>
-        <li class="menu-item">Menu 4</li>
+        <li class="menu-item" disabled>Menu 4</li>
       </TkContextMenu>
     </fieldset>
 

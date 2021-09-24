@@ -7,6 +7,7 @@
       @onItemClick="$emit('onItemClick', $event)"
       @onItemDbClick="$emit('onItemDbClick', $event)"
       @onItemLazyLoad="$emit('onItemLazyLoad', $event)"
+      @onItemContextMenu="$emit('onItemContextMenu', $event)"
     >
       <template #icon="{data}">
         <slot name="icon" :data="data"></slot>
