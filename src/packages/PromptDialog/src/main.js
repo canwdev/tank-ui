@@ -9,6 +9,7 @@ export default class PromptDialog {
     Object.assign(this, defaults)
     this.InstanceConstructor = this.Vue.extend(Component)
     this.instance = null
+    this.parentEl = document.body
   }
 
   // 点击确定返回结果回调
@@ -25,8 +26,13 @@ export default class PromptDialog {
   open(config = {}) {
     const {
       propsData = {},
-
+      parentEl
     } = config || {}
+
+    if (parentEl) {
+      this.parentEl = parentEl
+    }
+
     const self = this
     const instance = new this.InstanceConstructor({
       propsData: propsData,
@@ -67,7 +73,7 @@ export default class PromptDialog {
     this.instance = instance
     this.currentInstance = instance
     instance.$mount()
-    document.body.appendChild(instance.$el)
+    this.parentEl.appendChild(instance.$el)
     instance.isShow = true
     return this
   }

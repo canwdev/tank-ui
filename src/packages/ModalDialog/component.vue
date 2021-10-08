@@ -41,6 +41,10 @@ export default {
       type: Boolean,
       default: false
     },
+    closeFn: {
+      type: Function,
+      default: null
+    },
     fixed: {
       type: Boolean,
       default: false
@@ -49,11 +53,15 @@ export default {
   methods: {
     clickOutside() {
       if (!this.persistent) {
-        this.mValue = false
+        this.closeDialog()
       }
     },
     closeDialog() {
       if (!this.preventClose) {
+        if (this.closeFn) {
+          this.closeFn()
+          return
+        }
         this.mValue = false
       }
     }

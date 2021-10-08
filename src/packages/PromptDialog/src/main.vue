@@ -1,10 +1,16 @@
 <template>
-  <TkModalDialog v-model="mVisible" :persistent="preventClose" show-close :prevent-close="preventClose">
-    <TkCard solid>
+  <TkModalDialog
+    v-model="mVisible"
+    :persistent="preventClose"
+    show-close
+    :prevent-close="preventClose"
+    :close-fn="closeFn"
+  >
+    <TkCard class="prompt-dialog-card" :style="cardStyle">
       <TkLoading absolute :visible="isConfirmLoading"></TkLoading>
 
-      <h4>{{ title }}</h4>
-      <p>{{ content }}</p>
+      <div class="prompt-dialog-title">{{ title }}</div>
+      <div class="prompt-dialog-content">{{ content }}</div>
 
       <div class="buttons-row" align="right">
         <TkButton
@@ -94,6 +100,11 @@ export default {
     },
     preventClose() {
       return this.persistent || this.isConfirmLoading
+    },
+    cardStyle() {
+      return {
+        minWidth: '240px'
+      }
     }
   },
   methods: {
@@ -106,9 +117,30 @@ export default {
     cancel() {
       this.$emit('onCancel')
       this.mVisible = false
+    },
+    closeFn() {
+      if (this.isCloseEqualCancel) {
+        this.cancel()
+        return
+      }
+      this.mVisible = false
     }
   }
 }
 </script>
 
+<style lang="scss" scoped>
+.prompt-dialog-card {
+  .prompt-dialog-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 0 10px;
+    padding: 0 10px;
+  }
+  .prompt-dialog-content {
+    padding: 10px 10px 20px;
+
+  }
+}
+</style>
 
