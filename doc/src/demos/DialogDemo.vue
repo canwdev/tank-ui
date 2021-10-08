@@ -69,14 +69,32 @@
     </TkModalDialog>
 
     <fieldset class="tk-fieldset">
-      <legend>this.$prompt</legend>
+      <legend>this.$prompt.create()</legend>
       <div class="tk-form">
         <div class="tk-form-row">
           <div>
-            .create()
+            $prompt
           </div>
           <div>
-            <TkButton @click="showPrompt">Show Prompt</TkButton>
+            <TkButton @click="showPrompt">Show</TkButton>
+          </div>
+        </div>
+
+        <div class="tk-form-row">
+          <div>
+            input
+          </div>
+          <div>
+            <TkButton @click="showPromptInput">Show</TkButton>
+          </div>
+        </div>
+
+        <div class="tk-form-row">
+          <div>
+            VNode
+          </div>
+          <div>
+            <TkButton @click="showPromptVNode">Show</TkButton>
           </div>
         </div>
       </div>
@@ -105,16 +123,49 @@ export default {
           title: 'Title',
           content: 'Content',
         }
+      }).onConfirm((context) => {
+          console.log('context', context)
+          this.$toast.success('confirmed')
+        })
+        .onCancel((context) => {
+          this.$toast.warning('canceled')
+        })
+    },
+    showPromptInput() {
+      // console.log(this.$prompt)
+      this.$prompt.create({
+        propsData: {
+          title: '请输入内容',
+          input: {
+            value: 'abcd',
+            placeholder: 'Placeholder...',
+            autofocus: true,
+            // type: 'number',
+            required: true,
+          }
+        }
       })
       .onConfirm((context) => {
         console.log('context', context)
 
-        this.$toast.success('confirmed')
+        this.$toast.success(context.inputValue)
       })
-      .onCancel((context) => {
-        this.$toast.warning('canceled')
+    },
+    showPromptVNode() {
+      const h = this.$createElement;
+      // console.log(this.$prompt)
+      this.$prompt.create({
+        propsData: {
+          title: '',
+          content: h('div', null, [
+            h('span', null, '内容可以是 '),
+            h('i', { style: 'color: red' }, 'VNode')
+          ]),
+          btnCancel: null,
+          showClose: false
+        }
       })
-    }
+    },
   }
 }
 </script>

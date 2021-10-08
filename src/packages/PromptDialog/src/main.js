@@ -1,4 +1,5 @@
 import Component from './main.vue'
+import {isVNode} from '@src/utils'
 
 const defaults = {
   currentInstance: null
@@ -31,6 +32,12 @@ export default class PromptDialog {
 
     if (parentEl) {
       this.parentEl = parentEl
+    }
+
+    let slot
+    if (isVNode(propsData.content)) {
+      slot = [propsData.content]
+      propsData.content = null
     }
 
     const self = this
@@ -70,6 +77,13 @@ export default class PromptDialog {
         }
       }
     })
+
+    if (slot) {
+      instance.$slots.default = slot
+    } else {
+      delete instance.$slots.default
+    }
+
     this.instance = instance
     this.currentInstance = instance
     instance.$mount()

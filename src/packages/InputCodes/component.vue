@@ -86,7 +86,7 @@ export default {
     },
     handleKeyUp(event, item, index) {
       // console.log('handleKeyUp', event)
-      const {key, target} = event
+      const {key} = event
       if (key === 'Shift') {
         return
       }

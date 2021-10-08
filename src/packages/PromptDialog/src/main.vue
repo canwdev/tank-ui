@@ -2,26 +2,51 @@
   <TkModalDialog
     v-model="mVisible"
     :persistent="preventClose"
-    show-close
+    :show-close="showClose"
     :prevent-close="preventClose"
     :close-fn="closeFn"
   >
     <TkCard class="prompt-dialog-card" :style="cardStyle">
-      <TkLoading absolute :visible="isConfirmLoading"></TkLoading>
+      <form @submit.prevent="confirm">
+        <TkLoading absolute :visible="isConfirmLoading"></TkLoading>
 
-      <div class="prompt-dialog-title">{{ title }}</div>
-      <div class="prompt-dialog-content">{{ content }}</div>
+        <div v-if="title" class="prompt-dialog-title">
+          <template v-if="!useHTML">
+            {{ title }}
+          </template>
+          <template v-else v-html="title"></template>
+        </div>
+        <div class="prompt-dialog-content">
+          <slot>
+            <div v-if="content" class="content-text" >
+              <template v-if="!useHTML">
+                {{ content }}
+              </template>
+              <template v-else v-html="content"></template>
+            </div>
+          </slot>
+          <div v-if="input" class="content-input">
+            <input
+              v-model="inputValue"
+              v-bind="input"
+            >
+          </div>
+        </div>
 
-      <div class="buttons-row" align="right">
-        <TkButton
-          @click="cancel"
-        >{{ btnCancelText }}
-        </TkButton>
-        <TkButton
-          @click="confirm"
-        >{{ btnConfirmText }}
-        </TkButton>
-      </div>
+        <div class="buttons-row" align="right">
+          <TkButton
+            v-if="btnCancel"
+            type="button"
+            @click="cancel"
+          >{{ btnCancel }}
+          </TkButton>
+          <TkButton
+            v-if="btnConfirm"
+            type="submit"
+          >{{ btnConfirm }}
+          </TkButton>
+        </div>
+      </form>
     </TkCard>
   </TkModalDialog>
 </template>
@@ -41,9 +66,9 @@ export default {
     TkCard
   },
   props: {
-    dense: {
+    showClose: {
       type: Boolean,
-      default: false
+      default: true
     },
     visible: {
       type: Boolean,
@@ -51,17 +76,17 @@ export default {
     },
     title: {
       type: String,
-      default: ''
+      default: null
     },
     content: {
       type: String,
-      default: ''
+      default: null
     },
-    btnConfirmText: {
+    btnConfirm: {
       type: String,
       default: 'OK'
     },
-    btnCancelText: {
+    btnCancel: {
       type: String,
       default: 'Cancel'
     },
@@ -81,11 +106,39 @@ export default {
     isCloseEqualCancel: {
       type: Boolean,
       default: true
+    },
+    useHTML: {
+      type: Boolean,
+      default: false
+    },
+    cardStyle: {
+      type: Object,
+      default() {
+        return {
+          minWidth: '240px'
+        }
+      }
+    },
+    input: {
+      type: Object,
+      default: null
+    }
+  },
+  watch: {
+    input: {
+      handler(val) {
+        if (!val) {
+          return
+        }
+        this.inputValue = val.value
+      },
+      immediate: true
     }
   },
   data() {
     return {
-      isShow: false
+      isShow: false,
+      inputValue: null
     }
   },
   computed: {
@@ -101,11 +154,6 @@ export default {
     preventClose() {
       return this.persistent || this.isConfirmLoading
     },
-    cardStyle() {
-      return {
-        minWidth: '240px'
-      }
-    }
   },
   methods: {
     confirm() {
@@ -137,6 +185,7 @@ export default {
     margin: 10px 0 10px;
     padding: 0 10px;
   }
+
   .prompt-dialog-content {
     padding: 10px 10px 20px;
 
