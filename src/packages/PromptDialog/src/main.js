@@ -58,6 +58,8 @@ export default class PromptDialog {
       methods: {
         async confirm() {
           try {
+            this.isLoading = true
+
             self.confirmFn && await self.confirmFn(this)
 
             if (!this.isPreventConfirmClose) {
@@ -65,6 +67,8 @@ export default class PromptDialog {
             }
           } catch (e) {
             console.error(e.message)
+          } finally {
+            this.isLoading = false
           }
         },
         async cancel() {

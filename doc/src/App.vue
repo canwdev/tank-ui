@@ -6,7 +6,7 @@
         {title: 'Documents', url: '/docs'},
         {title: 'Code', url: null, children: [
           {title: 'Github', url: 'https://github.com/canwdev/tank-ui'},
-          {title: 'Gitee', url: 'https://gitee.com/canwdev/tank-ui'}
+          // {title: 'Gitee', url: 'https://gitee.com/canwdev/tank-ui'}
         ]}
       ]"
     >

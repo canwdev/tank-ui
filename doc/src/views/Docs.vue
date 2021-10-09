@@ -99,6 +99,29 @@ export default {
     overflow: auto;
     padding: 10px;
     flex: 1;
+    background: $color-white;
+  }
+
+  @media screen and (max-width: $mq_mobile_width) {
+    flex-direction: column;
+    .nav {
+      height: 150px;
+      width: 100%;
+      border-right: none;
+      border-bottom: $layout-border;
+      overflow: auto;
+    }
+
+    .main {
+    }
+  }
+}
+
+.tk-dark-theme {
+  .docs-page {
+    .main {
+      background: $dark-page;
+    }
   }
 }
 </style>

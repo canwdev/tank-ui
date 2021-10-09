@@ -1,5 +1,5 @@
 <template>
-  <TkContainer>
+  <TkContainer class="overflow-auto">
     <h1>QuickStart</h1>
 
     <AutoRatioBox ratio="3"></AutoRatioBox>

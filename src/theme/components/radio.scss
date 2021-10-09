@@ -16,7 +16,6 @@
     background-color: $light;
     display: flex;
     position: relative;
-    transition: $common-transition;
 
     @include switchTheme;
 

@@ -12,9 +12,10 @@
     padding: 4px 0;
     list-style: none;
     margin: 0;
-    background-color: #fff;
-    color: black;
+    @include lightTransparent();
+
     border-radius: $border-radius;
+    border: $layout-border;
     box-shadow: $common-shadow;
 
     .menu-item {
@@ -70,7 +71,6 @@
 
 .tk-dark-theme {
   .ctx-menu {
-    background-color: $dark;
-    color: white;
+    @include darkTransparent();
   }
 }

@@ -39,13 +39,12 @@
       right: -14px;
       z-index: 2;
       background: white;
-      color: $primary;
+      color: $dark-page;
       width: 28px;
       height: 28px;
       //border-radius: $border-radius;
       border-radius: 50%;
-      border: 2px solid;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+      border: 2px solid #4f4f4f;
       @media screen and (max-width: $mq_mobile_min_width) {
         top: 5px;
         right: 5px;
@@ -69,14 +68,12 @@
 .tk-dark-theme {
   .tk-modal-dialog-wrap {
     .dialog-main {
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      box-shadow: 0 0 8px 2px $primary;
+      @include darkTransparent();
 
       & > .btn-close {
-        background: $dark;
-        color: $primary;
-        box-shadow: 0 0 8px 2px $primary;
+        background: $dark-page;
+        color: $color-white;
+        border: 2px solid $border-color;
       }
     }
   }

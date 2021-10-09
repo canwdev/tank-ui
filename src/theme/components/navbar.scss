@@ -105,7 +105,7 @@ $nav-height: 50px;
         }
 
         &.router-link-active {
-          text-decoration: underline;
+          font-weight: bold;
         }
 
         @media screen and (max-width: $mq_mobile_width) {
@@ -196,8 +196,6 @@ $nav-height: 50px;
     }
 
     @media screen and (max-width: $mq_mobile_width) {
-      background-color: transparent !important;
-
       .tk-container {
         background-color: white;
         position: relative;
@@ -244,7 +242,6 @@ $nav-height: 50px;
 
         &.mobile-open {
           border-top: $layout-border;
-          color: $color-white;
           height: auto;
           padding: 10px 20px 12px;
         }
@@ -278,20 +275,21 @@ $nav-height: 50px;
 .tk-dark-theme {
   .tk-navbar {
     .tk-navbar-inner {
-      background-color: $dark;
+      background-color: transparent !important;
 
       .nav-center {
         .link-submenu {
-          background-color: $dark;
+          background-color: $dark-page;
         }
       }
 
       @media screen and (max-width: $mq_mobile_width) {
         .tk-container {
-          background-color: $dark;
+          background-color: $dark-page;
         }
         .nav-center {
-          background-color: $dark;
+          @include darkTransparent();
+          border-bottom: $layout-border;
         }
       }
 

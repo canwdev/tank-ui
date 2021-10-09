@@ -44,11 +44,11 @@ export const DemoList = [
       component: 'TreeDemo'
     }
   },
-  {
-    title: 'TreeTable | 树状表格', data: {
-      component: 'TreeTableDemo'
-    }
-  },
+  // {
+  //   title: 'TreeTable | 树状表格', data: {
+  //     component: 'TreeTableDemo'
+  //   }
+  // },
   {
     title: 'NavBar | 导航栏', data: {
       component: 'NavBarDemo'

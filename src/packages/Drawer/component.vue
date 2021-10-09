@@ -1,7 +1,12 @@
 <template>
   <div class="tk-side-drawer">
     <transition name="fade">
-      <div v-show="mVisible" class="bg-shade" @click="mVisible=false"></div>
+      <div
+        v-show="mVisible"
+        class="bg-shade"
+        @click="mVisible=false"
+        @contextmenu.prevent="mVisible=false"
+      ></div>
     </transition>
     <transition :name="`slide-${pos}`">
       <div v-show="mVisible" class="menu-wrap" :class="[`_pos-${pos}`]">
@@ -32,8 +37,8 @@
             @click="item.action && item.action()"
           >
             <span v-if="item.iconClass" :class="item.iconClass">{{ item.iconName || null }}</span> <span
-              class="menu-item-title"
-            >{{ item.name }}</span>
+            class="menu-item-title"
+          >{{ item.name }}</span>
           </button>
         </template>
 

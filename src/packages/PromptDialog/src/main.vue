@@ -2,13 +2,13 @@
   <TkModalDialog
     v-model="mVisible"
     :persistent="preventClose"
-    :show-close="showClose"
+    :show-close="!isLoading && showClose"
     :prevent-close="preventClose"
     :close-fn="closeFn"
   >
     <TkCard class="prompt-dialog-card" :style="cardStyle">
       <form @submit.prevent="confirm">
-        <TkLoading absolute :visible="isConfirmLoading"></TkLoading>
+        <TkLoading absolute :visible="isLoading"></TkLoading>
 
         <div v-if="title" class="prompt-dialog-title">
           <template v-if="!useHTML">
@@ -26,10 +26,11 @@
             </div>
           </slot>
           <div v-if="input" class="content-input">
-            <input
+            <TkInput
+              ref="input"
               v-model="inputValue"
               v-bind="input"
-            >
+            />
           </div>
         </div>
 
@@ -55,6 +56,7 @@
 import TkModalDialog from '@src/packages/ModalDialog'
 import TkButton from '@src/packages/Button'
 import TkLoading from '@src/packages/Loading'
+import TkInput from '@src/packages/Input'
 import TkCard from '@src/packages/Card'
 
 export default {
@@ -63,7 +65,8 @@ export default {
     TkModalDialog,
     TkButton,
     TkLoading,
-    TkCard
+    TkCard,
+    TkInput
   },
   props: {
     showClose: {
@@ -89,10 +92,6 @@ export default {
     btnCancel: {
       type: String,
       default: 'Cancel'
-    },
-    isConfirmLoading: {
-      type: Boolean,
-      default: false
     },
     isPreventConfirmClose: {
       type: Boolean,
@@ -133,12 +132,22 @@ export default {
         this.inputValue = val.value
       },
       immediate: true
+    },
+    mVisible(val) {
+      if (val) {
+        this.$nextTick(() => {
+          if (this.$refs.input) {
+            this.$refs.input.$el.focus()
+          }
+        })
+      }
     }
   },
   data() {
     return {
       isShow: false,
-      inputValue: null
+      inputValue: null,
+      isLoading: false
     }
   },
   computed: {
@@ -152,7 +161,7 @@ export default {
       }
     },
     preventClose() {
-      return this.persistent || this.isConfirmLoading
+      return this.persistent || this.isLoading
     },
   },
   methods: {

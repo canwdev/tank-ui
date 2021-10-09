@@ -23,28 +23,32 @@
     overflow-x: hidden;
     background: $light;
     box-shadow: $common-shadow;
-
+    $border: 1px solid rgba(79, 79, 79, 0.33);
     &._pos-top {
       top: 0;
       left: 0;
       right: 0;
       width: 100%;
+      border-bottom: $border;
     }
     &._pos-bottom {
       bottom: 0;
       left: 0;
       right: 0;
       width: 100%;
+      border-top: $border;
     }
     &._pos-left {
       left: 0;
       top: 0;
       bottom: 0;
+      border-right: $border;
     }
     &._pos-right {
       right: 0;
       top: 0;
       bottom: 0;
+      border-left: $border;
     }
 
 
@@ -127,10 +131,10 @@
 .tk-dark-theme {
   .tk-side-drawer {
     .menu-wrap{
-      background: $dark;
+      @include darkTransparent();
 
       .menu-title {
-        background: rgba(0, 0, 0, 0.9);
+        //background: rgba(0, 0, 0, 0.9);
       }
 
       .subtitle {
