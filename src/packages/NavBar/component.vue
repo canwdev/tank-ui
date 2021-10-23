@@ -34,10 +34,10 @@
           </slot>
         </div>
         <div class="nav-right">
-          <slot name="right"></slot>
           <div class="mobile-menu">
             <button class="tk-button-no-style btn-openmenu" :class="{active: isMobileMenuOpen}" @click="toggleMobileMenu"></button>
           </div>
+          <slot name="right"></slot>
         </div>
       </div>
 

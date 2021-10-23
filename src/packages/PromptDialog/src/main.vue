@@ -14,7 +14,7 @@
           <template v-if="!useHTML">
             {{ title }}
           </template>
-          <template v-else v-html="title"></template>
+          <div v-else class="html-content" v-html="title"></div>
         </div>
         <div class="prompt-dialog-content">
           <slot>
@@ -22,7 +22,7 @@
               <template v-if="!useHTML">
                 {{ content }}
               </template>
-              <template v-else v-html="content"></template>
+              <div v-else class="html-content" v-html="content"></div>
             </div>
           </slot>
           <div v-if="input" class="content-input">
