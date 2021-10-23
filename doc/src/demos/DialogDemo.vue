@@ -97,6 +97,15 @@
             <TkButton @click="showPromptVNode">Show</TkButton>
           </div>
         </div>
+
+        <div class="tk-form-row">
+          <div>
+            multipleActions
+          </div>
+          <div>
+            <TkButton @click="showPromptMultiple">Show</TkButton>
+          </div>
+        </div>
       </div>
     </fieldset>
 
@@ -124,9 +133,9 @@ export default {
           content: 'Content',
         }
       }).onConfirm((context) => {
-          console.log('context', context)
-          this.$toast.success('confirmed')
-        })
+        console.log('context', context)
+        this.$toast.success('confirmed')
+      })
         .onCancel((context) => {
           this.$toast.warning('canceled')
         })
@@ -145,11 +154,11 @@ export default {
           }
         }
       })
-      .onConfirm((context) => {
-        console.log('context', context)
+        .onConfirm((context) => {
+          console.log('context', context)
 
-        this.$toast.success(context.inputValue)
-      })
+          this.$toast.success(context.inputValue)
+        })
     },
     showPromptVNode() {
       const h = this.$createElement;
@@ -159,12 +168,38 @@ export default {
           title: '',
           content: h('div', null, [
             h('span', null, '内容可以是 '),
-            h('i', { style: 'color: red' }, 'VNode')
+            h('i', {style: 'color: red'}, 'VNode')
           ]),
           btnCancel: null,
           showClose: false
         }
       })
+    },
+
+    showPromptMultiple() {
+      // console.log(this.$prompt)
+      this.$prompt.create({
+        propsData: {
+          title: 'Title',
+          content: '可以有多个按钮',
+          btnConfirm: null,
+          btnCancel: null,
+          multipleActions: [
+            {label: 'Act 1', value: 1},
+            {label: 'Act 2', value: 2},
+            {label: 'Act 3', value: 3},
+          ]
+        }
+      }).onConfirm((context) => {
+        console.log('context', context)
+        this.$toast.success('confirmed')
+      })
+        .onCancel((context) => {
+          this.$toast.warning('canceled')
+        })
+        .onAction((context, val) => {
+          this.$toast.info('action ' + val)
+        })
     },
   }
 }

@@ -24,6 +24,11 @@ export default class PromptDialog {
     return this
   }
 
+  onAction(fn) {
+    this.actionFn = fn
+    return this
+  }
+
   open(config = {}) {
     const {
       propsData = {},
@@ -74,6 +79,14 @@ export default class PromptDialog {
         async cancel() {
           try {
             self.cancelFn && await self.cancelFn(this)
+            self.$close()
+          } catch (e) {
+            console.error(e.message)
+          }
+        },
+        async customAction(val) {
+          try {
+            self.actionFn && await self.actionFn(this, val)
             self.$close()
           } catch (e) {
             console.error(e.message)

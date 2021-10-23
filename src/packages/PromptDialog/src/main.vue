@@ -41,11 +41,22 @@
             @click="cancel"
           >{{ btnCancel }}
           </TkButton>
+
           <TkButton
             v-if="btnConfirm"
             type="submit"
           >{{ btnConfirm }}
           </TkButton>
+
+          <template v-if="multipleActions">
+            <TkButton
+              v-for="item in multipleActions"
+              :key="item.value"
+              type="button"
+              @click="customAction(item.value)"
+            >{{ item.label }}
+            </TkButton>
+          </template>
         </div>
       </form>
     </TkCard>
@@ -121,6 +132,10 @@ export default {
     input: {
       type: Object,
       default: null
+    },
+    multipleActions: {
+      type: Array,
+      default: null
     }
   },
   watch: {
@@ -175,6 +190,12 @@ export default {
       this.$emit('onCancel')
       this.mVisible = false
     },
+    customAction(val) {
+      this.$emit('onCustomAction', val)
+      if (!this.isPreventConfirmClose) {
+        this.mVisible = false
+      }
+    },
     closeFn() {
       if (this.isCloseEqualCancel) {
         this.cancel()
@@ -197,7 +218,12 @@ export default {
 
   .prompt-dialog-content {
     padding: 10px 10px 20px;
+  }
 
+  .buttons-row {
+    button+button {
+      margin-left: 5px;
+    }
   }
 }
 </style>
