@@ -47,15 +47,9 @@ export default {
           const outsideClick = isOpen && !this.$el.contains(e.target)
 
           if (outsideClick) {
-            if (e.which !== 1) {
-              e.preventDefault()
-              e.stopPropagation()
-              return false
-            } else {
-              this.ctxVisible = false
-              this.$emit('ctx-cancel', this.locals)
-              e.stopPropagation()
-            }
+            this.ctxVisible = false
+            this.$emit('ctx-cancel', this.locals)
+            e.stopPropagation()
           } else {
             if (this.autoClose) {
               this.ctxVisible = false

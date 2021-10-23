@@ -14,6 +14,7 @@ module.exports = function createBodyClickListener(fn) {
 
     start(cb) {
       window.addEventListener('click', _onclick, true)
+      window.addEventListener('contextmenu', _onclick, true)
       window.addEventListener('keyup', _onescape, true)
       isListening = true
       if (typeof cb === 'function') cb()
@@ -21,6 +22,7 @@ module.exports = function createBodyClickListener(fn) {
 
     stop(cb) {
       window.removeEventListener('click', _onclick, true)
+      window.removeEventListener('contextmenu', _onclick, true)
       window.removeEventListener('keyup', _onescape, true)
       isListening = false
       if (typeof cb === 'function') cb()
