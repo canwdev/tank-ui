@@ -4,6 +4,7 @@ const isSystemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-
 
 const defaultSettings = {
   isDarkTheme: isSystemDarkMode,
+  themeColor: null
 }
 
 export function loadSettings() {
