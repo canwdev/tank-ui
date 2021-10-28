@@ -5,7 +5,7 @@
   padding: $container-padding;
 
   &._solid {
-    background: $color-white;
+    @include lightTransparent();
   }
 
   @mixin neonBox($color) {

@@ -24,6 +24,7 @@
     background: $light;
     box-shadow: $common-shadow;
     $border: 1px solid rgba(79, 79, 79, 0.33);
+    @include lightTransparent();
     &._pos-top {
       top: 0;
       left: 0;
