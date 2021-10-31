@@ -37,8 +37,8 @@
             @click="item.action && item.action()"
           >
             <span v-if="item.iconClass" :class="item.iconClass">{{ item.iconName || null }}</span> <span
-            class="menu-item-title"
-          >{{ item.name }}</span>
+              class="menu-item-title"
+            >{{ item.name }}</span>
           </button>
         </template>
 

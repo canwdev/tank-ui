@@ -8,7 +8,9 @@
 
     <fieldset class="tk-fieldset">
       <legend>TkSeekbar</legend>
-      <TkSeekbar v-model="progress"></TkSeekbar>
+      <div style="height: 25px;">
+        <TkSeekbar v-model="progress"></TkSeekbar>
+      </div>
     </fieldset>
 
     <fieldset class="tk-fieldset">

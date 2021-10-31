@@ -99,12 +99,9 @@
       }
 
       &.active {
-        background: $primary;
-        color: white;
-
-        .material-icons {
-          color: white;
-        }
+        color: $primary;
+        font-weight: bold;
+        background: $primary-opacity;
       }
 
       .material-icons {

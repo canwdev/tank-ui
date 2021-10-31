@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {loadSettings, saveSettings} from '../utils/settings'
+import {loadSettings, saveSettings} from '@/utils/settings'
 
 Vue.use(Vuex)
 
