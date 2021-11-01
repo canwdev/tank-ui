@@ -15,7 +15,7 @@
             {{ title }}
           </span>
           <button class="tk-button-no-style" @click="mVisible=false">
-            ✖
+            <TkIconClose/>
           </button>
         </div>
 
@@ -51,10 +51,14 @@
 
 <script>
 import visibleMixin from '@src/mixins/visible'
+import TkIconClose from '../Icons/IconClose'
 
 export default {
   name: 'TkDrawer',
   mixins: [visibleMixin],
+  components: {
+    TkIconClose
+  },
   props: {
     title: {
       type: String,

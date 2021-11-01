@@ -41,7 +41,9 @@
           </div>
           <div class="tk-block-gap-xs">
             <TkSwitch v-model="isShow" checkbox></TkSwitch>
-            <TkSwitch v-model="isShow" checkbox><template v-slot:inner>✖</template></TkSwitch>
+            <TkSwitch v-model="isShow" checkbox><template v-slot:inner>
+              <TkIconAwesome/>
+            </template></TkSwitch>
             <TkSwitch v-model="isShow" disabled checkbox></TkSwitch>
           </div>
         </div>

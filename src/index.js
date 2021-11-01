@@ -2,9 +2,10 @@ import componentMap from './get-components'
 import TreeNode from './packages/Tree/tree-node'
 import './theme/index.scss'
 import TkToast from './packages/Toast'
+import TkIcons from './packages/Icons'
 import TkPromptDialog from './packages/PromptDialog'
 
-// console.log('componentMap', componentMap)
+console.log('componentMap', componentMap)
 
 // 存储组件列表
 const components = Object.values(componentMap)
@@ -20,6 +21,7 @@ const install = function(Vue) {
 
   // console.log('componentMap.TkToast',componentMap.TkToast)
   TkToast.install(Vue)
+  TkIcons.install(Vue)
   // Vue.prototype.$prompt = new TkPromptDialog(Vue)
   TkPromptDialog.install(Vue)
 }

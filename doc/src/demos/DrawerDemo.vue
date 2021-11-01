@@ -38,6 +38,7 @@ export default {
       menu: [
         {name: 'Subtitle', subtitle: true},
         {
+          active: true,
           name: 'Menu Item 1', action: () => {
           }
         },

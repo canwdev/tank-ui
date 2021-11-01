@@ -1,21 +1,27 @@
 <template>
   <div class="tk-empty">
     <img v-if="img" class="tk-empty-img" :src="img">
+    <TkIconEmpty v-else class="tk-empty-svg"></TkIconEmpty>
     <div v-if="text" class="tk-empty-text">{{ text }}</div>
   </div>
 </template>
 
 <script>
+import TkIconEmpty from '../Icons/IconEmpty'
+
 export default {
   name: 'TkEmpty',
+  components: {
+    TkIconEmpty
+  },
   props: {
     img: {
       type: String,
-      default: require('@src/assets/images/no-data.png')
+      default: null
     },
     text: {
       type: String,
-      default: ''
+      default: null
     }
   }
 }
@@ -26,6 +32,7 @@ export default {
   width: 100%;
   text-align: center;
   padding: 50px 0;
+  color: $primary;
 
   &-img {
     width: 200px;
@@ -34,10 +41,16 @@ export default {
     //opacity: .2;
   }
 
+  &-svg {
+    width: 64px;
+    height: auto;
+    opacity: .5;
+  }
+
   .tk-empty-text {
-    color: $primary;
     padding-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
+    opacity: .5;
   }
 }
 </style>

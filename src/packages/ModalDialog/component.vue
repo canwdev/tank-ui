@@ -4,7 +4,7 @@
       <div class="dialog-shadow" @click.stop="clickOutside"></div>
       <div class="dialog-main" :class="{'no-radius': noRadius}">
         <button v-if="showClose" class="tk-button-no-style btn-close" @click="closeDialog">
-          ✖
+          <TkIconClose/>
         </button>
         <div class="dialog-inner" :class="{'limited-size': !unlimitedSize}">
           <slot></slot>
@@ -16,10 +16,14 @@
 
 <script>
 import inputMixin from '@src/mixins/input'
+import TkIconClose from '../Icons/IconClose'
 
 export default {
   name: 'TkModalDialog',
   mixins: [inputMixin],
+  components: {
+    TkIconClose
+  },
   props: {
     showClose: {
       type: Boolean,

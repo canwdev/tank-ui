@@ -10,7 +10,7 @@
       class="tag-item"
       @click="removeTag(item)"
     >
-      <span class="icon-del">✖</span>
+      <span class="icon-del"><TkIconClose/></span>
       {{ item }}
     </span>
     <span class="relative-position">
@@ -33,9 +33,13 @@
 </template>
 
 <script>
+import TkIconClose from '../Icons/IconClose'
 
 export default {
   name: 'TkInputTags',
+  components: {
+    TkIconClose
+  },
   props: {
     placeholder: {
       type: String,
