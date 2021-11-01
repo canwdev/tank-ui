@@ -218,6 +218,10 @@ export default {
 
   .prompt-dialog-content {
     padding: 10px 10px 20px;
+
+    .content-input {
+      margin-top: 5px;
+    }
   }
 
   .buttons-row {
