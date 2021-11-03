@@ -4,6 +4,7 @@ const isSystemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-
 
 const defaultSettings = {
   isDarkTheme: isSystemDarkMode,
+  isAeroTheme: false,
   themeColor: '#72bb8d'
 }
 

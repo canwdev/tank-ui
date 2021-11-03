@@ -10,6 +10,7 @@ export default new Vuex.Store({
   },
   getters: {
     isDarkTheme: state => state.settings.isDarkTheme,
+    isAeroTheme: state => state.settings.isAeroTheme,
     themeColor: state => state.settings.themeColor,
   },
   mutations: {

@@ -120,8 +120,8 @@
   &-accent {
     color: $accent !important;
   }
-  &-dark-page {
-    color: $dark-page !important;
+  &-dark-alt {
+    color: $dark-alt !important;
   }
   &-dark {
     color: $dark !important;
@@ -288,8 +288,7 @@
 }
 
 .tk-dark-theme {
-  background-color: $dark;
-  color: $color-white;
+  @include darkBgMixin();
   @include transitionTheme;
 
   option {
@@ -299,7 +298,6 @@
 }
 
 .tk-light-theme {
-  background-color: $light;
-  color: $color-black;
+  @include lightBgMixin();
   @include transitionTheme;
 }

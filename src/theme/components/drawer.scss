@@ -24,7 +24,7 @@
     background: $light;
     box-shadow: $common-shadow;
     $border: 1px solid rgba(79, 79, 79, 0.33);
-    @include lightTransparent();
+    @include lightBgMixin();
     &._pos-top {
       top: 0;
       left: 0;
@@ -129,7 +129,7 @@
 .tk-dark-theme {
   .tk-side-drawer {
     .menu-wrap{
-      @include darkTransparent();
+      @include darkBgMixin();
 
       .menu-title {
         //background: rgba(0, 0, 0, 0.9);

@@ -21,7 +21,7 @@ $nav-height: 50px;
   .tk-navbar-inner {
     height: 100%;
     border-bottom: $layout-border;
-    background-color: white;
+    background-color: $color-white;
 
     .tk-container-wrap {
       display: flex;
@@ -275,20 +275,21 @@ $nav-height: 50px;
 .tk-dark-theme {
   .tk-navbar {
     .tk-navbar-inner {
-      background-color: transparent !important;
+      background-color: $dark-alt;
+      //@include darkBgMixin();
 
       .nav-center {
         .link-submenu {
-          background-color: $dark-page;
+          background-color: $dark-alt;
         }
       }
 
       @media screen and (max-width: $mq_mobile_width) {
         .tk-container {
-          background-color: $dark-page;
+          background-color: $dark-alt;
         }
         .nav-center {
-          @include darkTransparent();
+          @include darkBgMixin();
           border-bottom: $layout-border;
         }
       }
@@ -297,4 +298,19 @@ $nav-height: 50px;
     }
   }
 
+}
+
+.tk-aero {
+  .tk-navbar {
+    .tk-navbar-inner {
+      background-color: rgba(255,255,255,.6);
+    }
+  }
+  .tk-dark-theme, &.tk-dark-theme {
+    .tk-navbar {
+      .tk-navbar-inner {
+        background-color: rgba(0,0,0,.5);
+      }
+    }
+  }
 }

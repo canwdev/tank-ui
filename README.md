@@ -5,3 +5,7 @@
 A ~~Minimal~~ Test Vue 2 UI Library.
 
 ![HammerTank](src/assets/images/logo.png)
+
+---
+
+- [npmmirror sync request](https://npmmirror.com/sync/@canwdev/tank-ui)

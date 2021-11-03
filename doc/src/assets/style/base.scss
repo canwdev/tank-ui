@@ -5,6 +5,14 @@ html, body {
 
 body {
   margin: 0;
+
+  &.tk-aero {
+    //background: linear-gradient(to bottom, #ff7847, #00eaff);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://api.dujin.org/bing/1920.php");
+  }
 }
 
 hr {

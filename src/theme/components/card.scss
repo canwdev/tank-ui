@@ -5,7 +5,7 @@
   padding: $container-padding;
 
   &._solid {
-    @include lightTransparent();
+    @include lightBgMixin();
   }
 
   @mixin neonBox($color) {
@@ -76,7 +76,7 @@
 .tk-dark-theme {
   .tk-card {
     &._solid {
-      @include darkTransparent();
+      @include darkBgMixin();
     }
   }
 }

@@ -5,8 +5,6 @@ import TkToast from './packages/Toast'
 import TkIcons from './packages/Icons'
 import TkPromptDialog from './packages/PromptDialog'
 
-console.log('componentMap', componentMap)
-
 // 存储组件列表
 const components = Object.values(componentMap)
 

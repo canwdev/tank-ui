@@ -99,7 +99,7 @@ export default {
     overflow: auto;
     padding: 10px;
     flex: 1;
-    background: $color-white;
+    @include lightBgMixin();
   }
 
   @media screen and (max-width: $mq_mobile_width) {
@@ -120,7 +120,7 @@ export default {
 .tk-dark-theme {
   .docs-page {
     .main {
-      background: $dark-page;
+      @include darkBgMixin();
     }
   }
 }

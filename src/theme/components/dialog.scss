@@ -39,7 +39,7 @@
       right: -14px;
       z-index: 2;
       background: white;
-      color: $dark-page;
+      color: $dark-alt;
       width: 28px;
       height: 28px;
       //border-radius: $border-radius;
@@ -68,10 +68,10 @@
 .tk-dark-theme {
   .tk-modal-dialog-wrap {
     .dialog-main {
-      @include darkTransparent();
+      @include darkBgMixin();
 
       & > .btn-close {
-        background: $dark-page;
+        background: $dark-alt;
         color: $color-white;
         border: 2px solid $border-color;
       }

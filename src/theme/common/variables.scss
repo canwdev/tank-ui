@@ -1,6 +1,18 @@
+$light: #fafafa;
+$dark-alt: #1b1b1b;
+$dark: #212121;
+
 :root {
-  --primary-rgb:114, 187, 141;
-  --primary:rgb(var(--primary-rgb));
+  --primary-rgb: 114, 187, 141;
+  --primary: rgb(var(--primary-rgb));
+  --aero-backdrop-filter: none;
+  --aero-light-bg: #{$light};
+  --aero-dark-bg: #{$dark};
+  &.tk-aero, .tk-aero {
+    --aero-backdrop-filter: saturate(180%) blur(20px);
+    --aero-light-bg: rgba(255, 255, 255, 0.77);
+    --aero-dark-bg: rgba(28, 28, 28, 0.77);
+  }
 }
 
 $primary: var(--primary); // #8dbb72;
@@ -14,26 +26,23 @@ $common-transition: all .2s;
 $border-radius: 4px;
 $container-width: 1400px;
 $container-padding: 10px;
-$common-shadow: 0 0 6px -3px rgba(0,0,0,.5);
+$common-shadow: 0 0 6px -3px rgba(0, 0, 0, .5);
 
 $layout-border: 1px solid $border-color;
 
-$dark-page: #1c1c1c;
-$dark: rgba(0, 0, 0, 0.85);
-
-@mixin lightTransparent() {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: saturate(180%) blur(20px);
+@mixin lightBgMixin() {
+  background: var(--aero-light-bg);
+  backdrop-filter: var(--aero-backdrop-filter);
   color: $color-black;
 }
 
-@mixin darkTransparent() {
-  background: rgba(28, 28, 28, 0.77);
-  backdrop-filter: saturate(180%) blur(20px);
+@mixin darkBgMixin() {
+  background: var(--aero-dark-bg);
+  backdrop-filter: var(--aero-backdrop-filter);
   color: $color-white;
 }
 
-$light: rgb(248, 248, 248);
+
 $success: #21BA45;
 $error: #C10015;
 $info: #31CCEC;
