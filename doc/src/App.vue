@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="[isDarkTheme ? 'tk-dark-theme' : 'tk-light-theme']">
+  <div id="app" class="tk-scroll" :class="[isDarkTheme ? 'tk-dark-theme' : 'tk-light-theme']">
     <TkNavBar
       :menu="[
         {title: 'Start', url: '/quickstart'},
