@@ -5,6 +5,7 @@
     :show-close="!isLoading && showClose"
     :prevent-close="preventClose"
     :close-fn="closeFn"
+    fixed
   >
     <TkCard class="prompt-dialog-card" :style="cardStyle">
       <form @submit.prevent="confirm">
@@ -34,7 +35,7 @@
           </div>
         </div>
 
-        <div class="buttons-row" align="right">
+        <div class="buttons-row">
           <TkButton
             v-if="btnCancel"
             type="button"
@@ -225,6 +226,10 @@ export default {
   }
 
   .buttons-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     button+button {
       margin-left: 5px;
     }

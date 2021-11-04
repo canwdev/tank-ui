@@ -35,6 +35,8 @@ export default class PromptDialog {
       parentEl
     } = config || {}
 
+    propsData.fixed = true
+
     if (parentEl) {
       this.parentEl = parentEl
     }
