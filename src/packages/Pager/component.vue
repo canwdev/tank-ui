@@ -1,6 +1,8 @@
 <template>
   <div class="tk-pager">
 
+    <slot name="left"></slot>
+
     <TkButton
       v-if="showExtraButtons"
       theme="outline"
@@ -63,6 +65,8 @@
     </TkButton>
 
     <span v-if="showExtraInfo" class="pager-info">{{ mOffset+1 }}/{{ pagesCount }} ({{ total }})</span>
+
+    <slot name="right"></slot>
 
   </div>
 </template>
