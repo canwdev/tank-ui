@@ -9,7 +9,7 @@
       :disabled="isFirst"
       title="First"
       @click="goFirst"
-    >⎹❮
+    >⏮
     </TkButton>
     <TkButton
       v-show="pagesCount > pageGroupCount"
@@ -18,7 +18,7 @@
       title="Previous Group"
       @click="goPrevGroup"
     >
-      ❮❮
+      ⏪
     </TkButton>
     <TkButton
       v-if="showExtraButtons"
@@ -26,7 +26,7 @@
       :disabled="isFirst"
       title="Previous"
       @click="goPrevPage"
-    >❮
+    >◀️
     </TkButton>
     <div class="page-items">
       <TkButton
@@ -44,7 +44,7 @@
       :disabled="isLast"
       title="Next"
       @click="goNextPage"
-    >❯
+    >▶️
     </TkButton>
     <TkButton
       v-show="pagesCount > pageGroupCount"
@@ -52,7 +52,7 @@
       :disabled="isLast"
       title="Next Group"
       @click="goNextGroup"
-    >❯❯
+    >⏩
     </TkButton>
     <TkButton
       v-if="showExtraButtons"
@@ -61,7 +61,7 @@
       title="Last"
       @click="goLast"
     >
-      ❯⎸
+      ⏭
     </TkButton>
 
     <span v-if="showExtraInfo" class="pager-info">{{ mOffset+1 }}/{{ pagesCount }} ({{ total }})</span>

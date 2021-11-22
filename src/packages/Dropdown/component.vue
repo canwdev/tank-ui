@@ -4,7 +4,8 @@
     class="tk-dropdown"
     v-bind="$attrs"
     :class="[sizeClass, themeClass]"
-    v-on="$listeners"
+    @input="handleInput"
+    @change="handleChange"
   >
     <option v-if="placeholder" value="" disabled selected>{{ placeholder }}</option>
     <option
@@ -71,6 +72,14 @@ export default {
       },
       immediate: true,
       deep: true
+    }
+  },
+  methods: {
+    handleInput(event) {
+      this.$emit('input', event.target.value)
+    },
+    handleChange(event) {
+      this.$emit('change', event.target.value)
     }
   }
 }
