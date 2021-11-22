@@ -1,6 +1,6 @@
 {
   "name": "@canwdev/tank-ui",
-  "version": "0.2.24",
+  "version": "0.2.25",
   "description": "A __ vue 2 ui library",
   "repository": "https://github.com/canwdev/tank-ui",
   "main": "dist/tank-ui.js",
