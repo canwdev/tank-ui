@@ -45,6 +45,7 @@
 
           <TkButton
             v-if="btnConfirm"
+            ref="btnConfirm"
             type="submit"
           >{{ btnConfirm }}
           </TkButton>
@@ -151,11 +152,13 @@ export default {
     },
     mVisible(val) {
       if (val) {
-        this.$nextTick(() => {
+        setTimeout(() => {
           if (this.$refs.input) {
             this.$refs.input.$el.focus()
+          } else if (this.$refs.btnConfirm) {
+            this.$refs.btnConfirm.$el.focus()
           }
-        })
+        }, 100)
       }
     }
   },
