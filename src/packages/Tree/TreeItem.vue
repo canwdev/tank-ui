@@ -1,5 +1,5 @@
 <template>
-  <div class="tk-tree-item tk-tree-bg-line" :class="{'is-last': isLast}">
+  <div class="tk-tree-item tk-tree-bg-line" :class="{'is-last': isLast}" tabindex="-1">
     <div
       class="tree-item-title tk-tree-bg-line"
       :class="{'is-last': isLast, 'is-selected': isSelected}"

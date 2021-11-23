@@ -166,7 +166,7 @@ $nav-height: 50px;
           content: " ";
           display: block;
           position: absolute;
-          top: 10px;
+          top: 11px;
           width: 13px;
           height: 1px;
           z-index: 1;
@@ -174,12 +174,12 @@ $nav-height: 50px;
         }
 
         &:before {
-          right: 50%;
+          right: 45%;
           transform: rotate(40deg) scaleY(1.5);
         }
 
         &:after {
-          left: 39.5%;
+          left: 44.5%;
           transform: rotate(-40deg) scaleY(1.5);
         }
 
