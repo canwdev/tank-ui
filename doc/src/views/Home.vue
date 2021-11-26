@@ -2,17 +2,24 @@
   <div class="page-home">
 
     <img src="@src/assets/images/logo.png">
-    <TkHelloWorld msg="TankUI"/>
+    <TkHelloWorld :msg="`TankUI v${version}`"/>
 
-    <div><TkSwitch v-model="isAeroTheme"/></div>
+    <div><TkSwitch v-model="isAeroTheme" title="Transparent Blur"/></div>
     <p>A Minimal Vue 2 UI Library</p>
 
   </div>
 </template>
 
 <script>
+import tankUI from '@canwdev/tank-ui'
+
 export default {
   name: 'HomePage',
+  data() {
+    return {
+      version: tankUI.version
+    }
+  },
   computed: {
     isAeroTheme: {
       get() {
