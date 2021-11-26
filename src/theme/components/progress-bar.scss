@@ -1,0 +1,21 @@
+.tk-progress-bar {
+  position: relative;
+  overflow: hidden;
+  height: 5px;
+  width: 100%;
+  background: $border-color;
+  border-radius: $border-radius;
+
+  .progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    transition: all .3s;
+    background: $primary;
+    @include btnTheme;
+  }
+
+
+}
