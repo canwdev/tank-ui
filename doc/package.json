@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:latest": "yarn add @canwdev/tank-ui@latest && yarn build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "ic": "yarn add @canwdev/tank-ui --registry=https://registry.npmjs.com"
   },
   "dependencies": {
     "@canwdev/tank-ui": "^0.2.27",
