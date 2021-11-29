@@ -111,75 +111,102 @@
 }
 
 .text {
+  &-inherit {
+    color: inherit !important;
+  }
+
   &-primary {
     color: $primary !important;
   }
+
   &-secondary {
     color: $secondary !important;
   }
+
   &-accent {
     color: $accent !important;
   }
+
   &-dark-alt {
     color: $dark-alt !important;
   }
+
   &-dark {
     color: $dark !important;
   }
+
   &-light {
     color: $light !important;
   }
+
   &-success {
     color: $success !important;
   }
+
   &-error {
     color: $error !important;
   }
+
   &-info {
     color: $info !important;
   }
+
   &-warning {
     color: $warning !important;
   }
+
   &-color-white {
     color: $color-white !important;
   }
+
   &-color-black {
     color: $color-black !important;
   }
+
   &-color-text {
     color: $color-text !important;
   }
+
   &-color-blue {
     color: $color-blue !important;
   }
+
   &-color-brown {
     color: $color-brown !important;
   }
+
   &-color-gray {
     color: $color-gray !important;
   }
+
   &-color-green {
     color: $color-green !important;
   }
+
   &-color-indigo {
     color: $color-indigo !important;
   }
+
   &-color-orange {
     color: $color-orange !important;
   }
+
   &-color-pink {
     color: $color-pink !important;
   }
+
   &-color-purple {
     color: $color-purple !important;
   }
+
   &-color-red {
     color: $color-red !important;
   }
+
   &-color-teal {
     color: $color-teal !important;
   }
+
   &-color-yellow {
     color: $color-yellow !important;
   }

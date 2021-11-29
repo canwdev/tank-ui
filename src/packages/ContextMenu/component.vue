@@ -1,23 +1,26 @@
 <template>
-  <div
-    ref="contextMenu"
-    :style="ctxStyle"
-    class="tk-context-menu"
-    @click.stop
-    @contextmenu.stop
-  >
-    <div class="_ctx _open">
-      <ul
-        class="ctx-menu"
-        :class="{
-          'ctx-menu-right': align==='right',
-          'ctx-menu-left': align==='left'
-        }"
-      >
-        <slot></slot>
-      </ul>
+  <transition :name="transitionName">
+    <div
+      v-show="ctxVisible"
+      ref="contextMenu"
+      :style="ctxStyle"
+      class="tk-context-menu"
+      @click.stop
+      @contextmenu.stop
+    >
+      <div class="_ctx _open">
+        <ul
+          class="ctx-menu"
+          :class="{
+            'ctx-menu-right': align==='right',
+            'ctx-menu-left': align==='left'
+          }"
+        >
+          <slot></slot>
+        </ul>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -29,6 +32,10 @@ import createBodyClickListener from './body-click-listener'
 export default {
   name: 'TkContextMenu',
   props: {
+    transitionName: {
+      type: String,
+      default: 'fade-down'
+    },
     autoClose: {
       type: Boolean,
       default: true
@@ -119,7 +126,7 @@ export default {
   computed: {
     ctxStyle() {
       return {
-        'display': this.ctxVisible ? 'block' : 'none',
+        // 'display': this.ctxVisible ? 'block' : 'none',
         'top': (this.ctxTop || 0) + 'px',
         'left': (this.ctxLeft || 0) + 'px'
       }

@@ -2,14 +2,16 @@
   <transition name="fade">
     <div v-show="mValue" class="tk-modal-dialog-wrap" :class="{fixed}">
       <div class="dialog-shadow" @click.stop="clickOutside"></div>
-      <div class="dialog-main" :class="{'no-radius': noRadius}">
-        <button v-if="showClose" class="tk-button-no-style btn-close" @click="closeDialog">
-          <TkIconClose/>
-        </button>
-        <div class="dialog-inner" :class="{'limited-size': !unlimitedSize}">
-          <slot></slot>
+      <transition :name="transitionName">
+        <div v-show="mValue" class="dialog-main" :class="{'no-radius': noRadius}">
+          <button v-if="showClose" class="tk-button-no-style btn-close" @click="closeDialog">
+            <TkIconClose/>
+          </button>
+          <div class="dialog-inner" :class="{'limited-size': !unlimitedSize}">
+            <slot></slot>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </transition>
 </template>
@@ -25,6 +27,10 @@ export default {
     TkIconClose
   },
   props: {
+    transitionName: {
+      type: String,
+      default: 'fade-up'
+    },
     showClose: {
       type: Boolean,
       default: false

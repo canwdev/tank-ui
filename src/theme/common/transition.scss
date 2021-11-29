@@ -1,0 +1,98 @@
+/* animation start */
+
+@keyframes rotating180 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotating360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* animation end */
+
+/* transition start */
+
+// <transition name="fade">
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.fade-slow-enter-active, .fade-slow-leave-active {
+  transition: opacity 1s;
+}
+
+.fade-slow-enter, .fade-slow-leave-to {
+  opacity: 0;
+}
+
+.fade-up-enter-active, .fade-up-leave-active {
+  transition: all 0.23s;
+}
+
+.fade-up-enter, .fade-up-leave-to {
+  opacity: 0;
+  transform: translate3d(0, 5%, 0);
+}
+
+.fade-down-enter-active, .fade-down-leave-active {
+  transition: all 0.23s;
+}
+
+.fade-down-enter, .fade-down-leave-to {
+  opacity: 0;
+  transform: translate3d(0, -5%, 0);
+}
+
+$transition-slide-offset: 15%;
+
+.slide-left-enter-active, .slide-left-leave-active {
+  transition: all .3s;
+}
+
+.slide-left-enter, .slide-left-leave-to {
+  transform: translateX(-$transition-slide-offset);
+  opacity: 0;
+}
+
+.slide-right-enter-active, .slide-right-leave-active {
+  transition: all .3s;
+}
+
+.slide-right-enter, .slide-right-leave-to {
+  transform: translateX($transition-slide-offset);
+  opacity: 0;
+}
+
+.slide-top-enter-active, .slide-top-leave-active {
+  transition: all .3s;
+}
+
+.slide-top-enter, .slide-top-leave-to {
+  transform: translateY(-$transition-slide-offset);
+  opacity: 0;
+}
+
+.slide-bottom-enter-active, .slide-bottom-leave-active {
+  transition: all 0.3s;
+}
+
+.slide-bottom-enter, .slide-bottom-leave-to {
+  transform: translateY($transition-slide-offset);
+  opacity: 0;
+}
+
+/* transition end */
