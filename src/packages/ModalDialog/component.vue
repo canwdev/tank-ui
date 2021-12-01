@@ -4,7 +4,7 @@
       <div class="dialog-shadow" @click.stop="clickOutside"></div>
       <transition :name="transitionName">
         <div v-show="mValue" class="dialog-main" :class="{'no-radius': noRadius}">
-          <button v-if="showClose" class="tk-button-no-style btn-close" @click="closeDialog">
+          <button v-if="showClose" class="tk-button-no-style tk-modal-dialog-btn-close" @click="closeDialog">
             <TkIconClose/>
           </button>
           <div class="dialog-inner" :class="{'limited-size': !unlimitedSize}">
