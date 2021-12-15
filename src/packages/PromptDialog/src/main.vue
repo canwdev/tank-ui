@@ -217,14 +217,22 @@ export default {
     font-weight: bold;
     font-size: 18px;
     margin: 10px 0 10px;
-    padding: 0 10px;
+    padding: 0 30px 0 10px;
   }
 
   .prompt-dialog-content {
     padding: 10px 10px 20px;
+    width: 400px;
+    @media screen and (max-width: 450px) {
+      width: auto;
+    }
 
     .content-input {
       margin-top: 5px;
+      input {
+        width: 100%;
+
+      }
     }
   }
 

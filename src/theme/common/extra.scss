@@ -269,14 +269,14 @@
   $scrollbar-bg-dark: rgba(255, 255, 255, .1);
 
   ::-webkit-scrollbar-thumb {
-    box-shadow: 0 0 1px $dark inset;
+    box-shadow: 0 0 1px 1px $scrollbar-bg inset;
     background: $scrollbar-fg;
     border-radius: $border-radius;
     cursor: pointer;
   }
 
   ::-webkit-scrollbar-track {
-    box-shadow: 0 0 1px $dark inset;
+    box-shadow: 0 0 1px 1px $scrollbar-bg inset;
     background: $scrollbar-bg;
     border-radius: $border-radius;
   }
@@ -293,7 +293,7 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: $scrollbar-bg-dark
+      background: $scrollbar-bg-dark;
     }
 
     &::-webkit-scrollbar-corner {

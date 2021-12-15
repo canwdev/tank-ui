@@ -64,6 +64,7 @@
       position: sticky;
       top: 0;
       left: 0;
+      z-index: 1;
 
       .menu-icon {
         margin-right: 4px;
@@ -78,10 +79,11 @@
       border-right: 0;
       font-size: 12px;
       font-weight: bold;
-      //background: rebeccapurple;
+      background: $light;
       position: sticky;
       top: 40px;
       left: 0;
+      z-index: 1;
     }
 
     .menu-item {
