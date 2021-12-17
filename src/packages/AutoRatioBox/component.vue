@@ -56,29 +56,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.auto-ratio-box {
-  position: relative;
-  width: 100%;
-  background-position: center;
-  background-size: cover;
-
-  &._max-height {
-    width: fit-content;
-    height: 100%;
-
-    .__height-box {
-      height: 100%;
-    }
-  }
-
-  .__box-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
-</style>
