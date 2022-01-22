@@ -5,7 +5,7 @@
   "repository": "https://github.com/canwdev/tank-ui",
   "main": "dist/tank-ui.js",
   "author": "canwdev",
-  "license": "MIT",
+  "license": "GPLV3",
   "private": false,
   "scripts": {
     "ist": "yarn && yarn --cwd ./doc install",
