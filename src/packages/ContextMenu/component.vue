@@ -15,6 +15,7 @@
             'ctx-menu-right': align==='right',
             'ctx-menu-left': align==='left'
           }"
+          :style="{minWidth}"
         >
           <slot></slot>
         </ul>
@@ -43,6 +44,10 @@ export default {
     borderMargin: {
       type: Number,
       default: 25
+    },
+    minWidth: {
+      type: String,
+      default: '160px'
     }
   },
   data() {

@@ -103,7 +103,7 @@ export default {
 
   .seekbar-fill {
     position: absolute;
-    top: 49%;
+    top: 50%;
     transform: translateY(-50%);
     height: 5px;
     width: 0;
@@ -116,6 +116,11 @@ export default {
 
   input {
     width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
     appearance: none;
     height: 5px;
     background: $border-color;
