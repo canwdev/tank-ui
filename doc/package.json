@@ -10,7 +10,7 @@
     "ic": "yarn add @canwdev/tank-ui --registry=https://registry.npmjs.com"
   },
   "dependencies": {
-    "@canwdev/tank-ui": "^0.2.30",
+    "@canwdev/tank-ui": "^0.2.31",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

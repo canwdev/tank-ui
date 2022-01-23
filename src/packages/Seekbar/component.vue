@@ -17,6 +17,7 @@
       @focus="handleFocus"
       @blur="handleBlur"
       @change="handleChange"
+      @wheel="handleWheel"
     >
   </div>
 </template>
@@ -40,6 +41,10 @@ export default {
     vertical: {
       type: Boolean,
       default: false
+    },
+    wheel: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -59,6 +64,22 @@ export default {
     },
     handleChange(event) {
       this.$emit('change', event.target.value)
+    },
+    handleWheel(event) {
+      if (this.wheel) {
+        event.preventDefault()
+        const el = this.$refs.seekBar
+        const deltaY = event.deltaY || 0
+
+        const num = Math.abs(deltaY) / 64
+
+        if (deltaY > 0) {
+          el.value = this.value - num
+        } else if (deltaY < 0) {
+          el.value = this.value + num
+        }
+        this.$emit('input', el.value)
+      }
     }
   }
 }

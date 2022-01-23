@@ -39,6 +39,10 @@ export default {
     autoClose: {
       type: Boolean,
       default: true
+    },
+    borderMargin: {
+      type: Number,
+      default: 25
     }
   },
   data() {
@@ -94,8 +98,8 @@ export default {
         const scrollHeight = menu.scrollHeight || minHeight
         const scrollWidth = menu.scrollWidth || minWidth
 
-        const largestHeight = window.innerHeight - scrollHeight - 25
-        const largestWidth = window.innerWidth - scrollWidth - 25
+        const largestHeight = window.innerHeight - scrollHeight - this.borderMargin
+        const largestWidth = window.innerWidth - scrollWidth - this.borderMargin
 
         if (this.ctxTop > largestHeight) this.ctxTop = largestHeight
         if (this.ctxLeft > largestWidth) this.ctxLeft = largestWidth
