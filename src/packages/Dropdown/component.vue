@@ -1,6 +1,6 @@
 <template>
   <select
-    v-model="mValue"
+    :value="mValue"
     class="tk-dropdown"
     v-bind="$attrs"
     :class="[sizeClass, themeClass]"
@@ -35,6 +35,10 @@ export default {
         return []
       }
     },
+    customized: {
+      type: Boolean,
+      default: false
+    },
     optionValue: {
       type: [String, Number, Object, Array],
       default: 'value'
@@ -57,15 +61,15 @@ export default {
           return
         }
         this.optionList = val.map(item => {
-          if (typeof item === 'string') {
-            return {
-              label: item,
-              value: item
-            }
-          } else {
+          if (this.customized) {
             return {
               label: item[this.optionLabel || 'label'],
               value: item[this.optionValue || 'value']
+            }
+          } else {
+            return {
+              label: item,
+              value: item
             }
           }
         })
