@@ -6,7 +6,7 @@ A ~~Minimal~~ Test Vue 2 UI Library.
 
 Examples: https://canwdev.github.io/tank-ui
 
-![HammerTank](src/assets/images/logo.png)
+![HammerTank](src/assets/images/logo_300.png)
 
 ## Usage
 

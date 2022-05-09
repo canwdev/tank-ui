@@ -2,13 +2,17 @@
   cursor: pointer;
   text-decoration: none;
 
+  &:hover {
+    filter: brightness(105%);
+  }
+
   &:active {
-    opacity: .85;
+    filter: brightness(80%);
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: .5;
+    filter: grayscale(50%)
   }
 
   //&:focus {
@@ -46,6 +50,13 @@
   }
 
   @include textSize;
+  
+  &._size-xs {
+    padding: 4px;
+  }
+  &._size-sm {
+    padding: 6px;
+  }
 
   &._size-no-style {
     @include btnNoStyle;

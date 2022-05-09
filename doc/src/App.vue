@@ -2,7 +2,7 @@
   <div id="app" class="tk-scroll" :class="[isDarkTheme ? 'tk-dark-theme' : 'tk-light-theme']">
     <TkNavBar
       :menu="[
-        {title: 'Start', url: '/quickstart'},
+        //{title: 'Start', url: '/quickstart'},
         {title: 'Documents', url: '/docs'},
         {title: 'Code', url: null, children: [
           {title: 'Github', url: 'https://github.com/canwdev/tank-ui'},

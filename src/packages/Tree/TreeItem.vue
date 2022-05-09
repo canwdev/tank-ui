@@ -186,10 +186,16 @@ export default {
 
     &:hover {
       .title-inner {
+        filter: brightness(110%);
         background-color: $separator-color;
       }
-
     }
+
+      &:active {
+        .title-inner {
+          filter: brightness(80%);
+        }
+      }
 
     &.is-selected {
       .title-inner {

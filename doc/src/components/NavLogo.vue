@@ -28,8 +28,8 @@ $nav_height: 50px;
   }
 
   & > img {
-    width: $nav_height;
-    height: $nav_height;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     transition: all 0.25s;
     transition-timing-function: $transition_fx2;

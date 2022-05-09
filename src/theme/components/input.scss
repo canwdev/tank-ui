@@ -4,12 +4,13 @@
 
 .tk-input, .tk-dropdown {
   border: $layout-border;
+  border-color: #777777;
   padding: $common-padding;
   box-sizing: border-box;
   background: transparent;
   color: inherit;
   border-radius: $border-radius;
-  outline-color: $separator-color;
+  outline-color: #646464;
 
   @include textSize;
 

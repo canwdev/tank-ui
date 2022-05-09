@@ -64,6 +64,8 @@ $nav-height: 50px;
         align-items: center;
         justify-content: center;
         position: relative;
+        margin: 0 2px;
+
         @media screen and (max-width: $mq_mobile_width) {
           height: auto;
           width: 100%;
@@ -75,6 +77,7 @@ $nav-height: 50px;
         }
 
         &:hover {
+
           & > .link-item {
             text-decoration: none;
             background: $primary;
@@ -97,6 +100,7 @@ $nav-height: 50px;
         color: $primary;
         text-decoration: none;
         border-radius: $border-radius;
+        cursor: pointer;
 
         &:hover {
           text-decoration: none;
@@ -105,7 +109,9 @@ $nav-height: 50px;
         }
 
         &.router-link-active {
-          font-weight: bold;
+          text-decoration: underline;
+          text-decoration-thickness: 3px;
+          text-underline-offset: 2px;
         }
 
         @media screen and (max-width: $mq_mobile_width) {
@@ -124,6 +130,7 @@ $nav-height: 50px;
         background-color: $color-white;
         border: $layout-border;
         border-radius: $border-radius;
+        padding: 2px;
 
         @media screen and (max-width: $mq_mobile_width) {
           border: none;
@@ -138,7 +145,6 @@ $nav-height: 50px;
         }
 
         .link-item {
-          font-size: 14px;
           line-height: 2;
           width: 100%;
           justify-content: flex-start;

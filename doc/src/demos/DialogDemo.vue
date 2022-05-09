@@ -59,8 +59,8 @@
       :prevent-close="preventClose"
       :no-radius="noRadius"
     >
-      <TkCard>
-        This is a TkModalDialog
+      <TkCard padding="lg">
+        <h1>This is a TkModalDialog</h1>
 
         <div>
           <TkButton @click="isShowDialog = false">Close</TkButton>
@@ -128,6 +128,7 @@ export default {
     showPrompt() {
       // console.log(this.$prompt)
       this.$prompt.create({
+        parentEl: this.$el,
         propsData: {
           title: 'Title',
           content: 'Content',
@@ -143,6 +144,7 @@ export default {
     showPromptInput() {
       // console.log(this.$prompt)
       this.$prompt.create({
+        parentEl: this.$el,
         propsData: {
           title: '请输入内容',
           input: {
@@ -164,6 +166,7 @@ export default {
       const h = this.$createElement;
       // console.log(this.$prompt)
       this.$prompt.create({
+        parentEl: this.$el,
         propsData: {
           title: '',
           content: h('div', null, [
@@ -179,6 +182,7 @@ export default {
     showPromptMultiple() {
       // console.log(this.$prompt)
       this.$prompt.create({
+        parentEl: this.$el,
         propsData: {
           title: 'Title',
           content: '可以有多个按钮',

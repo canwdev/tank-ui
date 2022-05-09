@@ -1,7 +1,7 @@
 <template>
   <div class="page-home">
 
-    <img src="@src/assets/images/logo.png">
+    <img class="home-logo" src="@src/assets/images/logo.png">
     <TkHelloWorld :msg="`TankUI v${version}`"/>
 
     <div><TkSwitch v-model="isAeroTheme" title="Transparent Blur"/></div>
@@ -55,9 +55,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .page-home {
   text-align: center;
   margin-top: 60px;
+
+  .home-logo {
+    width: 256px;
+    height: 256px;
+    border-radius: $border-radius;
+  }
 }
 </style>
