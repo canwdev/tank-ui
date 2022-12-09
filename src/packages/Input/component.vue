@@ -31,10 +31,11 @@
 <script>
 import themeMixin from '@src/mixins/theme.js'
 import inputMixin from '@src/mixins/input.js'
+import emitter from '../../utils/emitter'
 
 export default {
   name: 'TkInput',
-  mixins: [themeMixin, inputMixin],
+  mixins: [themeMixin, inputMixin, emitter],
   props: {
     type: {
       type: String,
@@ -43,7 +44,11 @@ export default {
     clearable: {
       type: Boolean,
       default: false
-    }
+    },
+    validateEvent: {
+      type: Boolean,
+      default: true
+    },
   },
   data() {
     return {
@@ -62,12 +67,18 @@ export default {
     },
     handleInput(event) {
       this.$emit('input', event.target.value)
+      if (this.validateEvent) {
+        this.dispatch('ElFormItem', 'el.form.change', [event.target.value])
+      }
     },
     handleFocus(event) {
       this.$emit('focus', event)
     },
     handleBlur(event) {
       this.$emit('blur', event)
+      if (this.validateEvent) {
+        this.dispatch('ElFormItem', 'el.form.blur', [event.target.value])
+      }
     },
     handleChange(event) {
       this.$emit('change', event.target.value)

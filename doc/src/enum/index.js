@@ -85,6 +85,11 @@ export const DemoList = [
     }
   },
   {
+    title: 'Form | 表单', data: {
+      component: 'FormDemo'
+    }
+  },
+  {
     title: 'Misc | 杂项', data: {
       component: 'MiscDemo'
     }
